@@ -53,6 +53,8 @@
 
   <node name="republish_sem_image" type="republish" pkg="image_transport" output="screen" args="compressed in:=/camera/semantic_image raw out:=/camera/semantic_image" />
 
+  <node name="republish_depth_image" type="republish" pkg="image_transport" output="screen" args="compressed in:=/camera/depth_image raw out:=/camera/depth_image" />
+
   <node launch-prefix="nice" pkg="rviz" type="rviz" name="rvizGA" args="-d $(find vehicle_simulator)/rviz/vehicle_simulator.rviz" respawn="true"/>
 
 </launch>
