@@ -1,6 +1,6 @@
 Environment files are in this folder.
 
-'environment' contains the Unity environment model.
+'environment' contains the Unity environment model. In the folder, 'AssetList.csv' is generated at runtime containing all assets in the environment model and their poses and semantic rendering colors, 'Dimensions.csv' and 'Categories.csv' contain the dimension information and category mapping.
 
 'map.ply' is the segmented point cloud of the environment in ASCII format. Each point has an 'object_id' field.
 
