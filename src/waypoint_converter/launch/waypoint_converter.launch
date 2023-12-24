@@ -10,7 +10,10 @@
     <param name="twoWayHeading" type="bool" value="true" />
     <param name="frameRate" type="double" value="5.0" />
     <param name="checkTravArea" type="bool" value="true" />
+    <param name="waypointTravAdj" type="bool" value="false" />
+    <param name="adjDisThre" type="double" value="2.25" />
     <param name="travDisThre" type="double" value="0.1" />
+    <param name="yawConfig" type="int" value="0" /> <!-- -1: reach waypoint and stop, 0: waypoint yaw, 1: yaw to waypoint -->
     <param name="speed" type="double" value="1.0" />
     <param name="sendSpeed" type="bool" value="true" />
     <param name="sendBoundary" type="bool" value="false" />

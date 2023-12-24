@@ -36,7 +36,10 @@ double waypointProjDis = 0.5;
 bool twoWayHeading = true;
 double frameRate = 5.0;
 bool checkTravArea = true;
+bool waypointTravAdj = false;
+double adjDisThre = 3.0;
 double travDisThre = 0.1;
+int yawConfig = 0;
 double speed = 1.0;
 double speed2 = speed;
 bool sendSpeed = true;
@@ -48,10 +51,12 @@ pcl::KdTreeFLANN<pcl::PointXYZ>::Ptr kdtreeTravArea(new pcl::KdTreeFLANN<pcl::Po
 
 float vehicleX = 0, vehicleY = 0, vehicleZ = 0, vehicleYaw = 0;
 float waypointX = 0, waypointY = 0, waypointYaw = 0;
+float waypointX2 = 0, waypointY2 = 0, waypointYaw2 = 0;
 
-double curTime = 0, waypointTime = 0, travAreaTime = 0;
+double curTime = 0, poseTime = 0, waypointTime = 0, travAreaTime = 0;
 bool waypointInit = false;
 bool waypointReached = false;
+bool waypointAdj = false;
 
 std::vector<int> pointSearchInd;
 std::vector<float> pointSearchSqDis;
@@ -116,6 +121,8 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
   curTime = pose->header.stamp.toSec();
 
   if (!waypointInit) return;
+  if (curTime - poseTime < 1.0 / frameRate) return;
+  poseTime = curTime;
 
   double roll, pitch, yaw;
   geometry_msgs::Quaternion geoQuat = pose->pose.pose.orientation;
@@ -126,31 +133,61 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
   vehicleY = pose->pose.pose.position.y;
   vehicleZ = pose->pose.pose.position.z;
   
-  float disX = vehicleX - waypointX;
-  float disY = vehicleY - waypointY;
+  float disX = vehicleX - waypointX2;
+  float disY = vehicleY - waypointY2;
   float dis = sqrt(disX * disX + disY * disY);
 
   if (dis < waypointXYRadius) waypointReached = true;
-  
+  if (dis < adjDisThre && waypointTravAdj) waypointAdj = true;
+
   if (waypointReached) {
-    float angDis = waypointYaw - vehicleYaw;
+    if (yawConfig == -1) waypointYaw2 = vehicleYaw;
+    else if (yawConfig == 1) waypointYaw2 = atan2(waypointY - vehicleY, waypointX - vehicleX);
+
+    float angDis = waypointYaw2 - vehicleYaw;
     if (angDis < -PI) angDis += 2 * PI;
     else if (angDis > PI) angDis -= 2 * PI;
-    
-    float projYaw = waypointYaw;
+
+    float projYaw = waypointYaw2;
     if (!twoWayHeading) {
       if (angDis < -PI / 3) projYaw = vehicleYaw - PI / 3;
       else if (angDis > PI / 3) projYaw = vehicleYaw + PI / 3;
     }
 
-    waypointX = vehicleX + waypointProjDis * cos(projYaw);
-    waypointY = vehicleY + waypointProjDis * sin(projYaw);
+    waypointX2 = vehicleX + waypointProjDis * cos(projYaw);
+    waypointY2 = vehicleY + waypointProjDis * sin(projYaw);
     speed2 = 0;
+  } else if (waypointAdj) {
+    pcl::PointXYZ point;
+    point.x = vehicleX;
+    point.y = vehicleY;
+    point.z = 0;
+
+    kdtreeTravArea->radiusSearch(point, adjDisThre, pointSearchInd, pointSearchSqDis);
+
+    int minInd = -1;
+    float minDis = 1000000;
+    int pointSearchNum = pointSearchInd.size();
+    for (int ind = 0; ind < pointSearchNum; ind++) {
+      float disX2 = travArea->points[pointSearchInd[ind]].x - waypointX;
+      float disY2 = travArea->points[pointSearchInd[ind]].y - waypointY;
+      float dis2 = sqrt(disX2 * disX2 + disY2 * disY2);
+
+      if (minDis > dis2) {
+        minInd = ind;
+        minDis = dis2;
+      }
+    }
+
+    if (minInd >= 0) {
+      waypointX2 = travArea->points[pointSearchInd[minInd]].x;
+      waypointY2 = travArea->points[pointSearchInd[minInd]].y;
+    }
   }
-  
+
   waypointMsgs.header.stamp = ros::Time().fromSec(curTime);
-  waypointMsgs.point.x = waypointX;
-  waypointMsgs.point.y = waypointY;
+  waypointMsgs.point.x = waypointX2;
+  waypointMsgs.point.y = waypointY2;
   waypointMsgs.point.z = vehicleZ;
   pubWaypointPtr->publish(waypointMsgs);
 }
@@ -166,7 +203,10 @@ void waypointHandler(const geometry_msgs::Pose2D::ConstPtr& waypoint)
     
     kdtreeTravArea->nearestKSearch(point, 1, pointSearchInd, pointSearchSqDis);
     
-    if (pointSearchSqDis[0] > travDisThre * travDisThre) {
+    float disThre = travDisThre;
+    if (waypointTravAdj) disThre = adjDisThre;
+
+    if (pointSearchSqDis[0] > disThre * disThre) {
       printf("\nWaypoint not in traversable area, skip.\n");
       return;
     }
@@ -174,11 +214,15 @@ void waypointHandler(const geometry_msgs::Pose2D::ConstPtr& waypoint)
 
   waypointX = waypoint->x;
   waypointY = waypoint->y;
-  waypointYaw = waypoint->theta; 
+  waypointYaw = waypoint->theta;
+  waypointX2 = waypointX;
+  waypointY2 = waypointY;
+  waypointYaw2 = waypointYaw;
   speed2 = speed;
   
   waypointInit = true;
   waypointReached = false;
+  waypointAdj = false;
 }
 
 int main(int argc, char** argv)
@@ -194,7 +238,10 @@ int main(int argc, char** argv)
   nhPrivate.getParam("twoWayHeading", twoWayHeading);
   nhPrivate.getParam("frameRate", frameRate);
   nhPrivate.getParam("checkTravArea", checkTravArea);
+  nhPrivate.getParam("waypointTravAdj", waypointTravAdj);
+  nhPrivate.getParam("adjDisThre", adjDisThre);
   nhPrivate.getParam("travDisThre", travDisThre);
+  nhPrivate.getParam("yawConfig", yawConfig);
   nhPrivate.getParam("speed", speed);
   nhPrivate.getParam("sendSpeed", sendSpeed);
   nhPrivate.getParam("sendBoundary", sendBoundary);
