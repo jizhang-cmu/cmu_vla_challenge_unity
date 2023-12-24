@@ -39,6 +39,7 @@ bool checkTravArea = true;
 bool waypointTravAdj = false;
 double adjDisThre = 3.0;
 double travDisThre = 0.1;
+double extDis = 0;
 int yawConfig = 0;
 double speed = 1.0;
 double speed2 = speed;
@@ -143,6 +144,10 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
   if (waypointReached) {
     if (yawConfig == -1) waypointYaw2 = vehicleYaw;
     else if (yawConfig == 1) waypointYaw2 = atan2(waypointY - vehicleY, waypointX - vehicleX);
+    else if (yawConfig == 2) waypointYaw2 = atan2(waypointY - vehicleY, waypointX - vehicleX) + PI / 2;
+
+    if (waypointYaw2 < -PI) waypointYaw2 += 2 * PI;
+    else if (waypointYaw2 > PI) waypointYaw2 -= 2 * PI;
 
     float angDis = waypointYaw2 - vehicleYaw;
     if (angDis < -PI) angDis += 2 * PI;
@@ -180,8 +185,17 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
     }
 
     if (minInd >= 0) {
+      float disX2 = travArea->points[pointSearchInd[minInd]].x - waypointX;
+      float disY2 = travArea->points[pointSearchInd[minInd]].y - waypointY;
+      float dis2 = sqrt(disX2 * disX2 + disY2 * disY2);
+
       waypointX2 = travArea->points[pointSearchInd[minInd]].x;
       waypointY2 = travArea->points[pointSearchInd[minInd]].y;
+
+      if (extDis != 0) {
+        waypointX2 += extDis * disX2 / dis2;
+        waypointY2 += extDis * disY2 / dis2;
+      }
     }
   }
 
@@ -241,6 +255,7 @@ int main(int argc, char** argv)
   nhPrivate.getParam("waypointTravAdj", waypointTravAdj);
   nhPrivate.getParam("adjDisThre", adjDisThre);
   nhPrivate.getParam("travDisThre", travDisThre);
+  nhPrivate.getParam("extDis", extDis);
   nhPrivate.getParam("yawConfig", yawConfig);
   nhPrivate.getParam("speed", speed);
   nhPrivate.getParam("sendSpeed", sendSpeed);
