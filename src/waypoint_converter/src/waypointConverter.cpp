@@ -37,7 +37,8 @@ bool twoWayHeading = true;
 double frameRate = 5.0;
 bool checkTravArea = true;
 bool waypointTravAdj = false;
-double adjDisThre = 3.0;
+double adjDisThre = 5.0;
+double searchDisThre = 3.0;
 double travDisThre = 0.1;
 double extDis = 0;
 int yawConfig = 0;
@@ -168,7 +169,7 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
     point.y = vehicleY;
     point.z = 0;
 
-    kdtreeTravArea->radiusSearch(point, adjDisThre, pointSearchInd, pointSearchSqDis);
+    kdtreeTravArea->radiusSearch(point, searchDisThre, pointSearchInd, pointSearchSqDis);
 
     int minInd = -1;
     float minDis = 1000000;
@@ -254,6 +255,7 @@ int main(int argc, char** argv)
   nhPrivate.getParam("checkTravArea", checkTravArea);
   nhPrivate.getParam("waypointTravAdj", waypointTravAdj);
   nhPrivate.getParam("adjDisThre", adjDisThre);
+  nhPrivate.getParam("searchDisThre", searchDisThre);
   nhPrivate.getParam("travDisThre", travDisThre);
   nhPrivate.getParam("extDis", extDis);
   nhPrivate.getParam("yawConfig", yawConfig);
@@ -288,12 +290,16 @@ int main(int argc, char** argv)
       printf("\nCouldn't read traversable_area.ply file.\n\n");
     } else {
       int travAreaSize = travArea->points.size();
-      for (int i = 0; i < travAreaSize; i++) {
-        travArea->points[i].z = 0;
-      }
+      if (travAreaSize > 0) {
+        for (int i = 0; i < travAreaSize; i++) {
+          travArea->points[i].z = 0;
+        }
 
-      kdtreeTravArea->setInputCloud(travArea);
-      pcl::toROSMsg(*travArea, travArea2);
+        kdtreeTravArea->setInputCloud(travArea);
+        pcl::toROSMsg(*travArea, travArea2);
+      } else {
+        checkTravArea = false;
+      }
     }
   }
 
