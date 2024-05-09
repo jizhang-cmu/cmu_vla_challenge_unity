@@ -361,12 +361,19 @@ Visualization Manager:
       Use rainbow: true
       Value: true
     - Class: rviz/MarkerArray
-      Enabled: true
+      Enabled: false
       Marker Topic: /object_markers
       Name: ObjectMarkers
       Namespaces:
-        potted plant: true
-        swivel chair: true
+        {}
+      Queue Size: 100
+      Value: false
+    - Class: rviz/Marker
+      Enabled: true
+      Marker Topic: /selected_object_marker
+      Name: SelectObjectMarker
+      Namespaces:
+        {}
       Queue Size: 100
       Value: true
   Enabled: true
@@ -384,7 +391,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 16.16933250427246
+      Distance: 11.01894760131836
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -392,9 +399,9 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 2.773902654647827
-        Y: -6.685243606567383
-        Z: -0.6731827855110168
+        X: 2.208606243133545
+        Y: -0.9829551577568054
+        Z: -0.6737551689147949
       Focal Shape Fixed Size: false
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
@@ -408,9 +415,9 @@ Window Geometry:
   ControlPanel:
     collapsed: false
   Displays:
-    collapsed: false
+    collapsed: true
   Height: 818
-  Hide Left Dock: false
+  Hide Left Dock: true
   Hide Right Dock: false
   Image:
     collapsed: false
@@ -428,5 +435,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1666
-  X: 0
-  Y: 0
+  X: 56
+  Y: 27

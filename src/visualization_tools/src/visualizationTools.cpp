@@ -13,6 +13,8 @@
 #include <geometry_msgs/PointStamped.h>
 #include <geometry_msgs/PolygonStamped.h>
 #include <sensor_msgs/PointCloud2.h>
+#include <geometry_msgs/Pose2D.h>
+#include <visualization_msgs/Marker.h>
 
 #include <tf/transform_datatypes.h>
 #include <tf/transform_broadcaster.h>
@@ -30,6 +32,8 @@ const double PI = 3.1415926;
 
 string metricFile;
 string trajFile;
+string waypointFile;
+string markerFile;
 string mapFile;
 double overallMapVoxelSize = 0.5;
 double exploredAreaVoxelSize = 0.3;
@@ -75,6 +79,8 @@ ros::Publisher *pubTimeDurationPtr = NULL;
 
 FILE *metricFilePtr = NULL;
 FILE *trajFilePtr = NULL;
+FILE *waypointFilePtr = NULL;
+FILE *markerFilePtr = NULL;
 
 void odometryHandler(const nav_msgs::Odometry::ConstPtr& odom)
 {
@@ -202,6 +208,21 @@ void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr& laserCloudIn)
   pubTravelingDisPtr->publish(travelingDisMsg);
 }
 
+void waypointHandler(const geometry_msgs::Pose2D::ConstPtr& waypoint)
+{
+  fprintf(waypointFilePtr, "%f %f %f %f\n", waypoint->x, waypoint->y, waypoint->theta, timeDuration);
+}
+
+void markerHandler(const visualization_msgs::Marker::ConstPtr& marker)
+{
+  double roll, pitch, yaw;
+  geometry_msgs::Quaternion geoQuat = marker->pose.orientation;
+  tf::Matrix3x3(tf::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w)).getRPY(roll, pitch, yaw);
+
+  fprintf(markerFilePtr, "%f %f %f %f %f %f %f %f\n", marker->pose.position.x, marker->pose.position.y, marker->pose.position.z, 
+                                                      marker->scale.x, marker->scale.y, marker->scale.z, yaw, timeDuration);
+}
+
 void runtimeHandler(const std_msgs::Float32::ConstPtr& runtimeIn)
 {
   runtime = runtimeIn->data;
@@ -215,6 +236,8 @@ int main(int argc, char** argv)
 
   nhPrivate.getParam("metricFile", metricFile);
   nhPrivate.getParam("trajFile", trajFile);
+  nhPrivate.getParam("waypointFile", waypointFile);
+  nhPrivate.getParam("markerFile", markerFile);
   nhPrivate.getParam("mapFile", mapFile);
   nhPrivate.getParam("overallMapVoxelSize", overallMapVoxelSize);
   nhPrivate.getParam("exploredAreaVoxelSize", exploredAreaVoxelSize);
@@ -227,6 +250,10 @@ int main(int argc, char** argv)
   ros::Subscriber subOdometry = nh.subscribe<nav_msgs::Odometry> ("/state_estimation", 5, odometryHandler);
 
   ros::Subscriber subLaserCloud = nh.subscribe<sensor_msgs::PointCloud2> ("/registered_scan", 5, laserCloudHandler);
+
+  ros::Subscriber subWaypoint = nh.subscribe<geometry_msgs::Pose2D> ("/way_point_with_heading", 5, waypointHandler);
+
+  ros::Subscriber subMarker = nh.subscribe<visualization_msgs::Marker> ("selected_object_marker", 5, markerHandler);
 
   ros::Subscriber subRuntime = nh.subscribe<std_msgs::Float32> ("/runtime", 5, runtimeHandler);
 
@@ -272,8 +299,12 @@ int main(int argc, char** argv)
 
   metricFile += "_" + timeString + ".txt";
   trajFile += "_" + timeString + ".txt";
+  waypointFile += "_" + timeString + ".txt";
+  markerFile += "_" + timeString + ".txt";
   metricFilePtr = fopen(metricFile.c_str(), "w");
   trajFilePtr = fopen(trajFile.c_str(), "w");
+  waypointFilePtr = fopen(waypointFile.c_str(), "w");
+  markerFilePtr = fopen(markerFile.c_str(), "w");
 
   ros::Rate rate(100);
   bool status = ros::ok();
@@ -295,6 +326,8 @@ int main(int argc, char** argv)
 
   fclose(metricFilePtr);
   fclose(trajFilePtr);
+  fclose(waypointFilePtr);
+  fclose(markerFilePtr);
 
   printf("\nExploration metrics and vehicle trajectory are saved in 'src/vehicle_simulator/log'.\n\n");
 
