@@ -5,6 +5,8 @@
   <node pkg="visualization_tools" type="visualizationTools" name="visualizationTools" output="screen">
     <param name="metricFile" type="string" value="$(find vehicle_simulator)/log/metrics" />
     <param name="trajFile" type="string" value="$(find vehicle_simulator)/log/trajectory" />
+    <param name="waypointFile" type="string" value="$(find vehicle_simulator)/log/waypoint" />
+    <param name="markerFile" type="string" value="$(find vehicle_simulator)/log/marker" />
     <param name="mapFile" type="string" value="$(find vehicle_simulator)/mesh/$(arg world_name)/map.ply" />
     <param name="overallMapVoxelSize" type="double" value="0.05" />
     <param name="exploredAreaVoxelSize" type="double" value="0.1" />
