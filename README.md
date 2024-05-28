@@ -1,9 +1,18 @@
 ## Repository Setup
 
 The repository provides the base navigation system for the [CMU Vision-Language-Autonomy Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). The system is integrated with [Unity](https://unity.com) environment models. The repository has been tested in Ubuntu 20.04 with [ROS Foxy](http://wiki.ros.org/noetic/Installation) and Ubuntu 22.04 with [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html). Install dependencies with the command lines below.
+
+For Foxy:
 ```
 sudo apt update
-sudo apt install libusb-dev python-yaml python-is-python3
+sudo apt install libusb-dev ros-foxy-perception-pcl ros-foxy-sensor-msgs-py ros-foxy-tf-transformations ros-foxy-joy python3-colcon-common-extensions python-is-python3 
+pip install transforms3d pyyaml
+```
+For Humble:
+```
+sudo apt update
+sudo apt install libusb-dev ros-humble-perception-pcl ros-humble-sensor-msgs-py ros-humble-tf-transformations ros-humble-joy python3-colcon-common-extensions python-is-python3 
+pip install transforms3d pyyaml
 ```
 Clone the open-source repository.
 ```
