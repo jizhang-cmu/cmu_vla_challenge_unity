@@ -9,6 +9,7 @@ set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(pcl_conversions REQUIRED)
 find_package(PCL REQUIRED)
 
 include_directories(
@@ -28,7 +29,7 @@ link_directories(
 add_executable(scoreCalculation src/scoreCalculation.cpp)
 
 ## Specify libraries to link a library or executable target against
-ament_target_dependencies(scoreCalculation rclcpp std_msgs)
+ament_target_dependencies(scoreCalculation rclcpp std_msgs pcl_conversions)
 target_link_libraries(scoreCalculation ${PCL_LIBRARIES})
 
 install(TARGETS scoreCalculation
