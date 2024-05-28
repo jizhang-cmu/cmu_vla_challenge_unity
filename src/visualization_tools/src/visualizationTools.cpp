@@ -260,6 +260,8 @@ int main(int argc, char** argv)
   nh->get_parameter("metricFile", metricFile);
   nh->get_parameter("trajFile", trajFile);
   nh->get_parameter("mapFile", mapFile);
+  nh->get_parameter("waypointFile", waypointFile);
+  nh->get_parameter("markerFile", markerFile);
   nh->get_parameter("overallMapVoxelSize", overallMapVoxelSize);
   nh->get_parameter("exploredAreaVoxelSize", exploredAreaVoxelSize);
   nh->get_parameter("exploredVolumeVoxelSize", exploredVolumeVoxelSize);
