@@ -30,23 +30,14 @@ void WaypointTool::onInitialize()
     [this](rclcpp::QoS profile) {this->qos_profile_ = profile;});
   setName("Waypoint");
   updateTopic();
-  vehicle_z = 0;
 }
 
 void WaypointTool::updateTopic()
 {
-  // rclcpp::Node::SharedPtr raw_node =
-  //   context_->getRosNodeAbstraction().lock()->get_raw_node();
-  // sub_ = raw_node->template create_subscription<nav_msgs::msg::Odometry>("/state_estimation", 5 ,std::bind(&WaypointTool::odomHandler,this,std::placeholders::_1));
-  
-  pub_ = raw_node->template create_publisher<geometry_msgs::msg::PointStamped>("/way_point_with_heading", qos_profile_);
+  rclcpp::Node::SharedPtr raw_node = context_->getRosNodeAbstraction().lock()->get_raw_node();  
+  pub_ = raw_node->template create_publisher<geometry_msgs::msg::Pose2D>("/way_point_with_heading", qos_profile_);
   pub_joy_ = raw_node->template create_publisher<sensor_msgs::msg::Joy>("/joy", qos_profile_);
   clock_ = raw_node->get_clock();
-}
-
-void WaypointTool::odomHandler(const nav_msgs::msg::Odometry::ConstSharedPtr odom)
-{
-  vehicle_z = odom->pose.pose.position.z;
 }
 
 void WaypointTool::onPoseSet(double x, double y, double theta)
@@ -78,12 +69,10 @@ void WaypointTool::onPoseSet(double x, double y, double theta)
   joy.header.frame_id = "waypoint_tool";
   pub_joy_->publish(joy);
 
-  geometry_msgs::msg::PointStamped waypoint;
-  waypoint.header.frame_id = "map";
-  waypoint.header.stamp = joy.header.stamp;
-  waypoint.point.x = x;
-  waypoint.point.y = y;
-  waypoint.point.z = vehicle_z;
+  geometry_msgs::msg::Pose2D waypoint;
+  waypoint.x = x;
+  waypoint.y = y;
+  waypoint.theta = theta;
 
   pub_->publish(waypoint);
   usleep(10000);
