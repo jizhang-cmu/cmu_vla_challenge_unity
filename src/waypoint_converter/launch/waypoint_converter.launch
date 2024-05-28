@@ -3,8 +3,8 @@
   <arg name="world_name" default="garage"/>
 
   <node pkg="waypoint_converter" exec="waypointConverter" name="waypointConverter" output="screen">
-    <param name="trav_area_file_dir" value="$(find-pkg-share vehicle_simulator)/mesh/$(arg world_name)/traversable_area.ply" />
-    <param name="boundary_file_dir" value="$(find-pkg-share vehicle_simulator)/mesh/$(arg world_name)/boundary.ply" />
+    <param name="trav_area_file_dir" value="$(find-pkg-share vehicle_simulator)/mesh/$(var world_name)/traversable_area.ply" />
+    <param name="boundary_file_dir" value="$(find-pkg-share vehicle_simulator)/mesh/$(var world_name)/boundary.ply" />
     <param name="waypointXYRadius" value="0.15" />
     <param name="waypointProjDis" value="0.5" />
     <param name="twoWayHeading" value="true" />

@@ -251,7 +251,7 @@ int main(int argc, char** argv)
   nh->declare_parameter<std::string>("boundary_file_dir", boundary_file_dir);
   nh->declare_parameter<double>("waypointXYRadius", waypointXYRadius);
   nh->declare_parameter<double>("waypointProjDis", waypointProjDis);
-  nh->declare_parameter<double>("twoWayHeading", twoWayHeading);
+  nh->declare_parameter<bool>("twoWayHeading", twoWayHeading);
   nh->declare_parameter<double>("frameRate", frameRate);
   nh->declare_parameter<bool>("checkTravArea", checkTravArea);
   nh->declare_parameter<bool>("waypointTravAdj", waypointTravAdj);

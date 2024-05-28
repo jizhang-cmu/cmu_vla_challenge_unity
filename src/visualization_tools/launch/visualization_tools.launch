@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="world_name" default="garage"/>
+  <arg name="world_name" default="unity"/>
 
   <node pkg="visualization_tools" exec="visualizationTools" name="visualizationTools" output="screen">
     <param name="metricFile" value="$(find-pkg-prefix vehicle_simulator)/log/metrics" />
