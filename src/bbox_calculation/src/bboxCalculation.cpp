@@ -94,6 +94,9 @@ int main(int argc, char** argv)
   nh->get_parameter("object_list_file_dir", object_list_file_dir);
   nh->get_parameter("maxObjectNum", maxObjectNum);
 
+  map_file_dir.replace(map_file_dir.find("/install/"), 8, "/src");
+  object_list_file_dir.replace(object_list_file_dir.find("/install/"), 8, "/src");
+
   readMapFile();
   int mapCloudSize = mapCloud->points.size();
   

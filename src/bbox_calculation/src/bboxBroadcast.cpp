@@ -61,6 +61,8 @@ int main(int argc, char** argv)
   nh->get_parameter("broadcastDisThre", broadcastDisThre);
   nh->get_parameter("broadcastRate", broadcastRate);
 
+  object_list_file_dir.replace(object_list_file_dir.find("/install/"), 8, "/src");
+
   auto subPose = nh->create_subscription<nav_msgs::msg::Odometry> ("/state_estimation", 5, poseHandler);
 
   auto pubObjectMarker = nh->create_publisher<visualization_msgs::msg::MarkerArray>("object_markers", 5);

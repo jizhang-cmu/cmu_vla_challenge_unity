@@ -35,6 +35,9 @@ int main(int argc, char** argv)
   nh->get_parameter("actual_traj_dir", actual_traj_dir);
   nh->get_parameter("penaltyScale", penaltyScale);
 
+  ref_traj_dir.replace(ref_traj_dir.find("/install/"), 8, "/src");
+  actual_traj_dir.replace(actual_traj_dir.find("/install/"), 8, "/src");
+
   pcl::PLYReader ply_reader;
   if (ply_reader.read(ref_traj_dir, *refTraj) == -1) {
     printf("\nCannot read reference trajectory file, exit.\n\n");

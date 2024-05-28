@@ -281,6 +281,9 @@ int main(int argc, char** argv)
   nh->get_parameter("sendSpeed", sendSpeed);
   nh->get_parameter("sendBoundary", sendBoundary);
 
+  trav_area_file_dir.replace(trav_area_file_dir.find("/install/"), 8, "/src");
+  boundary_file_dir.replace(boundary_file_dir.find("/install/"), 8, "/src");
+
   speed2 = speed;
 
   auto subPose = nh->create_subscription<nav_msgs::msg::Odometry> ("/state_estimation", 5, poseHandler);
