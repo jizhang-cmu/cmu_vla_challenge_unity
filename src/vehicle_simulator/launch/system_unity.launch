@@ -62,7 +62,7 @@
     <param name="sem_in_topic" value="/camera/semantic_image/compressed"/>
     <param name="sem_raw_out_topic" value="/camera/semantic_image"/>
     <param name="depth_in_topic" value="/camera/depth/compressed"/>
-    <param name="depth_raw_out_topic" value="/camera/depth"/>
+    <param name="depth_raw_out_topic" value="/camera/depth_image"/>
   </node>
 
   <node launch-prefix="nice" pkg="rviz2" exec="rviz2" name="rvizGA" args="-d $(find-pkg-share vehicle_simulator)/rviz/vehicle_simulator.rviz" respawn="true"/>
