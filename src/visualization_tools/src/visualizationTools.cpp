@@ -287,7 +287,7 @@ int main(int argc, char** argv)
 
   auto subWaypoint = nh->create_subscription<geometry_msgs::msg::Pose2D>("/way_point_with_heading", 5, waypointHandler);
 
-  auto subMarker = nh->create_subscription<visualization_msgs::msg::Marker>("/selected_object_marker", 5, markerHandler);
+  auto subMarker = nh->create_subscription<visualization_msgs::msg::Marker>("selected_object_marker", 5, markerHandler);
 
   auto subRuntime = nh->create_subscription<std_msgs::msg::Float32>("/runtime", 5, runtimeHandler);
 
