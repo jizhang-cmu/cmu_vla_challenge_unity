@@ -36,10 +36,7 @@ install(TARGETS scoreCalculation
   DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
-)
-install(DIRECTORY data/
+install(DIRECTORY launch data
   DESTINATION share/${PROJECT_NAME}
 )
 
