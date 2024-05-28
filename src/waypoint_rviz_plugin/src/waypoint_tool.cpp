@@ -28,7 +28,7 @@ void WaypointTool::onInitialize()
   rviz_default_plugins::tools::PoseTool::onInitialize();
   qos_profile_property_->initialize(
     [this](rclcpp::QoS profile) {this->qos_profile_ = profile;});
-  setName("Waypoint");
+  setName("Waypoint with Heading");
   updateTopic();
 }
 
@@ -48,7 +48,7 @@ void WaypointTool::onPoseSet(double x, double y, double theta)
   joy.axes.push_back(0);
   joy.axes.push_back(-1.0);
   joy.axes.push_back(0);
-  joy.axes.push_back(1.0);
+  joy.axes.push_back(0);
   joy.axes.push_back(1.0);
   joy.axes.push_back(0);
   joy.axes.push_back(0);
