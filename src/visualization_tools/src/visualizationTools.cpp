@@ -143,6 +143,7 @@ void odometryHandler(const nav_msgs::msg::Odometry::ConstSharedPtr odom)
   vehicleZ = odom->pose.pose.position.z;
 
   fprintf(trajFilePtr, "%f %f %f %f %f %f %f\n", vehicleX, vehicleY, vehicleZ, roll, pitch, yaw, timeDuration);
+  fflush(trajFilePtr);
 
   pcl::PointXYZI point;
   point.x = vehicleX;
@@ -209,6 +210,7 @@ void laserCloudHandler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr laser
   }
 
   fprintf(metricFilePtr, "%f %f %f %f\n", exploredVolume, travelingDis, runtime, timeDuration);
+  fflush(metricFilePtr);
 
   std_msgs::msg::Float32 exploredVolumeMsg;
   exploredVolumeMsg.data = exploredVolume;
@@ -221,7 +223,8 @@ void laserCloudHandler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr laser
 
 void waypointHandler(const geometry_msgs::msg::Pose2D::ConstSharedPtr waypoint)
 {
-  fprintf(waypointFilePtr, "%f %f %f %f\n", waypoint->x, waypoint->y, waypoint->theta, timeDuration);
+  int result = fprintf(waypointFilePtr, "%f %f %f %f\n", waypoint->x, waypoint->y, waypoint->theta, timeDuration);
+  fflush(waypointFilePtr);
 }
 
 void markerHandler(const visualization_msgs::msg::Marker::ConstSharedPtr marker)
@@ -232,6 +235,7 @@ void markerHandler(const visualization_msgs::msg::Marker::ConstSharedPtr marker)
 
   fprintf(markerFilePtr, "%f %f %f %f %f %f %f %f\n", marker->pose.position.x, marker->pose.position.y, marker->pose.position.z, 
                                                       marker->scale.x, marker->scale.y, marker->scale.z, yaw, timeDuration);
+  fflush(markerFilePtr);
 }
 
 void runtimeHandler(const std_msgs::msg::Float32::ConstSharedPtr runtimeIn)
@@ -281,9 +285,9 @@ int main(int argc, char** argv)
 
   auto subLaserCloud = nh->create_subscription<sensor_msgs::msg::PointCloud2>("/registered_scan", 5, laserCloudHandler);
 
-  auto subWaypoint = nh->create_subscription<geometry_msgs::msg::Pose2D> ("/way_point_with_heading", 5, waypointHandler);
+  auto subWaypoint = nh->create_subscription<geometry_msgs::msg::Pose2D>("/way_point_with_heading", 5, waypointHandler);
 
-  auto subMarker = nh->create_subscription<visualization_msgs::msg::Marker> ("selected_object_marker", 5, markerHandler);
+  auto subMarker = nh->create_subscription<visualization_msgs::msg::Marker>("/selected_object_marker", 5, markerHandler);
 
   auto subRuntime = nh->create_subscription<std_msgs::msg::Float32>("/runtime", 5, runtimeHandler);
 
