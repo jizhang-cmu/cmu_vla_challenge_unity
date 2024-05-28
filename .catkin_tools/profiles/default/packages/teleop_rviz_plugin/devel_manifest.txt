@@ -1,6 +1,0 @@
-teleop_rviz_plugin
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/teleop_rviz_plugin/cmake.lock /home/luke/TARE/cmu_vla_challenge_unity/devel/./cmake.lock
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/teleop_rviz_plugin/lib/libteleop_rviz_plugin.so /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/libteleop_rviz_plugin.so
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/teleop_rviz_plugin/lib/pkgconfig/teleop_rviz_plugin.pc /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/pkgconfig/teleop_rviz_plugin.pc
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/teleop_rviz_plugin/share/teleop_rviz_plugin/cmake/teleop_rviz_pluginConfig-version.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/teleop_rviz_plugin/cmake/teleop_rviz_pluginConfig-version.cmake
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/teleop_rviz_plugin/share/teleop_rviz_plugin/cmake/teleop_rviz_pluginConfig.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/teleop_rviz_plugin/cmake/teleop_rviz_pluginConfig.cmake

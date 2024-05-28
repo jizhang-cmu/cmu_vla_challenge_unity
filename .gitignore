@@ -4,19 +4,17 @@ devel
 
 install
 
-log
+log/*
 
 .catkin_workspace
-
-.catkin_tools
-
-.vscode
 
 __pycache__
 
 *~
 
 .DS_Store
+
+.vscode
 
 src/vehicle_simulator/mesh/*
 

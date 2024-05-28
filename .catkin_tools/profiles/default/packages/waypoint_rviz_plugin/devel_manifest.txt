@@ -1,6 +1,0 @@
-waypoint_rviz_plugin
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/waypoint_rviz_plugin/cmake.lock /home/luke/TARE/cmu_vla_challenge_unity/devel/./cmake.lock
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/waypoint_rviz_plugin/lib/libwaypoint_rviz_plugin.so /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/libwaypoint_rviz_plugin.so
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/waypoint_rviz_plugin/lib/pkgconfig/waypoint_rviz_plugin.pc /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/pkgconfig/waypoint_rviz_plugin.pc
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/waypoint_rviz_plugin/share/waypoint_rviz_plugin/cmake/waypoint_rviz_pluginConfig-version.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/waypoint_rviz_plugin/cmake/waypoint_rviz_pluginConfig-version.cmake
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/waypoint_rviz_plugin/share/waypoint_rviz_plugin/cmake/waypoint_rviz_pluginConfig.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/waypoint_rviz_plugin/cmake/waypoint_rviz_pluginConfig.cmake

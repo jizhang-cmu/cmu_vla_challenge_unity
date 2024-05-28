@@ -1,2 +1,0 @@
-joystick_drivers/joystick_drivers
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/joystick_drivers/cmake.lock /home/luke/TARE/cmu_vla_challenge_unity/devel/./cmake.lock

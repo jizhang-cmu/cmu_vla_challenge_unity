@@ -1,6 +1,0 @@
-joystick_drivers/joy
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/joy/cmake.lock /home/luke/TARE/cmu_vla_challenge_unity/devel/./cmake.lock
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/joy/lib/pkgconfig/joy.pc /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/pkgconfig/joy.pc
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/joy/lib/joy/joy_node /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/joy/joy_node
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/joy/share/joy/cmake/joyConfig-version.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/joy/cmake/joyConfig-version.cmake
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/joy/share/joy/cmake/joyConfig.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/joy/cmake/joyConfig.cmake

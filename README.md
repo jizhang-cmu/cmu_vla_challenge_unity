@@ -1,6 +1,6 @@
 ## Repository Setup
 
-The repository provides the base navigation system for the [CMU Vision-Language-Autonomy Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). The system is integrated with [Unity](https://unity.com) environment models. The repository has been tested in Ubuntu 20.04 with [ROS Noetic](http://wiki.ros.org/noetic/Installation). Install dependencies with the command lines below.
+The repository provides the base navigation system for the [CMU Vision-Language-Autonomy Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). The system is integrated with [Unity](https://unity.com) environment models. The repository has been tested in Ubuntu 20.04 with [ROS Foxy](http://wiki.ros.org/noetic/Installation) and Ubuntu 22.04 with [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html). Install dependencies with the command lines below.
 ```
 sudo apt update
 sudo apt install libusb-dev python-yaml python-is-python3
@@ -9,12 +9,13 @@ Clone the open-source repository.
 ```
 git clone https://github.com/jizhang-cmu/cmu_vla_challenge_unity.git
 ```
-In a terminal, go to the folder and compile.
+In a terminal, go to the folder, checkout the 'foxy-humble branch', and compile.
 ```
 cd cmu_vla_challenge_unity
-catkin_make
+git checkout foxy-humble
+colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
-Download any of our [Unity environment models](https://drive.google.com/drive/folders/1bmxdT6Oxzt0_0tohye2br7gqTnkMaq20?usp=share_link) and unzip the files to the 'src/vehicle_simulator/mesh/unity' folder. The environment model files should look like below. Note that the 'AssetList.csv' file is generated upon start of the system.
+Download any of our [Unity environment models](https://drive.google.com/drive/folders/1z4TK_a44sia3fJFOwVfWZr5ojva82QDz?usp=drive_link) **(the models are configured for ROS2, not compatible with ROS1)** and unzip the files to the 'src/vehicle_simulator/mesh/unity' folder. The environment model files should look like below. Note that the 'AssetList.csv' file is generated upon start of the system.
 
 mesh/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;unity/<br>
@@ -59,7 +60,7 @@ In a second terminal, go to the 'cmu_vla_challange_unity' folder and bring up th
 
 ```
 source devel/setup.sh  
-roslaunch vehicle_simulator system_unity.launch 
+ros2 launch vehicle_simulator system_unity.launch 
 ```
 
 ## Credits

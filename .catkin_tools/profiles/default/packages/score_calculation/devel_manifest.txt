@@ -1,6 +1,0 @@
-score_calculation
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/score_calculation/cmake.lock /home/luke/TARE/cmu_vla_challenge_unity/devel/./cmake.lock
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/score_calculation/lib/pkgconfig/score_calculation.pc /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/pkgconfig/score_calculation.pc
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/score_calculation/lib/score_calculation/scoreCalculation /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/score_calculation/scoreCalculation
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/score_calculation/share/score_calculation/cmake/score_calculationConfig.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/score_calculation/cmake/score_calculationConfig.cmake
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/score_calculation/share/score_calculation/cmake/score_calculationConfig-version.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/score_calculation/cmake/score_calculationConfig-version.cmake

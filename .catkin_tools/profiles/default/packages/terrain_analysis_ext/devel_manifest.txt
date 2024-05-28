@@ -1,6 +1,0 @@
-terrain_analysis_ext
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/terrain_analysis_ext/cmake.lock /home/luke/TARE/cmu_vla_challenge_unity/devel/./cmake.lock
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/terrain_analysis_ext/lib/pkgconfig/terrain_analysis_ext.pc /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/pkgconfig/terrain_analysis_ext.pc
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/terrain_analysis_ext/lib/terrain_analysis_ext/terrainAnalysisExt /home/luke/TARE/cmu_vla_challenge_unity/devel/lib/terrain_analysis_ext/terrainAnalysisExt
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/terrain_analysis_ext/share/terrain_analysis_ext/cmake/terrain_analysis_extConfig.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/terrain_analysis_ext/cmake/terrain_analysis_extConfig.cmake
-/home/luke/TARE/cmu_vla_challenge_unity/devel/.private/terrain_analysis_ext/share/terrain_analysis_ext/cmake/terrain_analysis_extConfig-version.cmake /home/luke/TARE/cmu_vla_challenge_unity/devel/share/terrain_analysis_ext/cmake/terrain_analysis_extConfig-version.cmake
