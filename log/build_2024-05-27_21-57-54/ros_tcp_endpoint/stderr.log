@@ -1,0 +1,12 @@
+/home/luke/.local/lib/python3.8/site-packages/setuptools_scm/_integration/setuptools.py:30: RuntimeWarning: 
+ERROR: setuptools==45.2.0 is used in combination with setuptools_scm>=8.x
+
+Your build configuration is incomplete and previously worked by accident!
+setuptools_scm requires setuptools>=61
+
+Suggested workaround if applicable:
+ - migrating from the deprecated setup_requires mechanism to pep517/518
+   and using a pyproject.toml to declare build dependencies
+   which are reliably pre-installed before running the build tools
+
+  warnings.warn(

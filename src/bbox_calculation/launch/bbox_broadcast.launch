@@ -1,10 +1,10 @@
 <launch>
 
-  <node pkg="bbox_calculation" type="bboxBroadcast" name="bboxBroadcast" output="screen">
-    <param name="object_list_file_dir" type="string" value="$(find vehicle_simulator)/mesh/unity/object_list.txt" />
-    <param name="maxObjectNum" type="int" value="500" />
-    <param name="broadcastDisThre" type="double" value="2.0" />
-    <param name="broadcastRate" type="double" value="5.0" />
+  <node pkg="bbox_calculation" exec="bboxBroadcast" name="bboxBroadcast" output="screen">
+    <param name="object_list_file_dir" value="$(find-pkg-share vehicle_simulator)/mesh/unity/object_list.txt" />
+    <param name="maxObjectNum" value="500" />
+    <param name="broadcastDisThre" value="2.0" />
+    <param name="broadcastRate" value="5.0" />
   </node>
 
 </launch>

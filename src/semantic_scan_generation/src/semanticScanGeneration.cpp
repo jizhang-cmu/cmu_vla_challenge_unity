@@ -2,14 +2,15 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
-#include <nav_msgs/Odometry.h>
-#include <sensor_msgs/Image.h>
-#include <sensor_msgs/PointCloud2.h>
+#include <nav_msgs/msg/odometry.hpp>
+#include <sensor_msgs/msg/image.hpp>
+#include <sensor_msgs/msg/point_cloud2.hpp>
 
-#include <tf/transform_datatypes.h>
-#include <tf/transform_broadcaster.h>
+#include "tf2/transform_datatypes.h"
+#include "tf2_ros/transform_broadcaster.h"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -50,17 +51,16 @@ double imageTime = 0;
 bool newLaserCloud = false;
 double laserCloudTime = 0;
 
-ros::Publisher *pubLaserCloudPointer = NULL;
 cv_bridge::CvImageConstPtr segImageCv;
 
-void odomHandler(const nav_msgs::Odometry::ConstPtr& odom)
+void odomHandler(const nav_msgs::msg::Odometry::ConstSharedPtr odom)
 {
   double roll, pitch, yaw;
-  geometry_msgs::Quaternion geoQuat = odom->pose.pose.orientation;
-  tf::Matrix3x3(tf::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w)).getRPY(roll, pitch, yaw);
+  geometry_msgs::msg::Quaternion geoQuat = odom->pose.pose.orientation;
+  tf2::Matrix3x3(tf2::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w)).getRPY(roll, pitch, yaw);
 
   odomIDPointer = (odomIDPointer + 1) % stackNum;
-  odomTimeStack[odomIDPointer] = odom->header.stamp.toSec();
+  odomTimeStack[odomIDPointer] = rclcpp::Time(odom->header.stamp).seconds();
   lidarXStack[odomIDPointer] = odom->pose.pose.position.x;
   lidarYStack[odomIDPointer] = odom->pose.pose.position.y;
   lidarZStack[odomIDPointer] = odom->pose.pose.position.z;
@@ -69,17 +69,17 @@ void odomHandler(const nav_msgs::Odometry::ConstPtr& odom)
   lidarYawStack[odomIDPointer] = yaw;
 }
 
-void semImageHandler(const sensor_msgs::ImageConstPtr& image)
+void semImageHandler(const sensor_msgs::msg::Image::ConstSharedPtr image)
 {
-  imageTime = image->header.stamp.toSec();
+  imageTime = rclcpp::Time(image->header.stamp).seconds();
   segImageCv = cv_bridge::toCvShare(image, "bgr8");
 
   imageInit = true;
 }
 
-void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr& laserCloudIn)
+void laserCloudHandler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr laserCloudIn)
 {
-  laserCloudTime = laserCloudIn->header.stamp.toSec();
+  laserCloudTime = rclcpp::Time(laserCloudIn->header.stamp).seconds();
 
   laserCloud->clear();
   pcl::fromROSMsg(*laserCloudIn, *laserCloud);
@@ -89,26 +89,26 @@ void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr& laserCloudIn)
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "semanticScanGeneration");
-  ros::NodeHandle nh;
-  ros::NodeHandle nhPrivate = ros::NodeHandle("~");
+  rclcpp::init(argc, argv);
+  auto nh = rclcpp::Node::make_shared("semanticScanGeneration");
 
-  nhPrivate.getParam("cameraOffsetZ", cameraOffsetZ);
+  nh->declare_parameter<double>("cameraOffsetZ", cameraOffsetZ);
 
-  ros::Subscriber subOdom = nh.subscribe<nav_msgs::Odometry> ("/state_estimation", 50, odomHandler);
+  nh->get_parameter("cameraOffsetZ", cameraOffsetZ);
 
-  ros::Subscriber subSegImage = nh.subscribe<sensor_msgs::Image> ("/camera/semantic_image", 2, semImageHandler);
+  auto subOdom = nh->create_subscription<nav_msgs::msg::Odometry> ("/state_estimation", 50, odomHandler);
 
-  ros::Subscriber subLaserCloud = nh.subscribe<sensor_msgs::PointCloud2> ("/registered_scan", 2, laserCloudHandler);
+  auto subSegImage = nh->create_subscription<sensor_msgs::msg::Image> ("/camera/semantic_image", 2, semImageHandler);
 
-  ros::Publisher pubLaserCloud = nh.advertise<sensor_msgs::PointCloud2> ("/semantic_scan", 2);
-  pubLaserCloudPointer = &pubLaserCloud;
+  auto subLaserCloud = nh->create_subscription<sensor_msgs::msg::PointCloud2> ("/registered_scan", 2, laserCloudHandler);
 
-  ros::Rate rate(200);
-  bool status = ros::ok();
+  auto pubLaserCloud = nh->create_publisher<sensor_msgs::msg::PointCloud2> ("/semantic_scan", 2);
+
+  rclcpp::Rate rate(200);
+  bool status = rclcpp::ok();
   while (status)
   {
-    ros::spinOnce();
+    rclcpp::spin_some(nh);
 
     if (imageInit && newLaserCloud) {
       newLaserCloud = false;
@@ -176,14 +176,14 @@ int main(int argc, char** argv)
         }
       }
 
-      sensor_msgs::PointCloud2 laserCloudOut;
+      sensor_msgs::msg::PointCloud2 laserCloudOut;
       pcl::toROSMsg(*laserCloudSeg, laserCloudOut);
-      laserCloudOut.header.stamp = ros::Time().fromSec(laserCloudTime);
+      laserCloudOut.header.stamp = rclcpp::Time(static_cast<uint64_t>(laserCloudTime * 1e9));
       laserCloudOut.header.frame_id = "map";
-      pubLaserCloudPointer->publish(laserCloudOut);
+      pubLaserCloud->publish(laserCloudOut);
     }
 
-    status = ros::ok();
+    status = rclcpp::ok();
     rate.sleep();
   }
 

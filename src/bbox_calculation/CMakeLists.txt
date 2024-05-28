@@ -1,33 +1,22 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(bbox_calculation)
 
 set(CMAKE_BUILD_TYPE Release)
 set(BUILD_STATIC_LIBS ON)
 set(BUILD_SHARED_LIBS OFF)
-set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-## Find catkin macros and libraries
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  std_msgs
-  sensor_msgs
-  pcl_ros
-)
-
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
+find_package(pcl_ros REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
+find_package(message_filters REQUIRED)
 find_package(PCL REQUIRED)
 find_package(OpenCV REQUIRED)
-
-###################################
-## catkin specific configuration ##
-###################################
-
-catkin_package(
-  CATKIN_DEPENDS
-  roscpp
-  std_msgs
-  sensor_msgs
-  pcl_ros
-)
 
 ###########
 ## Build ##
@@ -36,7 +25,6 @@ catkin_package(
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
 include_directories(
-  ${catkin_INCLUDE_DIRS}
   ${PCL_INCLUDE_DIRS}
   "${PROJECT_SOURCE_DIR}/include"
   /usr/local/include # Location when using 'make system_install'
@@ -54,18 +42,17 @@ add_executable(bboxCalculation src/bboxCalculation.cpp)
 add_executable(bboxBroadcast src/bboxBroadcast.cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(bboxCalculation ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBRARIES})
-target_link_libraries(bboxBroadcast ${catkin_LIBRARIES} ${PCL_LIBRARIES} ${OpenCV_LIBRARIES})
+ament_target_dependencies(bboxCalculation rclcpp std_msgs nav_msgs pcl_ros message_filters)
+ament_target_dependencies(bboxBroadcast rclcpp std_msgs nav_msgs pcl_ros tf2 tf2_ros tf2_geometry_msgs message_filters visualization_msgs)
+target_link_libraries(bboxCalculation ${PCL_LIBRARIES} ${OpenCV_LIBRARIES})
+target_link_libraries(bboxBroadcast ${PCL_LIBRARIES} ${OpenCV_LIBRARIES})
 
 install(TARGETS bboxCalculation bboxBroadcast
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
 )
-install(DIRECTORY data/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/data
-)
+
+ament_package()

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(waypoint_converter)
 
 set(CMAKE_BUILD_TYPE Release)
@@ -6,36 +6,19 @@ set(BUILD_STATIC_LIBS ON)
 set(BUILD_SHARED_LIBS OFF)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-## Find catkin macros and libraries
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  std_msgs
-  sensor_msgs
-  pcl_ros
-)
-
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
+find_package(nav_msgs REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(pcl_ros REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
+find_package(message_filters REQUIRED)
 find_package(PCL REQUIRED)
 
-###################################
-## catkin specific configuration ##
-###################################
-
-catkin_package(
-  CATKIN_DEPENDS
-  roscpp
-  std_msgs
-  sensor_msgs
-  pcl_ros
-)
-
-###########
-## Build ##
-###########
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
 include_directories(
-  ${catkin_INCLUDE_DIRS}
   ${PCL_INCLUDE_DIRS}
   "${PROJECT_SOURCE_DIR}/include"
   /usr/local/include # Location when using 'make system_install'
@@ -52,17 +35,15 @@ link_directories(
 add_executable(waypointConverter src/waypointConverter.cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(waypointConverter ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+ament_target_dependencies(waypointConverter rclcpp std_msgs nav_msgs geometry_msgs pcl_ros tf2 tf2_ros tf2_geometry_msgs message_filters)
+target_link_libraries(waypointConverter ${PCL_LIBRARIES})
 
 install(TARGETS waypointConverter
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
 )
-install(DIRECTORY data/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/data
-)
+
+ament_package()

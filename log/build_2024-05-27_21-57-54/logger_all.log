@@ -1,0 +1,958 @@
+[0.126s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--symlink-install']
+[0.126s] DEBUG:colcon:Parsed command line arguments: Namespace(allow_overriding=[], ament_cmake_args=None, base_paths=['.'], build_base='build', catkin_cmake_args=None, catkin_skip_building_tests=False, cmake_args=None, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, cmake_target=None, cmake_target_skip_unavailable=False, continue_on_error=False, event_handlers=None, executor='parallel', ignore_user_meta=False, install_base='install', log_base=None, log_level=None, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7f8abc81a910>>, merge_install=False, metas=['./colcon.meta'], mixin=None, mixin_files=None, mixin_verb=('build',), packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_end=None, packages_ignore=None, packages_ignore_regex=None, packages_select=None, packages_select_build_failed=False, packages_select_by_dep=None, packages_select_regex=None, packages_select_test_failures=False, packages_skip=None, packages_skip_build_finished=False, packages_skip_by_dep=None, packages_skip_regex=None, packages_skip_test_passed=False, packages_skip_up_to=None, packages_start=None, packages_up_to=None, packages_up_to_regex=None, parallel_workers=20, paths=None, symlink_install=True, test_result_base=None, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7f8abc81a910>, verb_name='build', verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x7f8abc6df2b0>)
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.217s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.217s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/luke/TARE/cmu_vla_challenge_unity_foxy'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.217s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.228s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['ignore', 'ignore_ament_install']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'ignore'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'ignore_ament_install'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['colcon_pkg']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'colcon_pkg'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['colcon_meta']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'colcon_meta'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['ros']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'ros'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['cmake', 'python']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'cmake'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'python'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extensions ['python_setup_py']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(img) by extension 'python_setup_py'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.229s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['ignore', 'ignore_ament_install']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ignore'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ignore_ament_install'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['colcon_pkg']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'colcon_pkg'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['colcon_meta']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'colcon_meta'
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extensions ['ros']
+[0.230s] Level 1:colcon.colcon_core.package_identification:_identify(src/ROS-TCP-Endpoint) by extension 'ros'
+[0.231s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ROS-TCP-Endpoint' with type 'ros.ament_python' and name 'ros_tcp_endpoint'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extensions ['ignore', 'ignore_ament_install']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extension 'ignore'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extension 'ignore_ament_install'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extensions ['colcon_pkg']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extension 'colcon_pkg'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extensions ['colcon_meta']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extension 'colcon_meta'
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extensions ['ros']
+[0.231s] Level 1:colcon.colcon_core.package_identification:_identify(src/bbox_calculation) by extension 'ros'
+[0.232s] DEBUG:colcon.colcon_core.package_identification:Package 'src/bbox_calculation' with type 'ros.ament_cmake' and name 'bbox_calculation'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extension 'ignore'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extension 'ignore_ament_install'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extensions ['colcon_pkg']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extension 'colcon_pkg'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extensions ['colcon_meta']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extension 'colcon_meta'
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extensions ['ros']
+[0.232s] Level 1:colcon.colcon_core.package_identification:_identify(src/local_planner) by extension 'ros'
+[0.233s] DEBUG:colcon.colcon_core.package_identification:Package 'src/local_planner' with type 'ros.ament_cmake' and name 'local_planner'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extensions ['ignore', 'ignore_ament_install']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extension 'ignore'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extension 'ignore_ament_install'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extensions ['colcon_pkg']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extension 'colcon_pkg'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extensions ['colcon_meta']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extension 'colcon_meta'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extensions ['ros']
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/score_calculation) by extension 'ros'
+[0.233s] DEBUG:colcon.colcon_core.package_identification:Package 'src/score_calculation' with type 'ros.ament_cmake' and name 'score_calculation'
+[0.233s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extensions ['ignore', 'ignore_ament_install']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extension 'ignore'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extension 'ignore_ament_install'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extensions ['colcon_pkg']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extension 'colcon_pkg'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extensions ['colcon_meta']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extension 'colcon_meta'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extensions ['ros']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/semantic_scan_generation) by extension 'ros'
+[0.234s] DEBUG:colcon.colcon_core.package_identification:Package 'src/semantic_scan_generation' with type 'ros.ament_cmake' and name 'semantic_scan_generation'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extensions ['ignore', 'ignore_ament_install']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extension 'ignore'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extension 'ignore_ament_install'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extensions ['colcon_pkg']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extension 'colcon_pkg'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extensions ['colcon_meta']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extension 'colcon_meta'
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extensions ['ros']
+[0.234s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor_scan_generation) by extension 'ros'
+[0.235s] DEBUG:colcon.colcon_core.package_identification:Package 'src/sensor_scan_generation' with type 'ros.ament_cmake' and name 'sensor_scan_generation'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extensions ['ignore', 'ignore_ament_install']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extension 'ignore'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extension 'ignore_ament_install'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extensions ['colcon_pkg']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extension 'colcon_pkg'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extensions ['colcon_meta']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extension 'colcon_meta'
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extensions ['ros']
+[0.235s] Level 1:colcon.colcon_core.package_identification:_identify(src/teleop_rviz_plugin) by extension 'ros'
+[0.236s] DEBUG:colcon.colcon_core.package_identification:Package 'src/teleop_rviz_plugin' with type 'ros.ament_cmake' and name 'teleop_rviz_plugin'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extensions ['ignore', 'ignore_ament_install']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extension 'ignore'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extension 'ignore_ament_install'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extensions ['colcon_pkg']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extension 'colcon_pkg'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extensions ['colcon_meta']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extension 'colcon_meta'
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extensions ['ros']
+[0.236s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis) by extension 'ros'
+[0.237s] DEBUG:colcon.colcon_core.package_identification:Package 'src/terrain_analysis' with type 'ros.ament_cmake' and name 'terrain_analysis'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extensions ['ignore', 'ignore_ament_install']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extension 'ignore'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extension 'ignore_ament_install'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extensions ['colcon_pkg']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extension 'colcon_pkg'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extensions ['colcon_meta']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extension 'colcon_meta'
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extensions ['ros']
+[0.237s] Level 1:colcon.colcon_core.package_identification:_identify(src/terrain_analysis_ext) by extension 'ros'
+[0.238s] DEBUG:colcon.colcon_core.package_identification:Package 'src/terrain_analysis_ext' with type 'ros.ament_cmake' and name 'terrain_analysis_ext'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extensions ['ignore', 'ignore_ament_install']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extension 'ignore'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extension 'ignore_ament_install'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extensions ['colcon_pkg']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extension 'colcon_pkg'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extensions ['colcon_meta']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extension 'colcon_meta'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extensions ['ros']
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/vehicle_simulator) by extension 'ros'
+[0.238s] DEBUG:colcon.colcon_core.package_identification:Package 'src/vehicle_simulator' with type 'ros.ament_cmake' and name 'vehicle_simulator'
+[0.238s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extension 'ignore_ament_install'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extensions ['colcon_pkg']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extension 'colcon_pkg'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extensions ['colcon_meta']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extension 'colcon_meta'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extensions ['ros']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/visualization_tools) by extension 'ros'
+[0.239s] DEBUG:colcon.colcon_core.package_identification:Package 'src/visualization_tools' with type 'ros.ament_cmake' and name 'visualization_tools'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extensions ['ignore', 'ignore_ament_install']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extension 'ignore'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extension 'ignore_ament_install'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extensions ['colcon_pkg']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extension 'colcon_pkg'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extensions ['colcon_meta']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extension 'colcon_meta'
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extensions ['ros']
+[0.239s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_converter) by extension 'ros'
+[0.240s] DEBUG:colcon.colcon_core.package_identification:Package 'src/waypoint_converter' with type 'ros.ament_cmake' and name 'waypoint_converter'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extensions ['ignore', 'ignore_ament_install']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extension 'ignore'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extension 'ignore_ament_install'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extensions ['colcon_pkg']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extension 'colcon_pkg'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extensions ['colcon_meta']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extension 'colcon_meta'
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extensions ['ros']
+[0.240s] Level 1:colcon.colcon_core.package_identification:_identify(src/waypoint_rviz_plugin) by extension 'ros'
+[0.241s] DEBUG:colcon.colcon_core.package_identification:Package 'src/waypoint_rviz_plugin' with type 'ros.ament_cmake' and name 'waypoint_rviz_plugin'
+[0.241s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.241s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.241s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.241s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.241s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.252s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.252s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.ament:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint' in the environment variable AMENT_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.252s] WARNING:colcon.colcon_ros.prefix_path.catkin:The path '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner' in the environment variable CMAKE_PREFIX_PATH doesn't exist
+[0.253s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 0 installed packages in /home/luke/TARE/cmu_vla_challenge_unity_foxy/install
+[0.253s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 261 installed packages in /opt/ros/foxy
+[0.254s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'cmake_target' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'local_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.281s] DEBUG:colcon.colcon_core.verb:Building package 'local_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/local_planner', 'symlink_install': True, 'test_result_base': None}
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_args' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_target' from command line to 'None'
+[0.281s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_clean_cache' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_clean_first' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'cmake_force_configure' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'ament_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'catkin_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'ros_tcp_endpoint' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.282s] DEBUG:colcon.colcon_core.verb:Building package 'ros_tcp_endpoint' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/ROS-TCP-Endpoint', 'symlink_install': True, 'test_result_base': None}
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'cmake_target' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'cmake_clean_first' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'cmake_force_configure' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'ament_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'semantic_scan_generation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.282s] DEBUG:colcon.colcon_core.verb:Building package 'semantic_scan_generation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/semantic_scan_generation', 'symlink_install': True, 'test_result_base': None}
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'cmake_target' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'cmake_clean_first' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'cmake_force_configure' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'ament_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'sensor_scan_generation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.282s] DEBUG:colcon.colcon_core.verb:Building package 'sensor_scan_generation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/sensor_scan_generation', 'symlink_install': True, 'test_result_base': None}
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'cmake_target' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'cmake_clean_cache' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'cmake_clean_first' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'cmake_force_configure' from command line to 'False'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'ament_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'catkin_cmake_args' from command line to 'None'
+[0.282s] Level 5:colcon.colcon_core.verb:set package 'teleop_rviz_plugin' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.282s] DEBUG:colcon.colcon_core.verb:Building package 'teleop_rviz_plugin' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/teleop_rviz_plugin', 'symlink_install': True, 'test_result_base': None}
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'cmake_target' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'cmake_clean_cache' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'cmake_clean_first' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'cmake_force_configure' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'ament_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'catkin_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.283s] DEBUG:colcon.colcon_core.verb:Building package 'terrain_analysis' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis', 'symlink_install': True, 'test_result_base': None}
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'cmake_target' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'cmake_clean_cache' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'cmake_clean_first' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'cmake_force_configure' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'ament_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'catkin_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'terrain_analysis_ext' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.283s] DEBUG:colcon.colcon_core.verb:Building package 'terrain_analysis_ext' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis_ext', 'symlink_install': True, 'test_result_base': None}
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'cmake_target' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'cmake_clean_cache' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'cmake_clean_first' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'cmake_force_configure' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'ament_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'catkin_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'visualization_tools' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.283s] DEBUG:colcon.colcon_core.verb:Building package 'visualization_tools' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/visualization_tools', 'symlink_install': True, 'test_result_base': None}
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'cmake_target' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'cmake_clean_cache' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'cmake_clean_first' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'cmake_force_configure' from command line to 'False'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'ament_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'catkin_cmake_args' from command line to 'None'
+[0.283s] Level 5:colcon.colcon_core.verb:set package 'waypoint_converter' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.283s] DEBUG:colcon.colcon_core.verb:Building package 'waypoint_converter' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_converter', 'symlink_install': True, 'test_result_base': None}
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'cmake_target' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'cmake_clean_cache' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'cmake_clean_first' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'cmake_force_configure' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'ament_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'catkin_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'waypoint_rviz_plugin' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.284s] DEBUG:colcon.colcon_core.verb:Building package 'waypoint_rviz_plugin' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_rviz_plugin', 'symlink_install': True, 'test_result_base': None}
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'cmake_target' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'cmake_clean_cache' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'cmake_clean_first' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'cmake_force_configure' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'ament_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'catkin_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'vehicle_simulator' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.284s] DEBUG:colcon.colcon_core.verb:Building package 'vehicle_simulator' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/vehicle_simulator', 'symlink_install': True, 'test_result_base': None}
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'cmake_target' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'cmake_clean_first' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'cmake_force_configure' from command line to 'False'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'ament_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'bbox_calculation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.284s] DEBUG:colcon.colcon_core.verb:Building package 'bbox_calculation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/bbox_calculation', 'symlink_install': True, 'test_result_base': None}
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'cmake_args' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'cmake_target' from command line to 'None'
+[0.284s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'cmake_clean_first' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'cmake_force_configure' from command line to 'False'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'ament_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.285s] Level 5:colcon.colcon_core.verb:set package 'score_calculation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.285s] DEBUG:colcon.colcon_core.verb:Building package 'score_calculation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation', 'merge_install': False, 'path': '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/score_calculation', 'symlink_install': True, 'test_result_base': None}
+[0.285s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.285s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.285s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/ROS-TCP-Endpoint' with build type 'ament_python'
+[0.285s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'ament_prefix_path')
+[0.287s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.287s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.ps1'
+[0.287s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.dsv'
+[0.287s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/ament_prefix_path.sh'
+[0.288s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.288s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.290s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/local_planner' with build type 'ament_cmake'
+[0.290s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/local_planner'
+[0.291s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.291s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.293s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/semantic_scan_generation' with build type 'ament_cmake'
+[0.293s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/semantic_scan_generation'
+[0.293s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.293s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.295s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/sensor_scan_generation' with build type 'ament_cmake'
+[0.296s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/sensor_scan_generation'
+[0.296s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.296s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.298s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/teleop_rviz_plugin' with build type 'ament_cmake'
+[0.298s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/teleop_rviz_plugin'
+[0.299s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.299s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.301s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis' with build type 'ament_cmake'
+[0.301s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis'
+[0.301s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.301s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.304s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis_ext' with build type 'ament_cmake'
+[0.304s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis_ext'
+[0.304s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.304s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.306s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/visualization_tools' with build type 'ament_cmake'
+[0.307s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/visualization_tools'
+[0.307s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.307s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.309s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_converter' with build type 'ament_cmake'
+[0.309s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_converter'
+[0.309s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.309s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.311s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_rviz_plugin' with build type 'ament_cmake'
+[0.312s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_rviz_plugin'
+[0.312s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.312s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.489s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/ROS-TCP-Endpoint'
+[0.490s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.490s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.495s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/local_planner -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner
+[0.497s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/semantic_scan_generation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation
+[0.499s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/sensor_scan_generation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation
+[0.501s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/teleop_rviz_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin
+[0.503s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis
+[0.505s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis_ext -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext
+[0.508s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/visualization_tools -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools
+[0.512s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_converter -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter
+[0.516s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_rviz_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin
+[0.910s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint': PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/prefix_override:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/build --no-deps symlink_data
+[1.531s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'pythonpath_develop')
+[1.532s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath_develop.ps1'
+[1.532s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint' returned '0': PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/prefix_override:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/build --no-deps symlink_data
+[1.532s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath_develop.dsv'
+[1.533s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath_develop.sh'
+[1.535s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint' for CMake module files
+[1.535s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint' for CMake config files
+[1.536s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib'
+[1.536s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/bin'
+[1.536s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/pkgconfig/ros_tcp_endpoint.pc'
+[1.536s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages'
+[1.536s] Level 1:colcon.colcon_core.shell:create_environment_hook('ros_tcp_endpoint', 'pythonpath')
+[1.536s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.ps1'
+[1.537s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.dsv'
+[1.537s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/hook/pythonpath.sh'
+[1.537s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/bin'
+[1.537s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ros_tcp_endpoint)
+[1.538s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.ps1'
+[1.539s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.dsv'
+[1.539s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.sh'
+[1.539s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.bash'
+[1.540s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/package.zsh'
+[1.540s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/colcon-core/packages/ros_tcp_endpoint)
+[1.541s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/vehicle_simulator' with build type 'ament_cmake'
+[1.541s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/vehicle_simulator'
+[1.541s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.541s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.552s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/vehicle_simulator -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator
+[2.400s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_converter -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter
+[2.403s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter -- -j20 -l20
+[2.413s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/semantic_scan_generation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation
+[2.416s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation -- -j20 -l20
+[2.418s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/visualization_tools -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools
+[2.420s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools -- -j20 -l20
+[2.427s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis
+[2.432s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis -- -j20 -l20
+[2.459s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/sensor_scan_generation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation
+[2.462s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation -- -j20 -l20
+[2.477s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/terrain_analysis_ext -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext
+[2.479s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext -- -j20 -l20
+[2.628s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/local_planner -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner
+[2.631s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner -- -j20 -l20
+[2.637s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/teleop_rviz_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin
+[2.639s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin -- -j20 -l20
+[2.728s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/waypoint_rviz_plugin -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin
+[2.730s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin -- -j20 -l20
+[3.952s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/vehicle_simulator -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator
+[3.953s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator -- -j20 -l20
+[8.178s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin -- -j20 -l20
+[8.257s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin
+[8.336s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(teleop_rviz_plugin)
+[8.336s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin' for CMake module files
+[8.337s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin' for CMake config files
+[8.337s] Level 1:colcon.colcon_core.shell:create_environment_hook('teleop_rviz_plugin', 'cmake_prefix_path')
+[8.338s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/hook/cmake_prefix_path.ps1'
+[8.338s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/hook/cmake_prefix_path.dsv'
+[8.339s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/hook/cmake_prefix_path.sh'
+[8.339s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/lib'
+[8.339s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/bin'
+[8.340s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/lib/pkgconfig/teleop_rviz_plugin.pc'
+[8.340s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/lib/python3.8/site-packages'
+[8.340s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/bin'
+[8.340s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.ps1'
+[8.341s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.dsv'
+[8.341s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.sh'
+[8.342s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.bash'
+[8.342s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.zsh'
+[8.342s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/colcon-core/packages/teleop_rviz_plugin)
+[8.347s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/teleop_rviz_plugin
+[8.397s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(teleop_rviz_plugin)
+[8.397s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin' for CMake module files
+[8.397s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin' for CMake config files
+[8.398s] Level 1:colcon.colcon_core.shell:create_environment_hook('teleop_rviz_plugin', 'cmake_prefix_path')
+[8.398s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/hook/cmake_prefix_path.ps1'
+[8.398s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/hook/cmake_prefix_path.dsv'
+[8.399s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/hook/cmake_prefix_path.sh'
+[8.399s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/lib'
+[8.399s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/bin'
+[8.399s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/lib/pkgconfig/teleop_rviz_plugin.pc'
+[8.399s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/lib/python3.8/site-packages'
+[8.400s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/bin'
+[8.400s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.ps1'
+[8.400s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.dsv'
+[8.401s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.sh'
+[8.401s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.bash'
+[8.401s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/teleop_rviz_plugin/package.zsh'
+[8.401s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin/share/colcon-core/packages/teleop_rviz_plugin)
+[10.131s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin -- -j20 -l20
+[10.213s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin
+[10.293s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(waypoint_rviz_plugin)
+[10.293s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin' for CMake module files
+[10.294s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_rviz_plugin
+[10.294s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin' for CMake config files
+[10.294s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_rviz_plugin', 'cmake_prefix_path')
+[10.294s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/hook/cmake_prefix_path.ps1'
+[10.295s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/hook/cmake_prefix_path.dsv'
+[10.295s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/hook/cmake_prefix_path.sh'
+[10.296s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/lib'
+[10.296s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/bin'
+[10.296s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/lib/pkgconfig/waypoint_rviz_plugin.pc'
+[10.296s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/lib/python3.8/site-packages'
+[10.296s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/bin'
+[10.297s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.ps1'
+[10.297s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.dsv'
+[10.298s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.sh'
+[10.298s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.bash'
+[10.299s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.zsh'
+[10.299s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/colcon-core/packages/waypoint_rviz_plugin)
+[10.346s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(waypoint_rviz_plugin)
+[10.346s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin' for CMake module files
+[10.346s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin' for CMake config files
+[10.347s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_rviz_plugin', 'cmake_prefix_path')
+[10.347s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/hook/cmake_prefix_path.ps1'
+[10.347s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/hook/cmake_prefix_path.dsv'
+[10.348s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/hook/cmake_prefix_path.sh'
+[10.348s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/lib'
+[10.348s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/bin'
+[10.348s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/lib/pkgconfig/waypoint_rviz_plugin.pc'
+[10.349s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/lib/python3.8/site-packages'
+[10.349s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/bin'
+[10.349s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.ps1'
+[10.350s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.dsv'
+[10.350s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.sh'
+[10.350s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.bash'
+[10.351s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/waypoint_rviz_plugin/package.zsh'
+[10.351s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin/share/colcon-core/packages/waypoint_rviz_plugin)
+[11.941s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation -- -j20 -l20
+[11.989s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation
+[12.074s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sensor_scan_generation)
+[12.075s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation' for CMake module files
+[12.076s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/sensor_scan_generation
+[12.076s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation' for CMake config files
+[12.076s] Level 1:colcon.colcon_core.shell:create_environment_hook('sensor_scan_generation', 'cmake_prefix_path')
+[12.077s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/hook/cmake_prefix_path.ps1'
+[12.077s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/hook/cmake_prefix_path.dsv'
+[12.077s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/hook/cmake_prefix_path.sh'
+[12.078s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/lib'
+[12.078s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/bin'
+[12.078s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/lib/pkgconfig/sensor_scan_generation.pc'
+[12.078s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/lib/python3.8/site-packages'
+[12.078s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/bin'
+[12.079s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.ps1'
+[12.079s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.dsv'
+[12.079s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.sh'
+[12.080s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.bash'
+[12.080s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.zsh'
+[12.080s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/colcon-core/packages/sensor_scan_generation)
+[12.124s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sensor_scan_generation)
+[12.124s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation' for CMake module files
+[12.125s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation' for CMake config files
+[12.125s] Level 1:colcon.colcon_core.shell:create_environment_hook('sensor_scan_generation', 'cmake_prefix_path')
+[12.126s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/hook/cmake_prefix_path.ps1'
+[12.126s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/hook/cmake_prefix_path.dsv'
+[12.127s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/hook/cmake_prefix_path.sh'
+[12.127s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/lib'
+[12.127s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/bin'
+[12.127s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/lib/pkgconfig/sensor_scan_generation.pc'
+[12.128s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/lib/python3.8/site-packages'
+[12.128s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/bin'
+[12.128s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.ps1'
+[12.129s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.dsv'
+[12.130s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.sh'
+[12.130s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.bash'
+[12.131s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/sensor_scan_generation/package.zsh'
+[12.131s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation/share/colcon-core/packages/sensor_scan_generation)
+[13.508s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext -- -j20 -l20
+[13.541s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext
+[13.600s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(terrain_analysis_ext)
+[13.600s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext' for CMake module files
+[13.601s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis_ext
+[13.601s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext' for CMake config files
+[13.601s] Level 1:colcon.colcon_core.shell:create_environment_hook('terrain_analysis_ext', 'cmake_prefix_path')
+[13.602s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/hook/cmake_prefix_path.ps1'
+[13.602s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/hook/cmake_prefix_path.dsv'
+[13.603s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/hook/cmake_prefix_path.sh'
+[13.603s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/lib'
+[13.603s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/bin'
+[13.603s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/lib/pkgconfig/terrain_analysis_ext.pc'
+[13.604s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/lib/python3.8/site-packages'
+[13.604s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/bin'
+[13.604s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.ps1'
+[13.605s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.dsv'
+[13.605s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.sh'
+[13.606s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.bash'
+[13.606s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.zsh'
+[13.606s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/colcon-core/packages/terrain_analysis_ext)
+[13.648s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(terrain_analysis_ext)
+[13.648s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext' for CMake module files
+[13.649s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext' for CMake config files
+[13.649s] Level 1:colcon.colcon_core.shell:create_environment_hook('terrain_analysis_ext', 'cmake_prefix_path')
+[13.649s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/hook/cmake_prefix_path.ps1'
+[13.650s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/hook/cmake_prefix_path.dsv'
+[13.650s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/hook/cmake_prefix_path.sh'
+[13.651s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/lib'
+[13.651s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/bin'
+[13.651s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/lib/pkgconfig/terrain_analysis_ext.pc'
+[13.651s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/lib/python3.8/site-packages'
+[13.651s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/bin'
+[13.652s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.ps1'
+[13.652s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.dsv'
+[13.653s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.sh'
+[13.653s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.bash'
+[13.654s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/terrain_analysis_ext/package.zsh'
+[13.654s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext/share/colcon-core/packages/terrain_analysis_ext)
+[13.705s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis -- -j20 -l20
+[13.735s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis
+[13.765s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation -- -j20 -l20
+[13.781s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(terrain_analysis)
+[13.781s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis' for CMake module files
+[13.782s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/terrain_analysis
+[13.783s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis' for CMake config files
+[13.783s] Level 1:colcon.colcon_core.shell:create_environment_hook('terrain_analysis', 'cmake_prefix_path')
+[13.783s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/hook/cmake_prefix_path.ps1'
+[13.784s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/hook/cmake_prefix_path.dsv'
+[13.784s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/hook/cmake_prefix_path.sh'
+[13.784s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/lib'
+[13.784s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/bin'
+[13.784s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/lib/pkgconfig/terrain_analysis.pc'
+[13.784s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/lib/python3.8/site-packages'
+[13.785s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/bin'
+[13.785s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.ps1'
+[13.785s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.dsv'
+[13.785s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.sh'
+[13.785s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.bash'
+[13.786s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.zsh'
+[13.786s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/colcon-core/packages/terrain_analysis)
+[13.797s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation
+[13.814s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(terrain_analysis)
+[13.815s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis' for CMake module files
+[13.815s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis' for CMake config files
+[13.816s] Level 1:colcon.colcon_core.shell:create_environment_hook('terrain_analysis', 'cmake_prefix_path')
+[13.816s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/hook/cmake_prefix_path.ps1'
+[13.817s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/hook/cmake_prefix_path.dsv'
+[13.817s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/hook/cmake_prefix_path.sh'
+[13.818s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/lib'
+[13.818s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/bin'
+[13.818s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/lib/pkgconfig/terrain_analysis.pc'
+[13.818s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/lib/python3.8/site-packages'
+[13.818s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/bin'
+[13.819s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.ps1'
+[13.820s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.dsv'
+[13.821s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.sh'
+[13.821s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.bash'
+[13.822s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/terrain_analysis/package.zsh'
+[13.822s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis/share/colcon-core/packages/terrain_analysis)
+[13.846s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(semantic_scan_generation)
+[13.846s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation' for CMake module files
+[13.847s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/semantic_scan_generation
+[13.847s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation' for CMake config files
+[13.848s] Level 1:colcon.colcon_core.shell:create_environment_hook('semantic_scan_generation', 'cmake_prefix_path')
+[13.848s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/hook/cmake_prefix_path.ps1'
+[13.848s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/hook/cmake_prefix_path.dsv'
+[13.849s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/hook/cmake_prefix_path.sh'
+[13.849s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/lib'
+[13.849s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/bin'
+[13.850s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/lib/pkgconfig/semantic_scan_generation.pc'
+[13.850s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/lib/python3.8/site-packages'
+[13.850s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/bin'
+[13.850s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.ps1'
+[13.851s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.dsv'
+[13.851s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.sh'
+[13.852s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.bash'
+[13.852s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.zsh'
+[13.852s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/colcon-core/packages/semantic_scan_generation)
+[13.889s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter -- -j20 -l20
+[13.892s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(semantic_scan_generation)
+[13.892s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation' for CMake module files
+[13.892s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation' for CMake config files
+[13.892s] Level 1:colcon.colcon_core.shell:create_environment_hook('semantic_scan_generation', 'cmake_prefix_path')
+[13.893s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/hook/cmake_prefix_path.ps1'
+[13.893s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/hook/cmake_prefix_path.dsv'
+[13.893s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/hook/cmake_prefix_path.sh'
+[13.893s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/lib'
+[13.893s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/bin'
+[13.893s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/lib/pkgconfig/semantic_scan_generation.pc'
+[13.894s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/lib/python3.8/site-packages'
+[13.894s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/bin'
+[13.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.ps1'
+[13.894s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.dsv'
+[13.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.sh'
+[13.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.bash'
+[13.895s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/semantic_scan_generation/package.zsh'
+[13.895s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation/share/colcon-core/packages/semantic_scan_generation)
+[13.918s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter
+[13.961s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(waypoint_converter)
+[13.962s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter' for CMake module files
+[13.962s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/waypoint_converter
+[13.962s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter' for CMake config files
+[13.962s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_converter', 'cmake_prefix_path')
+[13.963s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/hook/cmake_prefix_path.ps1'
+[13.963s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/hook/cmake_prefix_path.dsv'
+[13.963s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/hook/cmake_prefix_path.sh'
+[13.964s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/lib'
+[13.964s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/bin'
+[13.964s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/lib/pkgconfig/waypoint_converter.pc'
+[13.964s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/lib/python3.8/site-packages'
+[13.964s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/bin'
+[13.964s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.ps1'
+[13.965s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.dsv'
+[13.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.sh'
+[13.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.bash'
+[13.965s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.zsh'
+[13.965s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/colcon-core/packages/waypoint_converter)
+[13.993s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(waypoint_converter)
+[13.993s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter' for CMake module files
+[13.993s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter' for CMake config files
+[13.994s] Level 1:colcon.colcon_core.shell:create_environment_hook('waypoint_converter', 'cmake_prefix_path')
+[13.994s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/hook/cmake_prefix_path.ps1'
+[13.994s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/hook/cmake_prefix_path.dsv'
+[13.994s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/hook/cmake_prefix_path.sh'
+[13.995s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/lib'
+[13.995s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/bin'
+[13.995s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/lib/pkgconfig/waypoint_converter.pc'
+[13.995s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/lib/python3.8/site-packages'
+[13.995s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/bin'
+[13.995s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.ps1'
+[13.995s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.dsv'
+[13.996s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.sh'
+[13.996s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.bash'
+[13.996s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/waypoint_converter/package.zsh'
+[13.996s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter/share/colcon-core/packages/waypoint_converter)
+[14.032s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator -- -j20 -l20
+[14.060s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator
+[14.394s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vehicle_simulator)
+[14.395s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator' for CMake module files
+[14.395s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator
+[14.395s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator' for CMake config files
+[14.398s] Level 1:colcon.colcon_core.shell:create_environment_hook('vehicle_simulator', 'cmake_prefix_path')
+[14.398s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/hook/cmake_prefix_path.ps1'
+[14.399s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/hook/cmake_prefix_path.dsv'
+[14.399s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/hook/cmake_prefix_path.sh'
+[14.400s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/lib'
+[14.400s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/bin'
+[14.400s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/lib/pkgconfig/vehicle_simulator.pc'
+[14.400s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/lib/python3.8/site-packages'
+[14.400s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/bin'
+[14.400s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.ps1'
+[14.400s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.dsv'
+[14.401s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.sh'
+[14.401s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.bash'
+[14.401s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.zsh'
+[14.401s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/colcon-core/packages/vehicle_simulator)
+[14.429s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(vehicle_simulator)
+[14.429s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator' for CMake module files
+[14.429s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator' for CMake config files
+[14.431s] Level 1:colcon.colcon_core.shell:create_environment_hook('vehicle_simulator', 'cmake_prefix_path')
+[14.431s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/hook/cmake_prefix_path.ps1'
+[14.431s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/hook/cmake_prefix_path.dsv'
+[14.431s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/hook/cmake_prefix_path.sh'
+[14.432s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/lib'
+[14.432s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/bin'
+[14.432s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/lib/pkgconfig/vehicle_simulator.pc'
+[14.432s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/lib/python3.8/site-packages'
+[14.432s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/bin'
+[14.432s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.ps1'
+[14.432s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.dsv'
+[14.433s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.sh'
+[14.433s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.bash'
+[14.433s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.zsh'
+[14.433s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/colcon-core/packages/vehicle_simulator)
+[14.433s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/bbox_calculation' with build type 'ament_cmake'
+[14.433s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/bbox_calculation'
+[14.434s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[14.434s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[14.437s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/score_calculation' with build type 'ament_cmake'
+[14.438s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/src/score_calculation'
+[14.438s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[14.438s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[14.446s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/bbox_calculation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation
+[14.449s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/score_calculation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation
+[15.017s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner -- -j20 -l20
+[15.051s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner
+[15.085s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools -- -j20 -l20
+[15.102s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(local_planner)
+[15.103s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner' for CMake module files
+[15.103s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/local_planner
+[15.103s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner' for CMake config files
+[15.103s] Level 1:colcon.colcon_core.shell:create_environment_hook('local_planner', 'cmake_prefix_path')
+[15.104s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/hook/cmake_prefix_path.ps1'
+[15.104s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/hook/cmake_prefix_path.dsv'
+[15.104s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/hook/cmake_prefix_path.sh'
+[15.104s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/lib'
+[15.104s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/bin'
+[15.104s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/lib/pkgconfig/local_planner.pc'
+[15.105s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/lib/python3.8/site-packages'
+[15.105s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/bin'
+[15.105s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.ps1'
+[15.105s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.dsv'
+[15.105s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.sh'
+[15.105s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.bash'
+[15.106s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.zsh'
+[15.106s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/colcon-core/packages/local_planner)
+[15.113s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools
+[15.134s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(local_planner)
+[15.134s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner' for CMake module files
+[15.135s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner' for CMake config files
+[15.135s] Level 1:colcon.colcon_core.shell:create_environment_hook('local_planner', 'cmake_prefix_path')
+[15.136s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/hook/cmake_prefix_path.ps1'
+[15.136s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/hook/cmake_prefix_path.dsv'
+[15.137s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/hook/cmake_prefix_path.sh'
+[15.137s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/lib'
+[15.137s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/bin'
+[15.137s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/lib/pkgconfig/local_planner.pc'
+[15.138s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/lib/python3.8/site-packages'
+[15.138s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/bin'
+[15.138s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.ps1'
+[15.139s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.dsv'
+[15.139s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.sh'
+[15.140s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.bash'
+[15.140s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/local_planner/package.zsh'
+[15.140s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner/share/colcon-core/packages/local_planner)
+[15.182s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(visualization_tools)
+[15.182s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools' for CMake module files
+[15.182s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/visualization_tools
+[15.182s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools' for CMake config files
+[15.183s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualization_tools', 'cmake_prefix_path')
+[15.183s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/cmake_prefix_path.ps1'
+[15.183s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/cmake_prefix_path.dsv'
+[15.183s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/cmake_prefix_path.sh'
+[15.184s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib'
+[15.184s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/bin'
+[15.184s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/pkgconfig/visualization_tools.pc'
+[15.184s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages'
+[15.184s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualization_tools', 'pythonpath')
+[15.184s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/pythonpath.ps1'
+[15.184s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/pythonpath.dsv'
+[15.184s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/pythonpath.sh'
+[15.184s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/bin'
+[15.184s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.ps1'
+[15.185s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.dsv'
+[15.185s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.sh'
+[15.185s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.bash'
+[15.185s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.zsh'
+[15.185s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/colcon-core/packages/visualization_tools)
+[15.211s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(visualization_tools)
+[15.211s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools' for CMake module files
+[15.212s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools' for CMake config files
+[15.212s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualization_tools', 'cmake_prefix_path')
+[15.212s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/cmake_prefix_path.ps1'
+[15.212s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/cmake_prefix_path.dsv'
+[15.212s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/cmake_prefix_path.sh'
+[15.213s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib'
+[15.213s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/bin'
+[15.213s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/pkgconfig/visualization_tools.pc'
+[15.213s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages'
+[15.213s] Level 1:colcon.colcon_core.shell:create_environment_hook('visualization_tools', 'pythonpath')
+[15.213s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/pythonpath.ps1'
+[15.213s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/pythonpath.dsv'
+[15.213s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/hook/pythonpath.sh'
+[15.214s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/bin'
+[15.214s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.ps1'
+[15.214s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.dsv'
+[15.214s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.sh'
+[15.214s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.bash'
+[15.215s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/visualization_tools/package.zsh'
+[15.215s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/share/colcon-core/packages/visualization_tools)
+[15.592s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/score_calculation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation
+[15.594s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation -- -j20 -l20
+[16.217s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/bbox_calculation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation
+[16.220s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation -- -j20 -l20
+[19.616s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation -- -j20 -l20
+[19.644s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation
+[19.690s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(score_calculation)
+[19.690s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation' for CMake module files
+[19.691s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/score_calculation
+[19.691s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation' for CMake config files
+[19.691s] Level 1:colcon.colcon_core.shell:create_environment_hook('score_calculation', 'cmake_prefix_path')
+[19.691s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/hook/cmake_prefix_path.ps1'
+[19.692s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/hook/cmake_prefix_path.dsv'
+[19.692s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/hook/cmake_prefix_path.sh'
+[19.692s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/lib'
+[19.692s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/bin'
+[19.692s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/lib/pkgconfig/score_calculation.pc'
+[19.692s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/lib/python3.8/site-packages'
+[19.692s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/bin'
+[19.692s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.ps1'
+[19.693s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.dsv'
+[19.693s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.sh'
+[19.693s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.bash'
+[19.693s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.zsh'
+[19.693s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/colcon-core/packages/score_calculation)
+[19.719s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(score_calculation)
+[19.719s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation' for CMake module files
+[19.720s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation' for CMake config files
+[19.720s] Level 1:colcon.colcon_core.shell:create_environment_hook('score_calculation', 'cmake_prefix_path')
+[19.720s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/hook/cmake_prefix_path.ps1'
+[19.720s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/hook/cmake_prefix_path.dsv'
+[19.720s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/hook/cmake_prefix_path.sh'
+[19.721s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/lib'
+[19.721s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/bin'
+[19.721s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/lib/pkgconfig/score_calculation.pc'
+[19.721s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/lib/python3.8/site-packages'
+[19.721s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/bin'
+[19.721s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.ps1'
+[19.721s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.dsv'
+[19.722s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.sh'
+[19.722s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.bash'
+[19.722s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/score_calculation/package.zsh'
+[19.722s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation/share/colcon-core/packages/score_calculation)
+[22.818s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation -- -j20 -l20
+[22.846s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation
+[22.891s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(bbox_calculation)
+[22.892s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation' for CMake module files
+[22.892s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation
+[22.892s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation' for CMake config files
+[22.892s] Level 1:colcon.colcon_core.shell:create_environment_hook('bbox_calculation', 'cmake_prefix_path')
+[22.892s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/hook/cmake_prefix_path.ps1'
+[22.893s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/hook/cmake_prefix_path.dsv'
+[22.893s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/hook/cmake_prefix_path.sh'
+[22.893s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/lib'
+[22.893s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/bin'
+[22.893s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/lib/pkgconfig/bbox_calculation.pc'
+[22.893s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/lib/python3.8/site-packages'
+[22.893s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/bin'
+[22.893s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.ps1'
+[22.894s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.dsv'
+[22.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.sh'
+[22.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.bash'
+[22.894s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.zsh'
+[22.894s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/colcon-core/packages/bbox_calculation)
+[22.921s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(bbox_calculation)
+[22.921s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation' for CMake module files
+[22.921s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation' for CMake config files
+[22.922s] Level 1:colcon.colcon_core.shell:create_environment_hook('bbox_calculation', 'cmake_prefix_path')
+[22.922s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/hook/cmake_prefix_path.ps1'
+[22.922s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/hook/cmake_prefix_path.dsv'
+[22.922s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/hook/cmake_prefix_path.sh'
+[22.923s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/lib'
+[22.923s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/bin'
+[22.923s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/lib/pkgconfig/bbox_calculation.pc'
+[22.923s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/lib/python3.8/site-packages'
+[22.923s] Level 1:colcon.colcon_core.environment:checking '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/bin'
+[22.923s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.ps1'
+[22.923s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.dsv'
+[22.923s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.sh'
+[22.924s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.bash'
+[22.924s] INFO:colcon.colcon_core.shell:Creating package script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.zsh'
+[22.924s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/colcon-core/packages/bbox_calculation)
+[22.924s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[22.925s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[22.925s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[22.925s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[22.928s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[22.929s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[22.929s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[22.938s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[22.939s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_setup.ps1'
+[22.939s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/_local_setup_util_ps1.py'
+[22.940s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/setup.ps1'
+[22.940s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_setup.sh'
+[22.940s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/_local_setup_util_sh.py'
+[22.941s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/setup.sh'
+[22.941s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_setup.bash'
+[22.941s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/setup.bash'
+[22.942s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_setup.zsh'
+[22.942s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/setup.zsh'

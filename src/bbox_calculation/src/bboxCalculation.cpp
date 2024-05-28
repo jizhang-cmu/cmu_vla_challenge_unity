@@ -2,17 +2,14 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
 
-#include <nav_msgs/Odometry.h>
-#include <sensor_msgs/PointCloud2.h>
-
-#include <tf/transform_datatypes.h>
-#include <tf/transform_broadcaster.h>
+#include <nav_msgs/msg/odometry.hpp>
+#include <sensor_msgs/msg/point_cloud2.hpp>
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -86,13 +83,16 @@ void readMapFile()
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "bboxCalculation");
-  ros::NodeHandle nh;
-  ros::NodeHandle nhPrivate = ros::NodeHandle("~");
+  rclcpp::init(argc, argv);
+  auto nh = rclcpp::Node::make_shared("bboxCalculation");
 
-  nhPrivate.getParam("map_file_dir", map_file_dir);
-  nhPrivate.getParam("object_list_file_dir", object_list_file_dir);
-  nhPrivate.getParam("maxObjectNum", maxObjectNum);
+  nh->declare_parameter<std::string>("map_file_dir", map_file_dir);
+  nh->declare_parameter<std::string>("object_list_file_dir", object_list_file_dir);
+  nh->declare_parameter<int>("maxObjectNum", maxObjectNum);
+
+  nh->get_parameter("map_file_dir", map_file_dir);
+  nh->get_parameter("object_list_file_dir", object_list_file_dir);
+  nh->get_parameter("maxObjectNum", maxObjectNum);
 
   readMapFile();
   int mapCloudSize = mapCloud->points.size();

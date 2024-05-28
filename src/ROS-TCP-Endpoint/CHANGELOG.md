@@ -12,6 +12,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Added
 
+Added Sonarqube scanner
+
 ### Changed
 
 ### Deprecated
@@ -20,13 +22,12 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) a
 
 ### Fixed
 
+
 ## [0.7.0] - 2022-02-01
 
 ### Added
 
-Added Sonarqube Scanner
-
-Private ros params
+Added Sonarqube scanner
 
 Send information during hand shaking for ros and package version checks
 

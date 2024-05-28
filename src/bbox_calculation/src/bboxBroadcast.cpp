@@ -2,17 +2,19 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp/time.hpp"
 
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
 
-#include <nav_msgs/Odometry.h>
-#include <visualization_msgs/MarkerArray.h>
+#include <nav_msgs/msg/odometry.hpp>
+#include <visualization_msgs/msg/marker_array.hpp>
 
-#include <tf/transform_datatypes.h>
-#include <tf/transform_broadcaster.h>
+#include "tf2/transform_datatypes.h"
+#include "tf2_ros/transform_broadcaster.h"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -36,9 +38,9 @@ double broadcastRate = 5.0;
 float vehicleX = 0, vehicleY = 0;
 double curTime = 0, sendTime = 0;
 
-void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
+void poseHandler(const nav_msgs::msg::Odometry::ConstSharedPtr pose)
 {
-  curTime = pose->header.stamp.toSec();
+  curTime = rclcpp::Time(pose->header.stamp).seconds();
 
   vehicleX = pose->pose.pose.position.x;
   vehicleY = pose->pose.pose.position.y;
@@ -46,19 +48,24 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "bboxBroadcast");
-  ros::NodeHandle nh;
-  ros::NodeHandle nhPrivate = ros::NodeHandle("~");
+  rclcpp::init(argc, argv);
+  auto nh = rclcpp::Node::make_shared("bboxBroadcast");
 
-  nhPrivate.getParam("object_list_file_dir", object_list_file_dir);
-  nhPrivate.getParam("maxObjectNum", maxObjectNum);
-  nhPrivate.getParam("broadcastDisThre", broadcastDisThre);
-  nhPrivate.getParam("broadcastRate", broadcastRate);
+  nh->declare_parameter<std::string>("object_list_file_dir", object_list_file_dir);
+  nh->declare_parameter<int>("maxObjectNum", maxObjectNum);
+  nh->declare_parameter<double>("broadcastDisThre", broadcastDisThre);
+  nh->declare_parameter<double>("broadcastRate", broadcastRate);
 
-  ros::Subscriber subPose = nh.subscribe<nav_msgs::Odometry> ("/state_estimation", 5, poseHandler);
+  nh->get_parameter("object_list_file_dir", object_list_file_dir);
+  nh->get_parameter("maxObjectNum", maxObjectNum);
+  nh->get_parameter("broadcastDisThre", broadcastDisThre);
+  nh->get_parameter("broadcastRate", broadcastRate);
 
-  ros::Publisher pubObjectMarker = nh.advertise<visualization_msgs::MarkerArray>("object_markers", 5);
-  visualization_msgs::MarkerArray objectMarkerArray;
+  auto subPose = nh->create_subscription<nav_msgs::msg::Odometry> ("/state_estimation", 5, poseHandler);
+
+  auto pubObjectMarker = nh->create_publisher<visualization_msgs::msg::MarkerArray>("object_markers", 5);
+  auto objectMarkerArray = std::make_unique<visualization_msgs::msg::MarkerArray>();
+
 
   const int objNumConst = maxObjectNum;
   float objMidX[objNumConst] = {0};
@@ -122,10 +129,10 @@ int main(int argc, char** argv)
   
   fclose(object_list_file);
 
-  ros::Rate rate(100);
-  bool status = ros::ok();
+  rclcpp::Rate rate(200);
+  bool status = rclcpp::ok();
   while (status) {
-    ros::spinOnce();
+    rclcpp::spin_some(nh);
 
     if (curTime - sendTime > 1.0 / broadcastRate) {
       int objValidNum = 0;
@@ -145,39 +152,45 @@ int main(int argc, char** argv)
       }
 
       if (objValidNum > 0) {
-        objectMarkerArray.markers.resize(objValidNum);
+        objectMarkerArray->markers.resize(objValidNum);
 
         int objValidCount = 0;
         for (int j = 0; j < maxObjectNum; j++) {
           if (objValid[j] == 1) {
-            objectMarkerArray.markers[objValidCount].header.frame_id = "map";
-            objectMarkerArray.markers[objValidCount].header.stamp = ros::Time().fromSec(curTime);
-            objectMarkerArray.markers[objValidCount].ns = objLabel[j];
-            objectMarkerArray.markers[objValidCount].id = j;
-            objectMarkerArray.markers[objValidCount].action = visualization_msgs::Marker::ADD;
-            objectMarkerArray.markers[objValidCount].type = visualization_msgs::Marker::CUBE;
-            objectMarkerArray.markers[objValidCount].pose.position.x = objMidX[j];
-            objectMarkerArray.markers[objValidCount].pose.position.y = objMidY[j];
-            objectMarkerArray.markers[objValidCount].pose.position.z = objMidZ[j];
-            objectMarkerArray.markers[objValidCount].pose.orientation = tf::createQuaternionMsgFromRollPitchYaw(0, 0, objHeading[j]);
-            objectMarkerArray.markers[objValidCount].scale.x = objL[j];
-            objectMarkerArray.markers[objValidCount].scale.y = objW[j];
-            objectMarkerArray.markers[objValidCount].scale.z = objH[j];
-            objectMarkerArray.markers[objValidCount].color.a = 0.5;
-            objectMarkerArray.markers[objValidCount].color.r = 1.0;
-            objectMarkerArray.markers[objValidCount].color.g = 0;
-            objectMarkerArray.markers[objValidCount].color.b = 0;
+            objectMarkerArray->markers[objValidCount].header.frame_id = "map";
+            objectMarkerArray->markers[objValidCount].header.stamp = rclcpp::Time(static_cast<uint64_t>(curTime * 1e9));
+            objectMarkerArray->markers[objValidCount].ns = objLabel[j];
+            objectMarkerArray->markers[objValidCount].id = j;
+            objectMarkerArray->markers[objValidCount].action = visualization_msgs::msg::Marker::ADD;
+            objectMarkerArray->markers[objValidCount].type = visualization_msgs::msg::Marker::CUBE;
+            objectMarkerArray->markers[objValidCount].pose.position.x = objMidX[j];
+            objectMarkerArray->markers[objValidCount].pose.position.y = objMidY[j];
+            objectMarkerArray->markers[objValidCount].pose.position.z = objMidZ[j];
+
+            tf2::Quaternion quat_tf;
+            quat_tf.setRPY(0, 0,  objHeading[j]);
+            geometry_msgs::msg::Quaternion geoQuat;
+            tf2::convert(quat_tf, geoQuat);
+
+            objectMarkerArray->markers[objValidCount].pose.orientation = geoQuat;
+            objectMarkerArray->markers[objValidCount].scale.x = objL[j];
+            objectMarkerArray->markers[objValidCount].scale.y = objW[j];
+            objectMarkerArray->markers[objValidCount].scale.z = objH[j];
+            objectMarkerArray->markers[objValidCount].color.a = 0.5;
+            objectMarkerArray->markers[objValidCount].color.r = 1.0;
+            objectMarkerArray->markers[objValidCount].color.g = 0;
+            objectMarkerArray->markers[objValidCount].color.b = 0;
             objValidCount++;
           }
         }
 
-        pubObjectMarker.publish(objectMarkerArray);
+        pubObjectMarker->publish(*objectMarkerArray);
       }
 
       sendTime = curTime;
     }
 
-    status = ros::ok();
+    status = rclcpp::ok();
     rate.sleep();
   }
 

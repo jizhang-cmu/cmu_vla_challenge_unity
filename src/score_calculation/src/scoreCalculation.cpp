@@ -2,7 +2,8 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp/time.hpp"
 
 #include <pcl/io/ply_io.h>
 #include <pcl_conversions/pcl_conversions.h>
@@ -23,13 +24,16 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr refTraj(new pcl::PointCloud<pcl::PointXYZ>()
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "scoreCalculation");
-  ros::NodeHandle nh;
-  ros::NodeHandle nhPrivate = ros::NodeHandle("~");
+  rclcpp::init(argc, argv);
+  auto nh = std::make_shared<rclcpp::Node>("scoreCalculation");
 
-  nhPrivate.getParam("ref_traj_dir", ref_traj_dir);
-  nhPrivate.getParam("actual_traj_dir", actual_traj_dir);
-  nhPrivate.getParam("penaltyScale", penaltyScale);
+  nh->declare_parameter<std::string>("ref_traj_dir", ref_traj_dir);
+  nh->declare_parameter<std::string>("actual_traj_dir", actual_traj_dir);
+  nh->declare_parameter<double>("penaltyScale", penaltyScale);
+
+  nh->get_parameter("ref_traj_dir", ref_traj_dir);
+  nh->get_parameter("actual_traj_dir", actual_traj_dir);
+  nh->get_parameter("penaltyScale", penaltyScale);
 
   pcl::PLYReader ply_reader;
   if (ply_reader.read(ref_traj_dir, *refTraj) == -1) {

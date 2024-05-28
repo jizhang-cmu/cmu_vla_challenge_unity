@@ -2,30 +2,41 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ros/ros.h>
+#include <chrono>
+#include <iostream>
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp/time.hpp"
+#include "rclcpp/clock.hpp"
+#include "builtin_interfaces/msg/time.hpp"
 
-#include <message_filters/subscriber.h>
-#include <message_filters/synchronizer.h>
-#include <message_filters/sync_policies/approximate_time.h>
+#include "nav_msgs/msg/odometry.hpp"
+#include "sensor_msgs/msg/point_cloud2.hpp"
+#include <sensor_msgs/msg/joy.hpp>
+#include <std_msgs/msg/float32.hpp>
+#include <std_msgs/msg/int8.hpp>
+#include <std_msgs/msg/bool.hpp>
+#include <nav_msgs/msg/path.hpp>
 
-#include <std_msgs/Bool.h>
-#include <std_msgs/Float32.h>
-#include <nav_msgs/Path.h>
-#include <nav_msgs/Odometry.h>
-#include <geometry_msgs/PointStamped.h>
-#include <geometry_msgs/PolygonStamped.h>
-#include <sensor_msgs/Imu.h>
-#include <sensor_msgs/PointCloud2.h>
-#include <sensor_msgs/Joy.h>
+#include <geometry_msgs/msg/twist_stamped.hpp>
+#include <geometry_msgs/msg/point_stamped.hpp>
+#include <geometry_msgs/msg/polygon_stamped.hpp>
+#include <sensor_msgs/msg/imu.h>
 
-#include <tf/transform_datatypes.h>
-#include <tf/transform_broadcaster.h>
+#include "tf2/transform_datatypes.h"
+#include "tf2_ros/transform_broadcaster.h"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/kdtree/kdtree_flann.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
-#include <pcl/filters/voxel_grid.h>
-#include <pcl/kdtree/kdtree_flann.h>
+
+#include "message_filters/subscriber.h"
+#include "message_filters/synchronizer.h"
+#include "message_filters/sync_policies/approximate_time.h"
+#include "rmw/types.h"
+#include "rmw/qos_profiles.h"
 
 using namespace std;
 
@@ -123,14 +134,14 @@ float vehicleRoll = 0, vehiclePitch = 0, vehicleYaw = 0;
 float vehicleX = 0, vehicleY = 0, vehicleZ = 0;
 
 pcl::VoxelGrid<pcl::PointXYZI> laserDwzFilter, terrainDwzFilter;
+rclcpp::Node::SharedPtr nh;
 
-void odometryHandler(const nav_msgs::Odometry::ConstPtr& odom)
+void odometryHandler(const nav_msgs::msg::Odometry::ConstSharedPtr odom)
 {
-  odomTime = odom->header.stamp.toSec();
-
+  odomTime = rclcpp::Time(odom->header.stamp).seconds();
   double roll, pitch, yaw;
-  geometry_msgs::Quaternion geoQuat = odom->pose.pose.orientation;
-  tf::Matrix3x3(tf::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w)).getRPY(roll, pitch, yaw);
+  geometry_msgs::msg::Quaternion geoQuat = odom->pose.pose.orientation;
+  tf2::Matrix3x3(tf2::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w)).getRPY(roll, pitch, yaw);
 
   vehicleRoll = roll;
   vehiclePitch = pitch;
@@ -140,7 +151,7 @@ void odometryHandler(const nav_msgs::Odometry::ConstPtr& odom)
   vehicleZ = odom->pose.pose.position.z;
 }
 
-void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr& laserCloud2)
+void laserCloudHandler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr laserCloud2)
 {
   if (!useTerrainAnalysis) {
     laserCloud->clear();
@@ -173,7 +184,7 @@ void laserCloudHandler(const sensor_msgs::PointCloud2ConstPtr& laserCloud2)
   }
 }
 
-void terrainCloudHandler(const sensor_msgs::PointCloud2ConstPtr& terrainCloud2)
+void terrainCloudHandler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr terrainCloud2)
 {
   if (useTerrainAnalysis) {
     terrainCloud->clear();
@@ -206,10 +217,9 @@ void terrainCloudHandler(const sensor_msgs::PointCloud2ConstPtr& terrainCloud2)
   }
 }
 
-void joystickHandler(const sensor_msgs::Joy::ConstPtr& joy)
+void joystickHandler(const sensor_msgs::msg::Joy::ConstSharedPtr joy)
 {
-  joyTime = ros::Time::now().toSec();
-
+  joyTime = nh->now().seconds();
   joySpeedRaw = sqrt(joy->axes[3] * joy->axes[3] + joy->axes[4] * joy->axes[4]);
   joySpeed = joySpeedRaw;
   if (joySpeed > 1.0) joySpeed = 1.0;
@@ -235,16 +245,15 @@ void joystickHandler(const sensor_msgs::Joy::ConstPtr& joy)
   }
 }
 
-void goalHandler(const geometry_msgs::PointStamped::ConstPtr& goal)
+void goalHandler(const geometry_msgs::msg::PointStamped::ConstSharedPtr goal)
 {
   goalX = goal->point.x;
   goalY = goal->point.y;
 }
 
-void speedHandler(const std_msgs::Float32::ConstPtr& speed)
+void speedHandler(const std_msgs::msg::Float32::ConstSharedPtr speed)
 {
-  double speedTime = ros::Time::now().toSec();
-
+  double speedTime = nh->now().seconds();
   if (autonomyMode && speedTime - joyTime > joyToSpeedDelay && joySpeedRaw == 0) {
     joySpeed = speed->data / maxSpeed;
 
@@ -253,7 +262,7 @@ void speedHandler(const std_msgs::Float32::ConstPtr& speed)
   }
 }
 
-void boundaryHandler(const geometry_msgs::PolygonStamped::ConstPtr& boundary)
+void boundaryHandler(const geometry_msgs::msg::PolygonStamped::ConstSharedPtr boundary)
 {
   boundaryCloud->clear();
   pcl::PointXYZI point, point1, point2;
@@ -292,7 +301,7 @@ void boundaryHandler(const geometry_msgs::PolygonStamped::ConstPtr& boundary)
   }
 }
 
-void addedObstaclesHandler(const sensor_msgs::PointCloud2ConstPtr& addedObstacles2)
+void addedObstaclesHandler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr addedObstacles2)
 {
   addedObstacles->clear();
   pcl::fromROSMsg(*addedObstacles2, *addedObstacles);
@@ -303,10 +312,9 @@ void addedObstaclesHandler(const sensor_msgs::PointCloud2ConstPtr& addedObstacle
   }
 }
 
-void checkObstacleHandler(const std_msgs::Bool::ConstPtr& checkObs)
+void checkObstacleHandler(const std_msgs::msg::Bool::ConstSharedPtr checkObs)
 {
-  double checkObsTime = ros::Time::now().toSec();
-
+  double checkObsTime = nh->now().seconds();
   if (autonomyMode && checkObsTime - joyTime > joyToCheckObstacleDelay) {
     checkObstacle = checkObs->data;
   }
@@ -320,7 +328,7 @@ int readPlyHeader(FILE *filePtr)
   while (strCur != "end_header") {
     val = fscanf(filePtr, "%s", str);
     if (val != 1) {
-      printf ("\nError reading input files, exit.\n\n");
+      RCLCPP_INFO(nh->get_logger(), "Error reading input files, exit.");
       exit(1);
     }
 
@@ -330,7 +338,7 @@ int readPlyHeader(FILE *filePtr)
     if (strCur == "vertex" && strLast == "element") {
       val = fscanf(filePtr, "%d", &pointNum);
       if (val != 1) {
-        printf ("\nError reading input files, exit.\n\n");
+        RCLCPP_INFO(nh->get_logger(), "Error reading input files, exit.");
         exit(1);
       }
     }
@@ -345,7 +353,7 @@ void readStartPaths()
 
   FILE *filePtr = fopen(fileName.c_str(), "r");
   if (filePtr == NULL) {
-    printf ("\nCannot read input files, exit.\n\n");
+    RCLCPP_INFO(nh->get_logger(), "Cannot read input files, exit.");
     exit(1);
   }
 
@@ -360,7 +368,7 @@ void readStartPaths()
     val4 = fscanf(filePtr, "%d", &groupID);
 
     if (val1 != 1 || val2 != 1 || val3 != 1 || val4 != 1) {
-      printf ("\nError reading input files, exit.\n\n");
+      RCLCPP_INFO(nh->get_logger(), "Error reading input files, exit.");
         exit(1);
     }
 
@@ -379,7 +387,7 @@ void readPaths()
 
   FILE *filePtr = fopen(fileName.c_str(), "r");
   if (filePtr == NULL) {
-    printf ("\nCannot read input files, exit.\n\n");
+    RCLCPP_INFO(nh->get_logger(), "Cannot read input files, exit.");
     exit(1);
   }
 
@@ -397,7 +405,7 @@ void readPaths()
     val5 = fscanf(filePtr, "%f", &point.intensity);
 
     if (val1 != 1 || val2 != 1 || val3 != 1 || val4 != 1 || val5 != 1) {
-      printf ("\nError reading input files, exit.\n\n");
+      RCLCPP_INFO(nh->get_logger(), "Error reading input files, exit.");
         exit(1);
     }
 
@@ -420,12 +428,12 @@ void readPathList()
 
   FILE *filePtr = fopen(fileName.c_str(), "r");
   if (filePtr == NULL) {
-    printf ("\nCannot read input files, exit.\n\n");
+    RCLCPP_INFO(nh->get_logger(), "Cannot read input files, exit.");
     exit(1);
   }
 
   if (pathNum != readPlyHeader(filePtr)) {
-    printf ("\nIncorrect path number, exit.\n\n");
+    RCLCPP_INFO(nh->get_logger(), "Incorrect path number, exit.");
     exit(1);
   }
 
@@ -439,7 +447,7 @@ void readPathList()
     val5 = fscanf(filePtr, "%d", &groupID);
 
     if (val1 != 1 || val2 != 1 || val3 != 1 || val4 != 1 || val5 != 1) {
-      printf ("\nError reading input files, exit.\n\n");
+      RCLCPP_INFO(nh->get_logger(), "Error reading input files, exit.");
         exit(1);
     }
 
@@ -458,7 +466,7 @@ void readCorrespondences()
 
   FILE *filePtr = fopen(fileName.c_str(), "r");
   if (filePtr == NULL) {
-    printf ("\nCannot read input files, exit.\n\n");
+    RCLCPP_INFO(nh->get_logger(), "Cannot read input files, exit.");
     exit(1);
   }
 
@@ -466,14 +474,14 @@ void readCorrespondences()
   for (int i = 0; i < gridVoxelNum; i++) {
     val1 = fscanf(filePtr, "%d", &gridVoxelID);
     if (val1 != 1) {
-      printf ("\nError reading input files, exit.\n\n");
+      RCLCPP_INFO(nh->get_logger(), "Error reading input files, exit.");
         exit(1);
     }
 
     while (1) {
       val1 = fscanf(filePtr, "%d", &pathID);
       if (val1 != 1) {
-        printf ("\nError reading input files, exit.\n\n");
+        RCLCPP_INFO(nh->get_logger(), "Error reading input files, exit.");
           exit(1);
       }
 
@@ -492,81 +500,115 @@ void readCorrespondences()
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "localPlanner");
-  ros::NodeHandle nh;
-  ros::NodeHandle nhPrivate = ros::NodeHandle("~");
+  rclcpp::init(argc, argv);
+  nh = rclcpp::Node::make_shared("localPlanner");
 
-  nhPrivate.getParam("pathFolder", pathFolder);
-  nhPrivate.getParam("vehicleLength", vehicleLength);
-  nhPrivate.getParam("vehicleWidth", vehicleWidth);
-  nhPrivate.getParam("sensorOffsetX", sensorOffsetX);
-  nhPrivate.getParam("sensorOffsetY", sensorOffsetY);
-  nhPrivate.getParam("twoWayDrive", twoWayDrive);
-  nhPrivate.getParam("laserVoxelSize", laserVoxelSize);
-  nhPrivate.getParam("terrainVoxelSize", terrainVoxelSize);
-  nhPrivate.getParam("useTerrainAnalysis", useTerrainAnalysis);
-  nhPrivate.getParam("checkObstacle", checkObstacle);
-  nhPrivate.getParam("checkRotObstacle", checkRotObstacle);
-  nhPrivate.getParam("adjacentRange", adjacentRange);
-  nhPrivate.getParam("obstacleHeightThre", obstacleHeightThre);
-  nhPrivate.getParam("groundHeightThre", groundHeightThre);
-  nhPrivate.getParam("costHeightThre", costHeightThre);
-  nhPrivate.getParam("costScore", costScore);
-  nhPrivate.getParam("useCost", useCost);
-  nhPrivate.getParam("pointPerPathThre", pointPerPathThre);
-  nhPrivate.getParam("minRelZ", minRelZ);
-  nhPrivate.getParam("maxRelZ", maxRelZ);
-  nhPrivate.getParam("maxSpeed", maxSpeed);
-  nhPrivate.getParam("dirWeight", dirWeight);
-  nhPrivate.getParam("dirThre", dirThre);
-  nhPrivate.getParam("dirToVehicle", dirToVehicle);
-  nhPrivate.getParam("pathScale", pathScale);
-  nhPrivate.getParam("minPathScale", minPathScale);
-  nhPrivate.getParam("pathScaleStep", pathScaleStep);
-  nhPrivate.getParam("pathScaleBySpeed", pathScaleBySpeed);
-  nhPrivate.getParam("minPathRange", minPathRange);
-  nhPrivate.getParam("pathRangeStep", pathRangeStep);
-  nhPrivate.getParam("pathRangeBySpeed", pathRangeBySpeed);
-  nhPrivate.getParam("pathCropByGoal", pathCropByGoal);
-  nhPrivate.getParam("autonomyMode", autonomyMode);
-  nhPrivate.getParam("autonomySpeed", autonomySpeed);
-  nhPrivate.getParam("joyToSpeedDelay", joyToSpeedDelay);
-  nhPrivate.getParam("joyToCheckObstacleDelay", joyToCheckObstacleDelay);
-  nhPrivate.getParam("goalClearRange", goalClearRange);
-  nhPrivate.getParam("goalX", goalX);
-  nhPrivate.getParam("goalY", goalY);
+  nh->declare_parameter<std::string>("pathFolder", pathFolder);
+  nh->declare_parameter<double>("vehicleLength", vehicleLength);
+  nh->declare_parameter<double>("vehicleWidth", vehicleWidth);
+  nh->declare_parameter<double>("sensorOffsetX", sensorOffsetX);
+  nh->declare_parameter<double>("sensorOffsetY", sensorOffsetY);
+  nh->declare_parameter<bool>("twoWayDrive", twoWayDrive);
+  nh->declare_parameter<double>("laserVoxelSize", laserVoxelSize);
+  nh->declare_parameter<double>("terrainVoxelSize", terrainVoxelSize);
+  nh->declare_parameter<bool>("useTerrainAnalysis", useTerrainAnalysis);
+  nh->declare_parameter<bool>("checkObstacle", checkObstacle);
+  nh->declare_parameter<bool>("checkRotObstacle", checkRotObstacle);
+  nh->declare_parameter<double>("adjacentRange", adjacentRange);
+  nh->declare_parameter<double>("obstacleHeightThre", obstacleHeightThre);
+  nh->declare_parameter<double>("groundHeightThre", groundHeightThre);
+  nh->declare_parameter<double>("costHeightThre", costHeightThre);
+  nh->declare_parameter<bool>("useCost", useCost);
+  nh->declare_parameter<int>("pointPerPathThre", pointPerPathThre);
+  nh->declare_parameter<double>("minRelZ", minRelZ);
+  nh->declare_parameter<double>("maxRelZ", maxRelZ);
+  nh->declare_parameter<double>("maxSpeed", maxSpeed);
+  nh->declare_parameter<double>("dirWeight", dirWeight);
+  nh->declare_parameter<double>("dirThre", dirThre);
+  nh->declare_parameter<bool>("dirToVehicle", dirToVehicle);
+  nh->declare_parameter<double>("pathScale", pathScale);
+  nh->declare_parameter<double>("minPathScale", minPathScale);
+  nh->declare_parameter<double>("pathScaleStep", pathScaleStep);
+  nh->declare_parameter<bool>("pathScaleBySpeed", pathScaleBySpeed);
+  nh->declare_parameter<double>("minPathRange", minPathRange);
+  nh->declare_parameter<double>("pathRangeStep", pathRangeStep);
+  nh->declare_parameter<bool>("pathRangeBySpeed", pathRangeBySpeed);
+  nh->declare_parameter<bool>("pathCropByGoal", pathCropByGoal);
+  nh->declare_parameter<bool>("autonomyMode", autonomyMode);
+  nh->declare_parameter<double>("autonomySpeed", autonomySpeed);
+  nh->declare_parameter<double>("joyToSpeedDelay", joyToSpeedDelay);
+  nh->declare_parameter<double>("joyToCheckObstacleDelay", joyToCheckObstacleDelay);
+  nh->declare_parameter<double>("goalClearRange", goalClearRange);
+  nh->declare_parameter<double>("goalX", goalX);
+  nh->declare_parameter<double>("goalY", goalY);
 
-  ros::Subscriber subOdometry = nh.subscribe<nav_msgs::Odometry>
-                                ("/state_estimation", 5, odometryHandler);
+  nh->get_parameter("pathFolder", pathFolder);
+  nh->get_parameter("vehicleLength", vehicleLength);
+  nh->get_parameter("vehicleWidth", vehicleWidth);
+  nh->get_parameter("sensorOffsetX", sensorOffsetX);
+  nh->get_parameter("sensorOffsetY", sensorOffsetY);
+  nh->get_parameter("twoWayDrive", twoWayDrive);
+  nh->get_parameter("laserVoxelSize", laserVoxelSize);
+  nh->get_parameter("terrainVoxelSize", terrainVoxelSize);
+  nh->get_parameter("useTerrainAnalysis", useTerrainAnalysis);
+  nh->get_parameter("checkObstacle", checkObstacle);
+  nh->get_parameter("checkRotObstacle", checkRotObstacle);
+  nh->get_parameter("adjacentRange", adjacentRange);
+  nh->get_parameter("obstacleHeightThre", obstacleHeightThre);
+  nh->get_parameter("groundHeightThre", groundHeightThre);
+  nh->get_parameter("costHeightThre", costHeightThre);
+  nh->get_parameter("useCost", useCost);
+  nh->get_parameter("pointPerPathThre", pointPerPathThre);
+  nh->get_parameter("minRelZ", minRelZ);
+  nh->get_parameter("maxRelZ", maxRelZ);
+  nh->get_parameter("maxSpeed", maxSpeed);
+  nh->get_parameter("dirWeight", dirWeight);
+  nh->get_parameter("dirThre", dirThre);
+  nh->get_parameter("dirToVehicle", dirToVehicle);
+  nh->get_parameter("pathScale", pathScale);
+  nh->get_parameter("minPathScale", minPathScale);
+  nh->get_parameter("pathScaleStep", pathScaleStep);
+  nh->get_parameter("pathScaleBySpeed", pathScaleBySpeed);
+  nh->get_parameter("minPathRange", minPathRange);
+  nh->get_parameter("pathRangeStep", pathRangeStep);
+  nh->get_parameter("pathRangeBySpeed", pathRangeBySpeed);
+  nh->get_parameter("pathCropByGoal", pathCropByGoal);
+  nh->get_parameter("autonomyMode", autonomyMode);
+  nh->get_parameter("autonomySpeed", autonomySpeed);
+  nh->get_parameter("joyToSpeedDelay", joyToSpeedDelay);
+  nh->get_parameter("joyToCheckObstacleDelay", joyToCheckObstacleDelay);
+  nh->get_parameter("goalClearRange", goalClearRange);
+  nh->get_parameter("goalX", goalX);
+  nh->get_parameter("goalY", goalY);
 
-  ros::Subscriber subLaserCloud = nh.subscribe<sensor_msgs::PointCloud2>
-                                  ("/registered_scan", 5, laserCloudHandler);
+  auto subOdometry = nh->create_subscription<nav_msgs::msg::Odometry>("/state_estimation", 5, odometryHandler);
 
-  ros::Subscriber subTerrainCloud = nh.subscribe<sensor_msgs::PointCloud2>
-                                    ("/terrain_map", 5, terrainCloudHandler);
+  auto subLaserCloud = nh->create_subscription<sensor_msgs::msg::PointCloud2>("/registered_scan", 5, laserCloudHandler);
 
-  ros::Subscriber subJoystick = nh.subscribe<sensor_msgs::Joy> ("/joy", 5, joystickHandler);
+  auto subTerrainCloud = nh->create_subscription<sensor_msgs::msg::PointCloud2>("/terrain_map", 5, terrainCloudHandler);
 
-  ros::Subscriber subGoal = nh.subscribe<geometry_msgs::PointStamped> ("/way_point", 5, goalHandler);
+  auto subJoystick = nh->create_subscription<sensor_msgs::msg::Joy>("/joy", 5, joystickHandler);
 
-  ros::Subscriber subSpeed = nh.subscribe<std_msgs::Float32> ("/speed", 5, speedHandler);
+  auto subGoal = nh->create_subscription<geometry_msgs::msg::PointStamped> ("/way_point", 5, goalHandler);
 
-  ros::Subscriber subBoundary = nh.subscribe<geometry_msgs::PolygonStamped> ("/navigation_boundary", 5, boundaryHandler);
+  auto subSpeed = nh->create_subscription<std_msgs::msg::Float32>("/speed", 5, speedHandler);
 
-  ros::Subscriber subAddedObstacles = nh.subscribe<sensor_msgs::PointCloud2> ("/added_obstacles", 5, addedObstaclesHandler);
+  auto subBoundary = nh->create_subscription<geometry_msgs::msg::PolygonStamped>("/navigation_boundary", 5, boundaryHandler);
 
-  ros::Subscriber subCheckObstacle = nh.subscribe<std_msgs::Bool> ("/check_obstacle", 5, checkObstacleHandler);
+  auto subAddedObstacles = nh->create_subscription<sensor_msgs::msg::PointCloud2>("/added_obstacles", 5, addedObstaclesHandler);
 
-  ros::Publisher pubPath = nh.advertise<nav_msgs::Path> ("/path", 5);
-  nav_msgs::Path path;
+  auto subCheckObstacle = nh->create_subscription<std_msgs::msg::Bool>("/check_obstacle", 5, checkObstacleHandler);
+
+  auto pubPath = nh->create_publisher<nav_msgs::msg::Path>("/path", 5);
+  nav_msgs::msg::Path path;
 
   #if PLOTPATHSET == 1
-  ros::Publisher pubFreePaths = nh.advertise<sensor_msgs::PointCloud2> ("/free_paths", 2);
+  auto pubFreePaths = nh->create_publisher<sensor_msgs::msg::PointCloud2>("/free_paths", 2);
   #endif
 
-  //ros::Publisher pubLaserCloud = nh.advertise<sensor_msgs::PointCloud2> ("/stacked_scans", 2);
+  //auto pubLaserCloud = nh->create_publisher<sensor_msgs::msg::PointCloud2> ("/stacked_scans", 2);
 
-  printf ("\nReading path files.\n");
+  RCLCPP_INFO(nh->get_logger(), "Reading path files.");
 
   if (autonomyMode) {
     joySpeed = autonomySpeed / maxSpeed;
@@ -600,12 +642,12 @@ int main(int argc, char** argv)
   readPathList();
   readCorrespondences();
 
-  printf ("\nInitialization complete.\n\n");
+  RCLCPP_INFO(nh->get_logger(), "Initialization complete.");
 
-  ros::Rate rate(100);
-  bool status = ros::ok();
+  rclcpp::Rate rate(100);
+  bool status = rclcpp::ok();
   while (status) {
-    ros::spinOnce();
+    rclcpp::spin_some(nh);
 
     if (newLaserCloud || newTerrainCloud) {
       if (newLaserCloud) {
@@ -849,9 +891,9 @@ int main(int argc, char** argv)
             }
           }
 
-          path.header.stamp = ros::Time().fromSec(odomTime);
+          path.header.stamp = rclcpp::Time(static_cast<uint64_t>(odomTime * 1e9));
           path.header.frame_id = "vehicle";
-          pubPath.publish(path);
+          pubPath->publish(path);
 
           #if PLOTPATHSET == 1
           freePaths->clear();
@@ -893,11 +935,11 @@ int main(int argc, char** argv)
             }
           }
 
-          sensor_msgs::PointCloud2 freePaths2;
+          sensor_msgs::msg::PointCloud2 freePaths2;
           pcl::toROSMsg(*freePaths, freePaths2);
-          freePaths2.header.stamp = ros::Time().fromSec(odomTime);
+          freePaths2.header.stamp = rclcpp::Time(static_cast<uint64_t>(odomTime * 1e9));
           freePaths2.header.frame_id = "vehicle";
-          pubFreePaths.publish(freePaths2);
+          pubFreePaths->publish(freePaths2);
           #endif
         }
 
@@ -921,28 +963,28 @@ int main(int argc, char** argv)
         path.poses[0].pose.position.y = 0;
         path.poses[0].pose.position.z = 0;
 
-        path.header.stamp = ros::Time().fromSec(odomTime);
+        path.header.stamp = rclcpp::Time(static_cast<uint64_t>(odomTime * 1e9));
         path.header.frame_id = "vehicle";
-        pubPath.publish(path);
+        pubPath->publish(path);
 
         #if PLOTPATHSET == 1
         freePaths->clear();
-        sensor_msgs::PointCloud2 freePaths2;
+        sensor_msgs::msg::PointCloud2 freePaths2;
         pcl::toROSMsg(*freePaths, freePaths2);
-        freePaths2.header.stamp = ros::Time().fromSec(odomTime);
+        freePaths2.header.stamp = rclcpp::Time(static_cast<uint64_t>(odomTime * 1e9));
         freePaths2.header.frame_id = "vehicle";
-        pubFreePaths.publish(freePaths2);
+        pubFreePaths->publish(freePaths2);
         #endif
       }
 
-      /*sensor_msgs::PointCloud2 plannerCloud2;
+      /*sensor_msgs::msg::PointCloud2 plannerCloud2;
       pcl::toROSMsg(*plannerCloudCrop, plannerCloud2);
-      plannerCloud2.header.stamp = ros::Time().fromSec(odomTime);
+      plannerCloud2.header.stamp = rclcpp::Time(static_cast<uint64_t>(odomTime * 1e9));
       plannerCloud2.header.frame_id = "vehicle";
-      pubLaserCloud.publish(plannerCloud2);*/
+      pubLaserCloud->publish(plannerCloud2);*/
     }
 
-    status = ros::ok();
+    status = rclcpp::ok();
     rate.sleep();
   }
 

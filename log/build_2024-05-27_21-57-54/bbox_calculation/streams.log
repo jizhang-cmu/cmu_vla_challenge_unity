@@ -1,0 +1,614 @@
+[0.010s] Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/bbox_calculation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation
+[0.056s] -- The C compiler identification is GNU 8.4.0
+[0.091s] -- The CXX compiler identification is GNU 8.4.0
+[0.102s] -- Detecting C compiler ABI info
+[0.138s] -- Detecting C compiler ABI info - done
+[0.144s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.145s] -- Detecting C compile features
+[0.145s] -- Detecting C compile features - done
+[0.151s] -- Detecting CXX compiler ABI info
+[0.194s] -- Detecting CXX compiler ABI info - done
+[0.200s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.200s] -- Detecting CXX compile features
+[0.201s] -- Detecting CXX compile features - done
+[0.203s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.206s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[0.206s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.206s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.206s]   the cmake_policy command to set the policy and suppress this warning.
+[0.206s] 
+[0.206s] Call Stack (most recent call first):
+[0.206s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[0.206s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[0.206s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.206s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.206s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.206s]   CMakeLists.txt:8 (find_package)
+[0.206s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.206s] [0m
+[0.224s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.224s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.348s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.366s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.402s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.407s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.458s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.490s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.544s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.582s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.584s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.585s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.621s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[0.621s] -- Looking for pthread_create in pthreads
+[0.646s] -- Looking for pthread_create in pthreads - not found
+[0.646s] -- Looking for pthread_create in pthread
+[0.680s] -- Looking for pthread_create in pthread - found
+[0.680s] -- Found Threads: TRUE  
+[0.772s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[0.840s] -- Found visualization_msgs: 2.0.5 (/opt/ros/foxy/share/visualization_msgs/cmake)
+[0.882s] -- Found pcl_ros: 2.2.1 (/opt/ros/foxy/share/pcl_ros/cmake)
+[1.105s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)
+[1.107s] -- Found Eigen3: TRUE (found version "3.3.7") 
+[1.346s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:152 (find_package):
+[1.346s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[1.346s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[1.346s]   cmake_policy command to set the policy and suppress this warning.
+[1.346s] 
+[1.346s]   CMake variable EIGEN_ROOT is set to:
+[1.346s] 
+[1.346s]     /usr/include/eigen3
+[1.346s] 
+[1.346s]   For compatibility, find_package is ignoring the variable, but code in a
+[1.346s]   .cmake module might still use it.
+[1.346s] Call Stack (most recent call first):
+[1.346s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:316 (find_eigen)
+[1.346s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:551 (find_external_library)
+[1.346s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.346s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.346s]   CMakeLists.txt:13 (find_package)
+[1.346s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.346s] [0m
+[1.348s] -- Checking for module 'eigen3'
+[1.356s] --   Found eigen3, version 3.3.7
+[1.375s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[1.375s] -- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+[1.422s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:44 (find_package):
+[1.422s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[1.422s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[1.422s]   cmake_policy command to set the policy and suppress this warning.
+[1.422s] 
+[1.422s]   CMake variable FLANN_ROOT is set to:
+[1.422s] 
+[1.422s]     /usr
+[1.422s] 
+[1.422s]   For compatibility, find_package is ignoring the variable, but code in a
+[1.422s]   .cmake module might still use it.
+[1.422s] Call Stack (most recent call first):
+[1.422s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:263 (find_package)
+[1.422s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:318 (find_flann)
+[1.422s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:551 (find_external_library)
+[1.422s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.422s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.422s]   CMakeLists.txt:13 (find_package)
+[1.422s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.422s] [0m
+[1.431s] -- Checking for module 'flann'
+[1.440s] --   Found flann, version 1.9.1
+[1.463s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[1.487s] -- The imported target "vtkParseOGLExt" references the file
+[1.487s]    "/usr/bin/vtkParseOGLExt-7.1"
+[1.487s] but this file does not exist.  Possible reasons include:
+[1.487s] * The file was deleted, renamed, or moved to another location.
+[1.487s] * An install or uninstall procedure did not complete successfully.
+[1.487s] * The installation package was faulty and contained
+[1.487s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[1.487s] but not all the files it references.
+[1.487s] 
+[1.487s] -- The imported target "vtkRenderingPythonTkWidgets" references the file
+[1.487s]    "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+[1.487s] but this file does not exist.  Possible reasons include:
+[1.487s] * The file was deleted, renamed, or moved to another location.
+[1.487s] * An install or uninstall procedure did not complete successfully.
+[1.488s] * The installation package was faulty and contained
+[1.488s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[1.488s] but not all the files it references.
+[1.488s] 
+[1.488s] -- The imported target "vtk" references the file
+[1.488s]    "/usr/bin/vtk"
+[1.488s] but this file does not exist.  Possible reasons include:
+[1.488s] * The file was deleted, renamed, or moved to another location.
+[1.488s] * An install or uninstall procedure did not complete successfully.
+[1.488s] * The installation package was faulty and contained
+[1.488s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[1.488s] but not all the files it references.
+[1.488s] 
+[1.488s] -- The imported target "pvtk" references the file
+[1.488s]    "/usr/bin/pvtk"
+[1.488s] but this file does not exist.  Possible reasons include:
+[1.488s] * The file was deleted, renamed, or moved to another location.
+[1.488s] * An install or uninstall procedure did not complete successfully.
+[1.488s] * The installation package was faulty and contained
+[1.488s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[1.488s] but not all the files it references.
+[1.488s] 
+[1.498s] -- Checking for module 'libusb-1.0'
+[1.507s] --   Found libusb-1.0, version 1.0.23
+[1.529s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.529s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.529s]   does not match the name of the calling package (OpenNI).  This can lead to
+[1.529s]   problems in calling code that expects `find_package` result variables
+[1.529s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.529s] Call Stack (most recent call first):
+[1.529s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI.cmake:28 (find_package_handle_standard_args)
+[1.529s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:179 (find_package)
+[1.529s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:322 (find_openni)
+[1.529s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.529s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.529s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.529s]   CMakeLists.txt:13 (find_package)
+[1.529s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.529s] [0m
+[1.529s] -- Found USB_10: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[1.563s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.567s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.567s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.567s]   does not match the name of the calling package (OpenNI2).  This can lead to
+[1.567s]   problems in calling code that expects `find_package` result variables
+[1.567s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.567s] Call Stack (most recent call first):
+[1.567s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI2.cmake:28 (find_package_handle_standard_args)
+[1.567s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:193 (find_package)
+[1.567s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_openni2)
+[1.567s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.567s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.567s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.567s]   CMakeLists.txt:13 (find_package)
+[1.567s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.567s] [0m
+[1.597s] -- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+[1.606s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.606s]   The package name passed to `find_package_handle_standard_args` (libusb-1.0)
+[1.606s]   does not match the name of the calling package (PCL).  This can lead to
+[1.606s]   problems in calling code that expects `find_package` result variables
+[1.607s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.607s] Call Stack (most recent call first):
+[1.607s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:291 (find_package_handle_standard_args)
+[1.607s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:338 (find_libusb)
+[1.607s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.607s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.607s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.607s]   CMakeLists.txt:13 (find_package)
+[1.607s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.607s] [0m
+[1.607s] -- Found libusb-1.0: /usr/include  
+[1.610s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.610s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.610s]   does not match the name of the calling package (OpenNI).  This can lead to
+[1.610s]   problems in calling code that expects `find_package` result variables
+[1.610s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.610s] Call Stack (most recent call first):
+[1.610s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI.cmake:28 (find_package_handle_standard_args)
+[1.610s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:179 (find_package)
+[1.611s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:322 (find_openni)
+[1.611s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.611s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.611s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.611s]   CMakeLists.txt:13 (find_package)
+[1.611s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.611s] [0m
+[1.611s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.615s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.615s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.615s]   does not match the name of the calling package (OpenNI2).  This can lead to
+[1.615s]   problems in calling code that expects `find_package` result variables
+[1.615s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.615s] Call Stack (most recent call first):
+[1.615s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI2.cmake:28 (find_package_handle_standard_args)
+[1.615s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:193 (find_package)
+[1.615s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_openni2)
+[1.615s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.615s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.615s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.615s]   CMakeLists.txt:13 (find_package)
+[1.615s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.615s] [0m
+[1.616s] -- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+[1.623s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:165 (find_package):
+[1.623s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[1.623s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[1.623s]   cmake_policy command to set the policy and suppress this warning.
+[1.623s] 
+[1.623s]   CMake variable QHULL_ROOT is set to:
+[1.623s] 
+[1.623s]     /usr
+[1.623s] 
+[1.623s]   For compatibility, find_package is ignoring the variable, but code in a
+[1.623s]   .cmake module might still use it.
+[1.623s] Call Stack (most recent call first):
+[1.623s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:320 (find_qhull)
+[1.623s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.623s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.623s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.623s]   CMakeLists.txt:13 (find_package)
+[1.623s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.623s] [0m
+[1.637s] -- Found Qhull: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so  
+[1.637s] -- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+[1.640s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.640s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.640s]   does not match the name of the calling package (OpenNI).  This can lead to
+[1.640s]   problems in calling code that expects `find_package` result variables
+[1.640s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.640s] Call Stack (most recent call first):
+[1.641s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI.cmake:28 (find_package_handle_standard_args)
+[1.641s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:179 (find_package)
+[1.641s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:322 (find_openni)
+[1.641s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.641s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.641s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.641s]   CMakeLists.txt:13 (find_package)
+[1.641s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.641s] [0m
+[1.641s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.649s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.649s]   The package name passed to `find_package_handle_standard_args` (PCL_COMMON)
+[1.649s]   does not match the name of the calling package (PCL).  This can lead to
+[1.650s]   problems in calling code that expects `find_package` result variables
+[1.650s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.650s] Call Stack (most recent call first):
+[1.650s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.650s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.650s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.650s]   CMakeLists.txt:13 (find_package)
+[1.650s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.650s] [0m
+[1.650s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[1.650s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.650s]   The package name passed to `find_package_handle_standard_args` (PCL_KDTREE)
+[1.650s]   does not match the name of the calling package (PCL).  This can lead to
+[1.650s]   problems in calling code that expects `find_package` result variables
+[1.650s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.650s] Call Stack (most recent call first):
+[1.650s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.650s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.650s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.650s]   CMakeLists.txt:13 (find_package)
+[1.650s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.651s] [0m
+[1.651s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[1.651s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.651s]   The package name passed to `find_package_handle_standard_args` (PCL_OCTREE)
+[1.651s]   does not match the name of the calling package (PCL).  This can lead to
+[1.651s]   problems in calling code that expects `find_package` result variables
+[1.651s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.651s] Call Stack (most recent call first):
+[1.651s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.651s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.651s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.651s]   CMakeLists.txt:13 (find_package)
+[1.651s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.651s] [0m
+[1.651s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[1.652s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.652s]   The package name passed to `find_package_handle_standard_args` (PCL_SEARCH)
+[1.652s]   does not match the name of the calling package (PCL).  This can lead to
+[1.652s]   problems in calling code that expects `find_package` result variables
+[1.652s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.652s] Call Stack (most recent call first):
+[1.652s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.652s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.652s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.652s]   CMakeLists.txt:13 (find_package)
+[1.652s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.652s] [0m
+[1.652s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[1.653s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.653s]   The package name passed to `find_package_handle_standard_args`
+[1.653s]   (PCL_SAMPLE_CONSENSUS) does not match the name of the calling package
+[1.653s]   (PCL).  This can lead to problems in calling code that expects
+[1.653s]   `find_package` result variables (e.g., `_FOUND`) to follow a certain
+[1.653s]   pattern.
+[1.653s] Call Stack (most recent call first):
+[1.653s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.653s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.653s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.653s]   CMakeLists.txt:13 (find_package)
+[1.653s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.653s] [0m
+[1.653s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[1.653s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.654s]   The package name passed to `find_package_handle_standard_args`
+[1.654s]   (PCL_FILTERS) does not match the name of the calling package (PCL).  This
+[1.654s]   can lead to problems in calling code that expects `find_package` result
+[1.654s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.654s] Call Stack (most recent call first):
+[1.654s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.654s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.654s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.654s]   CMakeLists.txt:13 (find_package)
+[1.654s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.654s] [0m
+[1.654s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[1.654s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.654s]   The package name passed to `find_package_handle_standard_args` (PCL_2D)
+[1.654s]   does not match the name of the calling package (PCL).  This can lead to
+[1.654s]   problems in calling code that expects `find_package` result variables
+[1.654s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.654s] Call Stack (most recent call first):
+[1.654s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:619 (find_package_handle_standard_args)
+[1.654s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.654s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.654s]   CMakeLists.txt:13 (find_package)
+[1.654s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.654s] [0m
+[1.654s] -- Found PCL_2D: /usr/include/pcl-1.10  
+[1.654s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.654s]   The package name passed to `find_package_handle_standard_args`
+[1.654s]   (PCL_GEOMETRY) does not match the name of the calling package (PCL).  This
+[1.655s]   can lead to problems in calling code that expects `find_package` result
+[1.655s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.655s] Call Stack (most recent call first):
+[1.655s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:619 (find_package_handle_standard_args)
+[1.655s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.655s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.655s]   CMakeLists.txt:13 (find_package)
+[1.655s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.655s] [0m
+[1.655s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.10  
+[1.655s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.655s]   The package name passed to `find_package_handle_standard_args` (PCL_IO)
+[1.655s]   does not match the name of the calling package (PCL).  This can lead to
+[1.655s]   problems in calling code that expects `find_package` result variables
+[1.655s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.655s] Call Stack (most recent call first):
+[1.655s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[1.655s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.655s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.655s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.655s]   CMakeLists.txt:13 (find_package)
+[1.655s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.655s] [0m
+[1.656s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.656s]   The package name passed to `find_package_handle_standard_args`
+[1.656s]   (PCL_FEATURES) does not match the name of the calling package (PCL).  This
+[1.656s]   can lead to problems in calling code that expects `find_package` result
+[1.656s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.656s] Call Stack (most recent call first):
+[1.656s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.656s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.656s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.656s]   CMakeLists.txt:13 (find_package)
+[1.656s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.656s] [0m
+[1.656s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[1.657s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.657s]   The package name passed to `find_package_handle_standard_args` (PCL_ML)
+[1.657s]   does not match the name of the calling package (PCL).  This can lead to
+[1.657s]   problems in calling code that expects `find_package` result variables
+[1.657s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.657s] Call Stack (most recent call first):
+[1.657s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.657s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.657s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.657s]   CMakeLists.txt:13 (find_package)
+[1.657s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.657s] [0m
+[1.657s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[1.657s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.657s]   The package name passed to `find_package_handle_standard_args`
+[1.657s]   (PCL_SEGMENTATION) does not match the name of the calling package (PCL).
+[1.657s]   This can lead to problems in calling code that expects `find_package`
+[1.657s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.657s] Call Stack (most recent call first):
+[1.658s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.658s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.658s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.658s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[1.658s]   CMakeLists.txt:13 (find_package)
+[1.658s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.658s] [0m
+[1.658s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.658s]   The package name passed to `find_package_handle_standard_args`
+[1.658s]   (PCL_VISUALIZATION) does not match the name of the calling package (PCL).
+[1.658s]   This can lead to problems in calling code that expects `find_package`
+[1.658s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.658s] Call Stack (most recent call first):
+[1.658s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.658s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.658s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.658s]   CMakeLists.txt:13 (find_package)
+[1.658s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.658s] [0m
+[1.659s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[1.659s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.659s]   The package name passed to `find_package_handle_standard_args`
+[1.659s]   (PCL_SURFACE) does not match the name of the calling package (PCL).  This
+[1.659s]   can lead to problems in calling code that expects `find_package` result
+[1.659s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.659s] Call Stack (most recent call first):
+[1.659s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.659s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.659s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.659s]   CMakeLists.txt:13 (find_package)
+[1.659s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.659s] [0m
+[1.659s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[1.660s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.660s]   The package name passed to `find_package_handle_standard_args`
+[1.660s]   (PCL_REGISTRATION) does not match the name of the calling package (PCL).
+[1.660s]   This can lead to problems in calling code that expects `find_package`
+[1.660s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.660s] Call Stack (most recent call first):
+[1.660s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.660s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.660s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.660s]   CMakeLists.txt:13 (find_package)
+[1.660s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.660s] [0m
+[1.660s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[1.661s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.661s]   The package name passed to `find_package_handle_standard_args`
+[1.661s]   (PCL_KEYPOINTS) does not match the name of the calling package (PCL).  This
+[1.661s]   can lead to problems in calling code that expects `find_package` result
+[1.661s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.661s] Call Stack (most recent call first):
+[1.661s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.661s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.661s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.661s]   CMakeLists.txt:13 (find_package)
+[1.661s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.661s] [0m
+[1.661s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[1.662s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.662s]   The package name passed to `find_package_handle_standard_args`
+[1.662s]   (PCL_TRACKING) does not match the name of the calling package (PCL).  This
+[1.662s]   can lead to problems in calling code that expects `find_package` result
+[1.662s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.662s] Call Stack (most recent call first):
+[1.662s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.662s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.662s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[1.662s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.662s]   CMakeLists.txt:13 (find_package)
+[1.662s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.662s] [0m
+[1.663s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.663s]   The package name passed to `find_package_handle_standard_args`
+[1.663s]   (PCL_RECOGNITION) does not match the name of the calling package (PCL).
+[1.663s]   This can lead to problems in calling code that expects `find_package`
+[1.663s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.663s] Call Stack (most recent call first):
+[1.663s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.663s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.663s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.663s]   CMakeLists.txt:13 (find_package)
+[1.663s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.663s] [0m
+[1.663s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[1.664s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.664s]   The package name passed to `find_package_handle_standard_args` (PCL_STEREO)
+[1.664s]   does not match the name of the calling package (PCL).  This can lead to
+[1.664s]   problems in calling code that expects `find_package` result variables
+[1.664s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.664s] Call Stack (most recent call first):
+[1.664s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.664s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.664s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.664s]   CMakeLists.txt:13 (find_package)
+[1.664s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.664s] [0m
+[1.664s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[1.665s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.665s]   The package name passed to `find_package_handle_standard_args` (PCL_APPS)
+[1.665s]   does not match the name of the calling package (PCL).  This can lead to
+[1.665s]   problems in calling code that expects `find_package` result variables
+[1.665s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.665s] Call Stack (most recent call first):
+[1.665s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.665s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.665s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.665s]   CMakeLists.txt:13 (find_package)
+[1.665s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.665s] [0m
+[1.665s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[1.665s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.665s]   The package name passed to `find_package_handle_standard_args`
+[1.665s]   (PCL_IN_HAND_SCANNER) does not match the name of the calling package (PCL).
+[1.665s]   This can lead to problems in calling code that expects `find_package`
+[1.665s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.665s] Call Stack (most recent call first):
+[1.665s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:619 (find_package_handle_standard_args)
+[1.665s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.665s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.665s]   CMakeLists.txt:13 (find_package)
+[1.665s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.666s] [0m
+[1.666s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.10  
+[1.666s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.666s]   The package name passed to `find_package_handle_standard_args`
+[1.666s]   (PCL_POINT_CLOUD_EDITOR) does not match the name of the calling package
+[1.666s]   (PCL).  This can lead to problems in calling code that expects
+[1.666s]   `find_package` result variables (e.g., `_FOUND`) to follow a certain
+[1.666s]   pattern.
+[1.666s] Call Stack (most recent call first):
+[1.666s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:619 (find_package_handle_standard_args)
+[1.666s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.666s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.666s]   CMakeLists.txt:13 (find_package)
+[1.666s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.666s] [0m
+[1.666s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.10  
+[1.666s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.666s]   The package name passed to `find_package_handle_standard_args`
+[1.666s]   (PCL_OUTOFCORE) does not match the name of the calling package (PCL).  This
+[1.666s]   can lead to problems in calling code that expects `find_package` result
+[1.666s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.666s] Call Stack (most recent call first):
+[1.667s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.667s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.667s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.667s]   CMakeLists.txt:13 (find_package)
+[1.667s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.667s] [0m
+[1.667s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[1.667s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.667s]   The package name passed to `find_package_handle_standard_args` (PCL_PEOPLE)
+[1.667s]   does not match the name of the calling package (PCL).  This can lead to
+[1.667s]   problems in calling code that expects `find_package` result variables
+[1.667s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.667s] Call Stack (most recent call first):
+[1.667s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.667s]   /opt/ros/foxy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.668s]   /opt/ros/foxy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.668s]   CMakeLists.txt:13 (find_package)
+[1.668s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.668s] [0m
+[1.668s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[1.679s] [33mCMake Warning (dev) at CMakeLists.txt:18 (find_package):
+[1.679s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[1.679s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[1.679s]   command to set the policy and suppress this warning.
+[1.679s] 
+[1.679s]   CMake variable PCL_ROOT is set to:
+[1.679s] 
+[1.679s]     /usr
+[1.679s] 
+[1.679s]   For compatibility, CMake is ignoring the variable.
+[1.679s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.679s] [0m
+[1.694s] -- Found OpenCV: /usr (found version "4.2.0") 
+[1.733s] -- Configuring done (1.7s)
+[1.770s] -- Generating done (0.0s)
+[1.771s] -- Build files have been written to: /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation
+[1.782s] Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/bbox_calculation -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation
+[1.784s] Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation -- -j20 -l20
+[1.814s] [ 50%] [32mBuilding CXX object CMakeFiles/bboxCalculation.dir/src/bboxCalculation.cpp.o[0m
+[1.814s] [ 50%] [32mBuilding CXX object CMakeFiles/bboxBroadcast.dir/src/bboxBroadcast.cpp.o[0m
+[5.680s] [ 75%] [32m[1mLinking CXX executable bboxCalculation[0m
+[5.888s] [ 75%] Built target bboxCalculation
+[8.149s] [100%] [32m[1mLinking CXX executable bboxBroadcast[0m
+[8.379s] [100%] Built target bboxBroadcast
+[8.383s] Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation -- -j20 -l20
+[8.411s] Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation
+[8.426s] -- Install configuration: "Release"
+[8.427s] -- Execute custom install script
+[8.427s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/lib/bbox_calculation/bboxCalculation
+[8.428s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/lib/bbox_calculation/bboxBroadcast
+[8.430s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/launch/bbox_broadcast.launch
+[8.431s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/launch/bbox_calculation.launch
+[8.433s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/ament_index/resource_index/package_run_dependencies/bbox_calculation
+[8.434s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/ament_index/resource_index/parent_prefix_path/bbox_calculation
+[8.436s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/environment/ament_prefix_path.sh
+[8.437s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/environment/ament_prefix_path.dsv
+[8.438s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/environment/path.sh
+[8.440s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/environment/path.dsv
+[8.441s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/local_setup.bash
+[8.443s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/local_setup.sh
+[8.444s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/local_setup.zsh
+[8.446s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/local_setup.dsv
+[8.447s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.dsv
+[8.448s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/ament_index/resource_index/packages/bbox_calculation
+[8.450s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/cmake/bbox_calculationConfig.cmake
+[8.451s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/cmake/bbox_calculationConfig-version.cmake
+[8.452s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation/share/bbox_calculation/package.xml
+[8.457s] Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation' returned '0': AMENT_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/waypoint_converter:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/score_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/bbox_calculation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis_ext:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/terrain_analysis:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/teleop_rviz_plugin:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/sensor_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/semantic_scan_generation:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/local_planner:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/bbox_calculation

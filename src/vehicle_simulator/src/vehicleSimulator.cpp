@@ -2,24 +2,27 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ros/ros.h>
+#include <chrono>
+#include <iostream>
+#include "rclcpp/rclcpp.hpp"
+#include "rclcpp/time.hpp"
+#include "rclcpp/clock.hpp"
+#include "builtin_interfaces/msg/time.hpp"
 
-#include <message_filters/subscriber.h>
-#include <message_filters/synchronizer.h>
-#include <message_filters/sync_policies/approximate_time.h>
+#include "nav_msgs/msg/odometry.hpp"
+#include "sensor_msgs/msg/point_cloud2.hpp"
+#include <std_msgs/msg/float32.hpp>
+#include <std_msgs/msg/bool.hpp>
+#include <nav_msgs/msg/path.hpp>
+#include <geometry_msgs/msg/transform_stamped.hpp>
+#include <geometry_msgs/msg/twist_stamped.hpp>
+#include <geometry_msgs/msg/point_stamped.h>
+#include <geometry_msgs/msg/polygon_stamped.h>
+#include <sensor_msgs/msg/imu.h>
 
-#include <std_msgs/Bool.h>
-#include <nav_msgs/Path.h>
-#include <nav_msgs/Odometry.h>
-#include <geometry_msgs/TwistStamped.h>
-#include <geometry_msgs/PoseStamped.h>
-#include <sensor_msgs/Imu.h>
-#include <sensor_msgs/PointCloud2.h>
-#include <sensor_msgs/Joy.h>
-#include <visualization_msgs/Marker.h>
-
-#include <tf/transform_datatypes.h>
-#include <tf/transform_broadcaster.h>
+#include "tf2/transform_datatypes.h"
+#include "tf2_ros/transform_broadcaster.h"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/highgui/highgui.hpp>
@@ -29,6 +32,12 @@
 #include <pcl/point_types.h>
 #include <pcl/filters/voxel_grid.h>
 #include <pcl/kdtree/kdtree_flann.h>
+
+#include "message_filters/subscriber.h"
+#include "message_filters/synchronizer.h"
+#include "message_filters/sync_policies/approximate_time.h"
+#include "rmw/types.h"
+#include "rmw/qos_profiles.h"
 
 using namespace std;
 
@@ -54,7 +63,7 @@ pcl::PointCloud<pcl::PointXYZI>::Ptr terrainCloud(new pcl::PointCloud<pcl::Point
 pcl::PointCloud<pcl::PointXYZI>::Ptr terrainCloudIncl(new pcl::PointCloud<pcl::PointXYZI>());
 pcl::PointCloud<pcl::PointXYZI>::Ptr terrainCloudDwz(new pcl::PointCloud<pcl::PointXYZI>());
 
-ros::Time odomTime;
+rclcpp::Time odomTime;
 
 float vehicleX = 0;
 float vehicleY = 0;
@@ -72,7 +81,7 @@ float terrainPitch = 0;
 
 pcl::VoxelGrid<pcl::PointXYZI> terrainDwzFilter;
 
-void terrainCloudHandler(const sensor_msgs::PointCloud2ConstPtr& terrainCloud2)
+void terrainCloudHandler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr terrainCloud2)
 {
   if (!adjustZ && !adjustIncl)
   {
@@ -188,7 +197,7 @@ void terrainCloudHandler(const sensor_msgs::PointCloud2ConstPtr& terrainCloud2)
   }
 }
 
-void speedHandler(const geometry_msgs::TwistStamped::ConstPtr& speedIn)
+void speedHandler(const geometry_msgs::msg::TwistStamped::ConstSharedPtr speedIn)
 {
   vehicleSpeed = speedIn->twist.linear.x;
   vehicleYawRate = speedIn->twist.angular.z;
@@ -196,58 +205,74 @@ void speedHandler(const geometry_msgs::TwistStamped::ConstPtr& speedIn)
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "vehicleSimulator");
-  ros::NodeHandle nh;
-  ros::NodeHandle nhPrivate = ros::NodeHandle("~");
+  rclcpp::init(argc, argv);
+  auto nh = rclcpp::Node::make_shared("vehicleSimulator");
 
-  nhPrivate.getParam("sensorOffsetX", sensorOffsetX);
-  nhPrivate.getParam("sensorOffsetY", sensorOffsetY);
-  nhPrivate.getParam("vehicleHeight", vehicleHeight);
-  nhPrivate.getParam("vehicleX", vehicleX);
-  nhPrivate.getParam("vehicleY", vehicleY);
-  nhPrivate.getParam("vehicleZ", vehicleZ);
-  nhPrivate.getParam("terrainZ", terrainZ);
-  nhPrivate.getParam("vehicleYaw", vehicleYaw);
-  nhPrivate.getParam("terrainVoxelSize", terrainVoxelSize);
-  nhPrivate.getParam("groundHeightThre", groundHeightThre);
-  nhPrivate.getParam("adjustZ", adjustZ);
-  nhPrivate.getParam("terrainRadiusZ", terrainRadiusZ);
-  nhPrivate.getParam("minTerrainPointNumZ", minTerrainPointNumZ);
-  nhPrivate.getParam("adjustIncl", adjustIncl);
-  nhPrivate.getParam("terrainRadiusIncl", terrainRadiusIncl);
-  nhPrivate.getParam("minTerrainPointNumIncl", minTerrainPointNumIncl);
-  nhPrivate.getParam("InclFittingThre", InclFittingThre);
-  nhPrivate.getParam("maxIncl", maxIncl);
+  nh->declare_parameter<double>("sensorOffsetX", sensorOffsetX);
+  nh->declare_parameter<double>("sensorOffsetY", sensorOffsetY);
+  nh->declare_parameter<double>("vehicleHeight", vehicleHeight);
+  nh->declare_parameter<double>("vehicleX", vehicleX);
+  nh->declare_parameter<double>("vehicleY", vehicleY);
+  nh->declare_parameter<double>("vehicleZ", vehicleZ);
+  nh->declare_parameter<double>("terrainZ", terrainZ);
+  nh->declare_parameter<double>("vehicleYaw", vehicleYaw);
+  nh->declare_parameter<double>("terrainVoxelSize", terrainVoxelSize);
+  nh->declare_parameter<double>("groundHeightThre", groundHeightThre);
+  nh->declare_parameter<bool>("adjustZ", adjustZ);
+  nh->declare_parameter<double>("terrainRadiusZ", terrainRadiusZ);
+  nh->declare_parameter<int>("minTerrainPointNumZ", minTerrainPointNumZ);
+  nh->declare_parameter<bool>("adjustIncl", adjustIncl);
+  nh->declare_parameter<double>("terrainRadiusIncl", terrainRadiusIncl);
+  nh->declare_parameter<int>("minTerrainPointNumIncl", minTerrainPointNumIncl);
+  nh->declare_parameter<double>("InclFittingThre", InclFittingThre);
+  nh->declare_parameter<double>("maxIncl", maxIncl);
 
-  ros::Subscriber subTerrainCloud = nh.subscribe<sensor_msgs::PointCloud2>("/terrain_map", 2, terrainCloudHandler);
+  nh->get_parameter("sensorOffsetX", sensorOffsetX);
+  nh->get_parameter("sensorOffsetY", sensorOffsetY);
+  nh->get_parameter("vehicleHeight", vehicleHeight);
+  nh->get_parameter("vehicleX", vehicleX);
+  nh->get_parameter("vehicleY", vehicleY);
+  nh->get_parameter("vehicleZ", vehicleZ);
+  nh->get_parameter("terrainZ", terrainZ);
+  nh->get_parameter("vehicleYaw", vehicleYaw);
+  nh->get_parameter("terrainVoxelSize", terrainVoxelSize);
+  nh->get_parameter("groundHeightThre", groundHeightThre);
+  nh->get_parameter("adjustZ", adjustZ);
+  nh->get_parameter("terrainRadiusZ", terrainRadiusZ);
+  nh->get_parameter("minTerrainPointNumZ", minTerrainPointNumZ);
+  nh->get_parameter("adjustIncl", adjustIncl);
+  nh->get_parameter("terrainRadiusIncl", terrainRadiusIncl);
+  nh->get_parameter("minTerrainPointNumIncl", minTerrainPointNumIncl);
+  nh->get_parameter("InclFittingThre", InclFittingThre);
+  nh->get_parameter("maxIncl", maxIncl);
 
-  ros::Subscriber subSpeed = nh.subscribe<geometry_msgs::TwistStamped>("/cmd_vel", 5, speedHandler);
+  auto subTerrainCloud = nh->create_subscription<sensor_msgs::msg::PointCloud2>("/terrain_map", 2, terrainCloudHandler);
 
-  ros::Publisher pubVehicleOdom = nh.advertise<nav_msgs::Odometry>("/state_estimation", 5);
+  auto subSpeed = nh->create_subscription<geometry_msgs::msg::TwistStamped>("/cmd_vel", 5, speedHandler);
 
-  nav_msgs::Odometry odomData;
+  auto pubVehicleOdom = nh->create_publisher<nav_msgs::msg::Odometry>("/state_estimation", 5);
+  nav_msgs::msg::Odometry odomData;
   odomData.header.frame_id = "map";
   odomData.child_frame_id = "sensor";
 
-  tf::TransformBroadcaster tfBroadcaster;
-  tf::StampedTransform odomTrans;
+  auto tfBroadcaster = std::make_unique<tf2_ros::TransformBroadcaster>(*nh);
+  tf2::Stamped<tf2::Transform> odomTrans;
+  geometry_msgs::msg::TransformStamped transformTfGeom ; 
   odomTrans.frame_id_ = "map";
-  odomTrans.child_frame_id_ = "sensor";
 
-  ros::Publisher pubModelState = nh.advertise<geometry_msgs::PoseStamped>("/unity_sim/set_model_state", 5);
-  geometry_msgs::PoseStamped robotState;
+  auto pubModelState = nh->create_publisher<geometry_msgs::msg::PoseStamped>("/unity_sim/set_model_state", 5);
+  geometry_msgs::msg::PoseStamped robotState;
   robotState.header.frame_id = "map";
 
   terrainDwzFilter.setLeafSize(terrainVoxelSize, terrainVoxelSize, terrainVoxelSize);
 
-  printf("\nSimulation started.\n\n");
-
-  ros::Rate rate(200);
-  bool status = ros::ok();
+  RCLCPP_INFO(nh->get_logger(), "Simulation started.");
+  
+  rclcpp::Rate rate(200);
+  bool status = rclcpp::ok();
   while (status)
   {
-    ros::spinOnce();
-
+    rclcpp::spin_some(nh);
     float vehicleRecRoll = vehicleRoll;
     float vehicleRecPitch = vehiclePitch;
     float vehicleRecZ = vehicleZ;
@@ -266,12 +291,13 @@ int main(int argc, char** argv)
                 0.005 * vehicleYawRate * (cos(vehicleYaw) * sensorOffsetX - sin(vehicleYaw) * sensorOffsetY);
     vehicleZ = terrainZ + vehicleHeight;
 
-    ros::Time odomTimeRec = odomTime;
-    odomTime = ros::Time::now();
-    if (odomTime == odomTimeRec) odomTime += ros::Duration(0.005);
+    odomTime = nh->now();
 
     // publish 200Hz odometry messages
-    geometry_msgs::Quaternion geoQuat = tf::createQuaternionMsgFromRollPitchYaw(vehicleRoll, vehiclePitch, vehicleYaw);
+    tf2::Quaternion quat_tf;
+    quat_tf.setRPY(vehicleRoll, vehiclePitch, vehicleYaw);
+    geometry_msgs::msg::Quaternion geoQuat;
+    tf2::convert(quat_tf, geoQuat);
 
     odomData.header.stamp = odomTime;
     odomData.pose.pose.orientation = geoQuat;
@@ -283,23 +309,25 @@ int main(int argc, char** argv)
     odomData.twist.twist.angular.z = vehicleYawRate;
     odomData.twist.twist.linear.x = vehicleSpeed;
     odomData.twist.twist.linear.z = 200.0 * (vehicleZ - vehicleRecZ);
-    pubVehicleOdom.publish(odomData);
+    pubVehicleOdom->publish(odomData);
 
     // publish 200Hz tf messages
-    odomTrans.stamp_ = odomTime;
-    odomTrans.setRotation(tf::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w));
-    odomTrans.setOrigin(tf::Vector3(vehicleX, vehicleY, vehicleZ));
-    tfBroadcaster.sendTransform(odomTrans);
+    odomTrans.setRotation(tf2::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w));
+    odomTrans.setOrigin(tf2::Vector3(vehicleX, vehicleY, vehicleZ));
+    transformTfGeom = tf2::toMsg(odomTrans);
+    transformTfGeom.child_frame_id = "sensor";
+    transformTfGeom.header.stamp = odomTime;
+    tfBroadcaster->sendTransform(transformTfGeom);
 
-    // publish 200Hz Unity model state messages (this is for Unity simulation)
+    // publish 200Hz Unity model state messages (this is for Unity Simulation)
     robotState.header.stamp = odomTime;
     robotState.pose.orientation = geoQuat;
     robotState.pose.position.x = vehicleX;
     robotState.pose.position.y = vehicleY;
     robotState.pose.position.z = vehicleZ;
-    pubModelState.publish(robotState);
+    pubModelState->publish(robotState);
 
-    status = ros::ok();
+    status = rclcpp::ok();
     rate.sleep();
   }
 

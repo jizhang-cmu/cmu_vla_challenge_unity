@@ -1,16 +1,20 @@
 #include "drive_widget.h"
 #include "teleop_panel.h"
+// #include 
+#include <rclcpp/time.hpp>
 
 namespace teleop_rviz_plugin
 {
 
 TeleopPanel::TeleopPanel( QWidget* parent )
-  : rviz::Panel( parent )
+  : rviz_common::Panel( parent )
   , linear_velocity_( 0 )
   , angular_velocity_( 0 )
   , mouse_pressed_( false )
   , mouse_pressed_sent_( false )
 {
+  node_ = rclcpp::Node::make_shared("teleop_panel_node");
+
   QVBoxLayout* layout = new QVBoxLayout;
   push_button_1_ = new QPushButton( "Resume Navigation to Goal", this );
   layout->addWidget( push_button_1_ );
@@ -26,21 +30,22 @@ TeleopPanel::TeleopPanel( QWidget* parent )
 
   output_timer->start( 100 );
 
-  velocity_publisher_ = nh_.advertise<sensor_msgs::Joy>( "/joy", 5 );
+  velocity_publisher_ = node_->create_publisher<sensor_msgs::msg::Joy>("/joy", 5);
+
   drive_widget_->setEnabled( true );
 }
 
 void TeleopPanel::pressButton1()
 {
-  if ( ros::ok() && velocity_publisher_ )
+  if (rclcpp::ok() && velocity_publisher_->get_subscription_count() > 0)
   {
-    sensor_msgs::Joy joy;
+    sensor_msgs::msg::Joy joy;
 
     joy.axes.push_back(0);
     joy.axes.push_back(0);
     joy.axes.push_back(-1.0);
     joy.axes.push_back(0);
-    joy.axes.push_back(0);
+    joy.axes.push_back(1.0);
     joy.axes.push_back(1.0);
     joy.axes.push_back(0);
     joy.axes.push_back(0);
@@ -57,13 +62,13 @@ void TeleopPanel::pressButton1()
     joy.buttons.push_back(0);
     joy.buttons.push_back(0);
 
-    joy.header.stamp = ros::Time::now();
+    joy.header.stamp = node_->now();
     joy.header.frame_id = "teleop_panel";
-    velocity_publisher_.publish( joy );
+    velocity_publisher_->publish( joy );
   }
 }
 
-void TeleopPanel::setVel( float lin, float ang, bool pre )
+void TeleopPanel::setVel(float lin, float ang, bool pre)
 {
   linear_velocity_ = lin;
   angular_velocity_ = ang;
@@ -72,9 +77,9 @@ void TeleopPanel::setVel( float lin, float ang, bool pre )
 
 void TeleopPanel::sendVel()
 {
-  if( ros::ok() && velocity_publisher_ && ( mouse_pressed_ || mouse_pressed_sent_ ))
+  if (rclcpp::ok() && velocity_publisher_->get_subscription_count() > 0 && (mouse_pressed_ || mouse_pressed_sent_))
   {
-    sensor_msgs::Joy joy;
+    sensor_msgs::msg::Joy joy;
 
     joy.axes.push_back( 0 );
     joy.axes.push_back( 0 );
@@ -97,14 +102,25 @@ void TeleopPanel::sendVel()
     joy.buttons.push_back( 0 );
     joy.buttons.push_back( 0 );
 
-    joy.header.stamp = ros::Time::now();
+    joy.header.stamp = node_->now();
     joy.header.frame_id = "teleop_panel";
-    velocity_publisher_.publish( joy );
+    velocity_publisher_->publish(joy);
 
     mouse_pressed_sent_ = mouse_pressed_;
   }
 }
 
-} 
-#include <pluginlib/class_list_macros.h>
-PLUGINLIB_EXPORT_CLASS( teleop_rviz_plugin::TeleopPanel,rviz::Panel )
+void TeleopPanel::save(rviz_common::Config config) const
+{
+  rviz_common::Panel::save(config);
+}
+
+void TeleopPanel::load(const rviz_common::Config& config)
+{
+  rviz_common::Panel::load(config);
+}
+
+} // end namespace teleop_rviz_plugin
+
+#include <pluginlib/class_list_macros.hpp>
+PLUGINLIB_EXPORT_CLASS(teleop_rviz_plugin::TeleopPanel, rviz_common::Panel)

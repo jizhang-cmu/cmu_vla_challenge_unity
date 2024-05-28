@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.5)
 project(score_calculation)
 
 set(CMAKE_BUILD_TYPE Release)
@@ -6,36 +6,12 @@ set(BUILD_STATIC_LIBS ON)
 set(BUILD_SHARED_LIBS OFF)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
-## Find catkin macros and libraries
-find_package(catkin REQUIRED COMPONENTS
-  roscpp
-  std_msgs
-  sensor_msgs
-  pcl_ros
-)
-
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)
 find_package(PCL REQUIRED)
 
-###################################
-## catkin specific configuration ##
-###################################
-
-catkin_package(
-  CATKIN_DEPENDS
-  roscpp
-  std_msgs
-  sensor_msgs
-  pcl_ros
-)
-
-###########
-## Build ##
-###########
-
-## Specify additional locations of header files
-## Your package locations should be listed before other locations
 include_directories(
-  ${catkin_INCLUDE_DIRS}
   ${PCL_INCLUDE_DIRS}
   "${PROJECT_SOURCE_DIR}/include"
   /usr/local/include # Location when using 'make system_install'
@@ -52,17 +28,18 @@ link_directories(
 add_executable(scoreCalculation src/scoreCalculation.cpp)
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(scoreCalculation ${catkin_LIBRARIES} ${PCL_LIBRARIES})
+ament_target_dependencies(scoreCalculation rclcpp std_msgs)
+target_link_libraries(scoreCalculation ${PCL_LIBRARIES})
 
 install(TARGETS scoreCalculation
-  ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-  RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+  DESTINATION lib/${PROJECT_NAME}
 )
 
-install(DIRECTORY launch/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
+install(DIRECTORY launch
+  DESTINATION share/${PROJECT_NAME}
 )
 install(DIRECTORY data/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/data
+  DESTINATION share/${PROJECT_NAME}
 )
+
+ament_package()

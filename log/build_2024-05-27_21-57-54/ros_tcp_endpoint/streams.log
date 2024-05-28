@@ -1,0 +1,39 @@
+[0.623s] Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint': PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/prefix_override:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/build --no-deps symlink_data
+[0.811s] /home/luke/.local/lib/python3.8/site-packages/setuptools_scm/_integration/setuptools.py:30: RuntimeWarning: 
+[0.811s] ERROR: setuptools==45.2.0 is used in combination with setuptools_scm>=8.x
+[0.811s] 
+[0.811s] Your build configuration is incomplete and previously worked by accident!
+[0.811s] setuptools_scm requires setuptools>=61
+[0.811s] 
+[0.811s] Suggested workaround if applicable:
+[0.811s]  - migrating from the deprecated setup_requires mechanism to pep517/518
+[0.811s]    and using a pyproject.toml to declare build dependencies
+[0.811s]    which are reliably pre-installed before running the build tools
+[0.811s] 
+[0.811s]   warnings.warn(
+[0.845s] running develop
+[0.948s] running egg_info
+[0.948s] creating ros_tcp_endpoint.egg-info
+[0.948s] writing ros_tcp_endpoint.egg-info/PKG-INFO
+[0.948s] writing dependency_links to ros_tcp_endpoint.egg-info/dependency_links.txt
+[0.948s] writing entry points to ros_tcp_endpoint.egg-info/entry_points.txt
+[0.948s] writing requirements to ros_tcp_endpoint.egg-info/requires.txt
+[0.949s] writing top-level names to ros_tcp_endpoint.egg-info/top_level.txt
+[0.949s] writing manifest file 'ros_tcp_endpoint.egg-info/SOURCES.txt'
+[1.151s] reading manifest file 'ros_tcp_endpoint.egg-info/SOURCES.txt'
+[1.151s] writing manifest file 'ros_tcp_endpoint.egg-info/SOURCES.txt'
+[1.198s] running build_ext
+[1.199s] Creating /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages/site.py
+[1.200s] Creating /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages/ros-tcp-endpoint.egg-link (link to .)
+[1.201s] Installing default_server_endpoint script to /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/ros_tcp_endpoint
+[1.201s] 
+[1.201s] Installed /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint
+[1.201s] running symlink_data
+[1.201s] creating /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ament_index
+[1.201s] creating /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ament_index/resource_index
+[1.201s] creating /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ament_index/resource_index/packages
+[1.201s] symbolically linking /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/resource/ros_tcp_endpoint -> /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ament_index/resource_index/packages
+[1.201s] symbolically linking /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/package.xml -> /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint
+[1.202s] creating /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/launch
+[1.202s] symbolically linking /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/launch/endpoint.py -> /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/share/ros_tcp_endpoint/launch
+[1.246s] Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint' returned '0': PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/prefix_override:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py develop --editable --build-directory /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint/build --no-deps symlink_data

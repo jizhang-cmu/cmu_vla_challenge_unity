@@ -1,0 +1,801 @@
+[0.010s] Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/vehicle_simulator -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator
+[0.079s] -- The C compiler identification is GNU 8.4.0
+[0.131s] -- The CXX compiler identification is GNU 8.4.0
+[0.146s] -- Detecting C compiler ABI info
+[0.181s] -- Detecting C compiler ABI info - done
+[0.191s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.192s] -- Detecting C compile features
+[0.192s] -- Detecting C compile features - done
+[0.201s] -- Detecting CXX compiler ABI info
+[0.247s] -- Detecting CXX compiler ABI info - done
+[0.260s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.260s] -- Detecting CXX compile features
+[0.260s] -- Detecting CXX compile features - done
+[0.263s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[0.266s] [33mCMake Warning (dev) at /opt/ros/foxy/share/ament_cmake_core/cmake/core/python.cmake:22 (find_package):
+[0.267s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[0.267s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[0.267s]   the cmake_policy command to set the policy and suppress this warning.
+[0.267s] 
+[0.267s] Call Stack (most recent call first):
+[0.267s]   /opt/ros/foxy/share/ament_cmake_core/cmake/core/all.cmake:53 (include)
+[0.267s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_core-extras.cmake:17 (include)
+[0.267s]   /opt/ros/foxy/share/ament_cmake_core/cmake/ament_cmake_coreConfig.cmake:41 (include)
+[0.267s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmake_export_dependencies-extras.cmake:15 (find_package)
+[0.267s]   /opt/ros/foxy/share/ament_cmake/cmake/ament_cmakeConfig.cmake:41 (include)
+[0.267s]   CMakeLists.txt:26 (find_package)
+[0.267s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[0.267s] [0m
+[0.293s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[0.293s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.403s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.418s] -- Found rclcpp: 2.4.3 (/opt/ros/foxy/share/rclcpp/cmake)
+[0.448s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.452s] -- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+[0.507s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+[0.531s] -- Found FastRTPS: /opt/ros/foxy/include  
+[0.592s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.632s] -- Found rmw_implementation_cmake: 1.0.4 (/opt/ros/foxy/share/rmw_implementation_cmake/cmake)
+[0.632s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.633s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[0.673s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+[0.673s] -- Looking for pthread_create in pthreads
+[0.702s] -- Looking for pthread_create in pthreads - not found
+[0.702s] -- Looking for pthread_create in pthread
+[0.744s] -- Looking for pthread_create in pthread - found
+[0.745s] -- Found Threads: TRUE  
+[0.852s] -- Found nav_msgs: 2.0.5 (/opt/ros/foxy/share/nav_msgs/cmake)
+[0.934s] -- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+[0.980s] -- Found tf2_ros: 0.13.14 (/opt/ros/foxy/share/tf2_ros/cmake)
+[1.206s] -- Found tf2_geometry_msgs: 0.13.14 (/opt/ros/foxy/share/tf2_geometry_msgs/cmake)
+[1.211s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/foxy/share/eigen3_cmake_module/cmake)
+[1.214s] -- Found Eigen3: TRUE (found version "3.3.7") 
+[1.240s] -- Found OpenCV: /usr (found version "4.2.0") 
+[1.247s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:152 (find_package):
+[1.247s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[1.247s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[1.247s]   cmake_policy command to set the policy and suppress this warning.
+[1.247s] 
+[1.247s]   CMake variable EIGEN_ROOT is set to:
+[1.247s] 
+[1.247s]     /usr/include/eigen3
+[1.247s] 
+[1.247s]   For compatibility, find_package is ignoring the variable, but code in a
+[1.247s]   .cmake module might still use it.
+[1.247s] Call Stack (most recent call first):
+[1.248s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:316 (find_eigen)
+[1.248s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:551 (find_external_library)
+[1.248s]   CMakeLists.txt:37 (find_package)
+[1.248s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.248s] [0m
+[1.251s] -- Checking for module 'eigen3'
+[1.275s] --   Found eigen3, version 3.3.7
+[1.337s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[1.337s] -- Eigen found (include: /usr/include/eigen3, version: 3.3.7)
+[1.416s] -- Found Boost: /usr/include (found suitable version "1.71.0", minimum required is "1.55.0") found components: system filesystem date_time iostreams regex 
+[1.418s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:44 (find_package):
+[1.418s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[1.418s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[1.418s]   cmake_policy command to set the policy and suppress this warning.
+[1.418s] 
+[1.418s]   CMake variable FLANN_ROOT is set to:
+[1.418s] 
+[1.418s]     /usr
+[1.418s] 
+[1.418s]   For compatibility, find_package is ignoring the variable, but code in a
+[1.418s]   .cmake module might still use it.
+[1.418s] Call Stack (most recent call first):
+[1.418s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:263 (find_package)
+[1.418s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:318 (find_flann)
+[1.418s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:551 (find_external_library)
+[1.418s]   CMakeLists.txt:37 (find_package)
+[1.418s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.418s] [0m
+[1.432s] -- Checking for module 'flann'
+[1.450s] --   Found flann, version 1.9.1
+[1.497s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[1.539s] -- The imported target "vtkParseOGLExt" references the file
+[1.539s]    "/usr/bin/vtkParseOGLExt-7.1"
+[1.539s] but this file does not exist.  Possible reasons include:
+[1.540s] * The file was deleted, renamed, or moved to another location.
+[1.540s] * An install or uninstall procedure did not complete successfully.
+[1.540s] * The installation package was faulty and contained
+[1.540s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[1.540s] but not all the files it references.
+[1.540s] 
+[1.540s] -- The imported target "vtkRenderingPythonTkWidgets" references the file
+[1.540s]    "/usr/lib/x86_64-linux-gnu/libvtkRenderingPythonTkWidgets.so"
+[1.540s] but this file does not exist.  Possible reasons include:
+[1.540s] * The file was deleted, renamed, or moved to another location.
+[1.540s] * An install or uninstall procedure did not complete successfully.
+[1.540s] * The installation package was faulty and contained
+[1.540s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[1.540s] but not all the files it references.
+[1.540s] 
+[1.540s] -- The imported target "vtk" references the file
+[1.540s]    "/usr/bin/vtk"
+[1.540s] but this file does not exist.  Possible reasons include:
+[1.540s] * The file was deleted, renamed, or moved to another location.
+[1.540s] * An install or uninstall procedure did not complete successfully.
+[1.540s] * The installation package was faulty and contained
+[1.540s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[1.540s] but not all the files it references.
+[1.541s] 
+[1.541s] -- The imported target "pvtk" references the file
+[1.541s]    "/usr/bin/pvtk"
+[1.541s] but this file does not exist.  Possible reasons include:
+[1.541s] * The file was deleted, renamed, or moved to another location.
+[1.541s] * An install or uninstall procedure did not complete successfully.
+[1.541s] * The installation package was faulty and contained
+[1.541s]    "/usr/lib/cmake/vtk-7.1/VTKTargets.cmake"
+[1.541s] but not all the files it references.
+[1.541s] 
+[1.558s] -- Checking for module 'libusb-1.0'
+[1.574s] --   Found libusb-1.0, version 1.0.23
+[1.620s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.620s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.620s]   does not match the name of the calling package (OpenNI).  This can lead to
+[1.620s]   problems in calling code that expects `find_package` result variables
+[1.620s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.620s] Call Stack (most recent call first):
+[1.620s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI.cmake:28 (find_package_handle_standard_args)
+[1.620s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:179 (find_package)
+[1.620s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:322 (find_openni)
+[1.621s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.621s]   CMakeLists.txt:37 (find_package)
+[1.621s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.621s] [0m
+[1.622s] -- Found USB_10: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[1.684s] -- Found OpenNI: /usr/lib/libOpenNI.so  
+[1.685s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.691s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.691s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.691s]   does not match the name of the calling package (OpenNI2).  This can lead to
+[1.691s]   problems in calling code that expects `find_package` result variables
+[1.691s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.692s] Call Stack (most recent call first):
+[1.692s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI2.cmake:28 (find_package_handle_standard_args)
+[1.692s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:193 (find_package)
+[1.692s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_openni2)
+[1.692s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.692s]   CMakeLists.txt:37 (find_package)
+[1.692s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.692s] [0m
+[1.754s] -- Found OpenNI2: /usr/lib/libOpenNI2.so  
+[1.754s] -- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+[1.754s] [0m** WARNING ** io features related to pcap will be disabled[0m
+[1.754s] [0m** WARNING ** io features related to png will be disabled[0m
+[1.769s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.769s]   The package name passed to `find_package_handle_standard_args` (libusb-1.0)
+[1.769s]   does not match the name of the calling package (PCL).  This can lead to
+[1.769s]   problems in calling code that expects `find_package` result variables
+[1.769s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.769s] Call Stack (most recent call first):
+[1.769s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:291 (find_package_handle_standard_args)
+[1.769s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:338 (find_libusb)
+[1.769s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.769s]   CMakeLists.txt:37 (find_package)
+[1.769s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.769s] [0m
+[1.769s] -- Found libusb-1.0: /usr/include  
+[1.769s] [0m** WARNING ** io features related to libusb-1.0 will be disabled[0m
+[1.775s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.775s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.775s]   does not match the name of the calling package (OpenNI).  This can lead to
+[1.775s]   problems in calling code that expects `find_package` result variables
+[1.775s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.775s] Call Stack (most recent call first):
+[1.775s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI.cmake:28 (find_package_handle_standard_args)
+[1.775s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:179 (find_package)
+[1.775s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:322 (find_openni)
+[1.775s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.775s]   CMakeLists.txt:37 (find_package)
+[1.775s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.775s] [0m
+[1.776s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.782s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.782s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.782s]   does not match the name of the calling package (OpenNI2).  This can lead to
+[1.782s]   problems in calling code that expects `find_package` result variables
+[1.782s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.782s] Call Stack (most recent call first):
+[1.782s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI2.cmake:28 (find_package_handle_standard_args)
+[1.782s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:193 (find_package)
+[1.782s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_openni2)
+[1.782s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.782s]   CMakeLists.txt:37 (find_package)
+[1.782s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.782s] [0m
+[1.783s] -- OpenNI2 found (include: /usr/include/openni2, lib: /usr/lib/libOpenNI2.so)
+[1.796s] [33mCMake Warning (dev) at /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:165 (find_package):
+[1.796s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[1.796s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[1.796s]   cmake_policy command to set the policy and suppress this warning.
+[1.796s] 
+[1.796s]   CMake variable QHULL_ROOT is set to:
+[1.796s] 
+[1.796s]     /usr
+[1.796s] 
+[1.796s]   For compatibility, find_package is ignoring the variable, but code in a
+[1.796s]   .cmake module might still use it.
+[1.796s] Call Stack (most recent call first):
+[1.796s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:320 (find_qhull)
+[1.796s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.796s]   CMakeLists.txt:37 (find_package)
+[1.796s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.797s] [0m
+[1.822s] -- Found Qhull: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so  
+[1.822s] -- QHULL found (include: /usr/include, lib: optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so)
+[1.826s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.827s]   The package name passed to `find_package_handle_standard_args` (USB_10)
+[1.827s]   does not match the name of the calling package (OpenNI).  This can lead to
+[1.827s]   problems in calling code that expects `find_package` result variables
+[1.827s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.827s] Call Stack (most recent call first):
+[1.827s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/Modules/FindOpenNI.cmake:28 (find_package_handle_standard_args)
+[1.827s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:179 (find_package)
+[1.827s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:322 (find_openni)
+[1.827s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:548 (find_external_library)
+[1.827s]   CMakeLists.txt:37 (find_package)
+[1.827s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.827s] [0m
+[1.828s] -- OpenNI found (include: /usr/include/ni, lib: /usr/lib/libOpenNI.so)
+[1.840s] -- looking for PCL_COMMON
+[1.842s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.842s]   The package name passed to `find_package_handle_standard_args` (PCL_COMMON)
+[1.842s]   does not match the name of the calling package (PCL).  This can lead to
+[1.842s]   problems in calling code that expects `find_package` result variables
+[1.842s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.842s] Call Stack (most recent call first):
+[1.842s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.842s]   CMakeLists.txt:37 (find_package)
+[1.842s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.842s] [0m
+[1.842s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[1.842s] -- looking for PCL_KDTREE
+[1.843s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.844s]   The package name passed to `find_package_handle_standard_args` (PCL_KDTREE)
+[1.844s]   does not match the name of the calling package (PCL).  This can lead to
+[1.844s]   problems in calling code that expects `find_package` result variables
+[1.844s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.844s] Call Stack (most recent call first):
+[1.844s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.844s]   CMakeLists.txt:37 (find_package)
+[1.844s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.844s] [0m
+[1.844s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[1.844s] -- looking for PCL_OCTREE
+[1.845s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.845s]   The package name passed to `find_package_handle_standard_args` (PCL_OCTREE)
+[1.845s]   does not match the name of the calling package (PCL).  This can lead to
+[1.845s]   problems in calling code that expects `find_package` result variables
+[1.845s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.845s] Call Stack (most recent call first):
+[1.845s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.845s]   CMakeLists.txt:37 (find_package)
+[1.845s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.845s] [0m
+[1.845s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[1.845s] -- looking for PCL_SEARCH
+[1.846s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.846s]   The package name passed to `find_package_handle_standard_args` (PCL_SEARCH)
+[1.847s]   does not match the name of the calling package (PCL).  This can lead to
+[1.847s]   problems in calling code that expects `find_package` result variables
+[1.847s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.847s] Call Stack (most recent call first):
+[1.847s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.847s]   CMakeLists.txt:37 (find_package)
+[1.847s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.847s] [0m
+[1.847s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[1.847s] -- looking for PCL_SAMPLE_CONSENSUS
+[1.848s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.848s]   The package name passed to `find_package_handle_standard_args`
+[1.848s]   (PCL_SAMPLE_CONSENSUS) does not match the name of the calling package
+[1.848s]   (PCL).  This can lead to problems in calling code that expects
+[1.848s]   `find_package` result variables (e.g., `_FOUND`) to follow a certain
+[1.848s]   pattern.
+[1.848s] Call Stack (most recent call first):
+[1.848s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.849s]   CMakeLists.txt:37 (find_package)
+[1.849s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.849s] [0m
+[1.849s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[1.849s] -- looking for PCL_FILTERS
+[1.850s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.850s]   The package name passed to `find_package_handle_standard_args`
+[1.850s]   (PCL_FILTERS) does not match the name of the calling package (PCL).  This
+[1.850s]   can lead to problems in calling code that expects `find_package` result
+[1.850s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.850s] Call Stack (most recent call first):
+[1.850s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.850s]   CMakeLists.txt:37 (find_package)
+[1.850s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.850s] [0m
+[1.852s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[1.852s] -- looking for PCL_2D
+[1.852s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.852s]   The package name passed to `find_package_handle_standard_args` (PCL_2D)
+[1.852s]   does not match the name of the calling package (PCL).  This can lead to
+[1.853s]   problems in calling code that expects `find_package` result variables
+[1.853s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.853s] Call Stack (most recent call first):
+[1.853s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:619 (find_package_handle_standard_args)
+[1.853s]   CMakeLists.txt:37 (find_package)
+[1.853s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.853s] [0m
+[1.853s] -- Found PCL_2D: /usr/include/pcl-1.10  
+[1.853s] -- looking for PCL_GEOMETRY
+[1.853s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.853s]   The package name passed to `find_package_handle_standard_args`
+[1.853s]   (PCL_GEOMETRY) does not match the name of the calling package (PCL).  This
+[1.853s]   can lead to problems in calling code that expects `find_package` result
+[1.856s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.856s] Call Stack (most recent call first):
+[1.856s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:619 (find_package_handle_standard_args)
+[1.856s]   CMakeLists.txt:37 (find_package)
+[1.857s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.857s] [0m
+[1.857s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.10  
+[1.857s] -- looking for PCL_IO
+[1.857s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.858s]   The package name passed to `find_package_handle_standard_args` (PCL_IO)
+[1.858s]   does not match the name of the calling package (PCL).  This can lead to
+[1.858s]   problems in calling code that expects `find_package` result variables
+[1.858s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.859s] Call Stack (most recent call first):
+[1.859s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.859s]   CMakeLists.txt:37 (find_package)
+[1.859s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.859s] [0m
+[1.860s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[1.860s] -- looking for PCL_FEATURES
+[1.860s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.860s]   The package name passed to `find_package_handle_standard_args`
+[1.860s]   (PCL_FEATURES) does not match the name of the calling package (PCL).  This
+[1.860s]   can lead to problems in calling code that expects `find_package` result
+[1.860s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.860s] Call Stack (most recent call first):
+[1.860s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.860s]   CMakeLists.txt:37 (find_package)
+[1.860s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.860s] [0m
+[1.860s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[1.860s] -- looking for PCL_ML
+[1.860s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.860s]   The package name passed to `find_package_handle_standard_args` (PCL_ML)
+[1.860s]   does not match the name of the calling package (PCL).  This can lead to
+[1.860s]   problems in calling code that expects `find_package` result variables
+[1.861s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.861s] Call Stack (most recent call first):
+[1.861s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.861s]   CMakeLists.txt:37 (find_package)
+[1.861s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.861s] [0m
+[1.861s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[1.861s] -- looking for PCL_SEGMENTATION
+[1.862s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.862s]   The package name passed to `find_package_handle_standard_args`
+[1.862s]   (PCL_SEGMENTATION) does not match the name of the calling package (PCL).
+[1.862s]   This can lead to problems in calling code that expects `find_package`
+[1.862s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.862s] Call Stack (most recent call first):
+[1.862s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.862s]   CMakeLists.txt:37 (find_package)
+[1.862s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.862s] [0m
+[1.862s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[1.862s] -- looking for PCL_VISUALIZATION
+[1.862s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.862s]   The package name passed to `find_package_handle_standard_args`
+[1.862s]   (PCL_VISUALIZATION) does not match the name of the calling package (PCL).
+[1.862s]   This can lead to problems in calling code that expects `find_package`
+[1.862s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.862s] Call Stack (most recent call first):
+[1.862s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.862s]   CMakeLists.txt:37 (find_package)
+[1.862s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.862s] [0m
+[1.862s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[1.862s] -- looking for PCL_SURFACE
+[1.863s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.863s]   The package name passed to `find_package_handle_standard_args`
+[1.863s]   (PCL_SURFACE) does not match the name of the calling package (PCL).  This
+[1.863s]   can lead to problems in calling code that expects `find_package` result
+[1.863s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.864s] Call Stack (most recent call first):
+[1.864s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.864s]   CMakeLists.txt:37 (find_package)
+[1.864s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.864s] [0m
+[1.864s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[1.864s] -- looking for PCL_REGISTRATION
+[1.865s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.865s]   The package name passed to `find_package_handle_standard_args`
+[1.865s]   (PCL_REGISTRATION) does not match the name of the calling package (PCL).
+[1.865s]   This can lead to problems in calling code that expects `find_package`
+[1.865s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.865s] Call Stack (most recent call first):
+[1.865s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.865s]   CMakeLists.txt:37 (find_package)
+[1.865s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.865s] [0m
+[1.866s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[1.866s] -- looking for PCL_KEYPOINTS
+[1.867s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.867s]   The package name passed to `find_package_handle_standard_args`
+[1.867s]   (PCL_KEYPOINTS) does not match the name of the calling package (PCL).  This
+[1.867s]   can lead to problems in calling code that expects `find_package` result
+[1.867s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.867s] Call Stack (most recent call first):
+[1.867s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.867s]   CMakeLists.txt:37 (find_package)
+[1.868s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.868s] [0m
+[1.868s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[1.868s] -- looking for PCL_TRACKING
+[1.869s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.869s]   The package name passed to `find_package_handle_standard_args`
+[1.869s]   (PCL_TRACKING) does not match the name of the calling package (PCL).  This
+[1.869s]   can lead to problems in calling code that expects `find_package` result
+[1.869s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.870s] Call Stack (most recent call first):
+[1.870s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.870s]   CMakeLists.txt:37 (find_package)
+[1.870s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.870s] [0m
+[1.870s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[1.870s] -- looking for PCL_RECOGNITION
+[1.871s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.871s]   The package name passed to `find_package_handle_standard_args`
+[1.871s]   (PCL_RECOGNITION) does not match the name of the calling package (PCL).
+[1.874s]   This can lead to problems in calling code that expects `find_package`
+[1.874s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.874s] Call Stack (most recent call first):
+[1.874s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.874s]   CMakeLists.txt:37 (find_package)
+[1.874s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.874s] [0m
+[1.874s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[1.874s] -- looking for PCL_STEREO
+[1.874s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.874s]   The package name passed to `find_package_handle_standard_args` (PCL_STEREO)
+[1.875s]   does not match the name of the calling package (PCL).  This can lead to
+[1.875s]   problems in calling code that expects `find_package` result variables
+[1.875s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.875s] Call Stack (most recent call first):
+[1.875s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.875s]   CMakeLists.txt:37 (find_package)
+[1.875s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.875s] [0m
+[1.875s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[1.875s] -- looking for PCL_APPS
+[1.875s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.875s]   The package name passed to `find_package_handle_standard_args` (PCL_APPS)
+[1.875s]   does not match the name of the calling package (PCL).  This can lead to
+[1.875s]   problems in calling code that expects `find_package` result variables
+[1.875s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.875s] Call Stack (most recent call first):
+[1.876s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.876s]   CMakeLists.txt:37 (find_package)
+[1.876s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.876s] [0m
+[1.876s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[1.876s] -- looking for PCL_IN_HAND_SCANNER
+[1.876s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.876s]   The package name passed to `find_package_handle_standard_args`
+[1.876s]   (PCL_IN_HAND_SCANNER) does not match the name of the calling package (PCL).
+[1.876s]   This can lead to problems in calling code that expects `find_package`
+[1.877s]   result variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.877s] Call Stack (most recent call first):
+[1.877s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:619 (find_package_handle_standard_args)
+[1.877s]   CMakeLists.txt:37 (find_package)
+[1.877s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.877s] [0m
+[1.877s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.10  
+[1.877s] -- looking for PCL_POINT_CLOUD_EDITOR
+[1.877s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.877s]   The package name passed to `find_package_handle_standard_args`
+[1.877s]   (PCL_POINT_CLOUD_EDITOR) does not match the name of the calling package
+[1.878s]   (PCL).  This can lead to problems in calling code that expects
+[1.878s]   `find_package` result variables (e.g., `_FOUND`) to follow a certain
+[1.878s]   pattern.
+[1.878s] Call Stack (most recent call first):
+[1.878s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:619 (find_package_handle_standard_args)
+[1.878s]   CMakeLists.txt:37 (find_package)
+[1.878s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.878s] [0m
+[1.879s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.10  
+[1.879s] -- looking for PCL_OUTOFCORE
+[1.881s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.881s]   The package name passed to `find_package_handle_standard_args`
+[1.881s]   (PCL_OUTOFCORE) does not match the name of the calling package (PCL).  This
+[1.881s]   can lead to problems in calling code that expects `find_package` result
+[1.881s]   variables (e.g., `_FOUND`) to follow a certain pattern.
+[1.881s] Call Stack (most recent call first):
+[1.881s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.881s]   CMakeLists.txt:37 (find_package)
+[1.881s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.881s] [0m
+[1.881s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[1.882s] -- looking for PCL_PEOPLE
+[1.882s] [33mCMake Warning (dev) at /home/luke/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake:438 (message):
+[1.882s]   The package name passed to `find_package_handle_standard_args` (PCL_PEOPLE)
+[1.882s]   does not match the name of the calling package (PCL).  This can lead to
+[1.882s]   problems in calling code that expects `find_package` result variables
+[1.882s]   (e.g., `_FOUND`) to follow a certain pattern.
+[1.887s] Call Stack (most recent call first):
+[1.887s]   /usr/lib/x86_64-linux-gnu/cmake/pcl/PCLConfig.cmake:616 (find_package_handle_standard_args)
+[1.887s]   CMakeLists.txt:37 (find_package)
+[1.887s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.887s] [0m
+[1.887s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[1.887s] -- Found PCL: pcl_common;pcl_kdtree;pcl_octree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_io;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;/usr/lib/x86_64-linux-gnu/libboost_system.so;/usr/lib/x86_64-linux-gnu/libboost_filesystem.so;/usr/lib/x86_64-linux-gnu/libboost_date_time.so;/usr/lib/x86_64-linux-gnu/libboost_iostreams.so;/usr/lib/x86_64-linux-gnu/libboost_regex.so;optimized;/usr/lib/x86_64-linux-gnu/libqhull.so;debug;/usr/lib/x86_64-linux-gnu/libqhull.so;/usr/lib/libOpenNI.so;/usr/lib/libOpenNI2.so;vtkChartsCore;vtkCommonColor;vtkCommonCore;vtksys;vtkCommonDataModel;vtkCommonMath;vtkCommonMisc;vtkCommonSystem;vtkCommonTransforms;vtkCommonExecutionModel;vtkFiltersGeneral;vtkCommonComputationalGeometry;vtkFiltersCore;vtkInfovisCore;vtkFiltersExtraction;vtkFiltersStatistics;vtkImagingFourier;vtkImagingCore;vtkalglib;vtkRenderingContext2D;vtkRenderingCore;vtkFiltersGeometry;vtkFiltersSources;vtkRenderingFreeType;/usr/lib/x86_64-linux-gnu/libfreetype.so;/usr/lib/x86_64-linux-gnu/libz.so;vtkFiltersModeling;vtkImagingSources;vtkInteractionStyle;vtkInteractionWidgets;vtkFiltersHybrid;vtkImagingColor;vtkImagingGeneral;vtkImagingHybrid;vtkIOImage;vtkDICOMParser;vtkmetaio;/usr/lib/x86_64-linux-gnu/libjpeg.so;/usr/lib/x86_64-linux-gnu/libpng.so;/usr/lib/x86_64-linux-gnu/libtiff.so;vtkRenderingAnnotation;vtkRenderingVolume;vtkIOXML;vtkIOCore;vtkIOXMLParser;/usr/lib/x86_64-linux-gnu/libexpat.so;vtkIOGeometry;vtkIOLegacy;vtkIOPLY;vtkRenderingLOD;vtkViewsContext2D;vtkViewsCore;vtkRenderingContextOpenGL2;vtkRenderingOpenGL2;FLANN::FLANN  
+[1.888s] -- Found pcl_conversions: 2.2.1 (/opt/ros/foxy/share/pcl_conversions/cmake)
+[2.037s] -- Found pcl_ros: 2.2.1 (/opt/ros/foxy/share/pcl_ros/cmake)
+[2.146s] -- Found cv_bridge: 3.0.7 (/opt/ros/foxy/share/cv_bridge/cmake)
+[2.206s] -- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)
+[2.283s] -- Added test 'copyright' to check source files copyright and LICENSE
+[2.296s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[2.297s] -- Configured cppcheck include dirs: /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/vehicle_simulator/include
+[2.297s] -- Configured cppcheck exclude dirs and/or files: 
+[2.312s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[2.312s] -- Configured cpplint exclude dirs and/or files: 
+[2.317s] -- Added test 'lint_cmake' to check CMake code style
+[2.332s] -- Added test 'uncrustify' to check C / C++ code style
+[2.333s] -- Configured uncrustify additional arguments: 
+[2.335s] -- Added test 'xmllint' to check XML markup files
+[2.337s] -- Configuring done (2.3s)
+[2.387s] -- Generating done (0.0s)
+[2.391s] -- Build files have been written to: /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator
+[2.410s] Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake /home/luke/TARE/cmu_vla_challenge_unity_foxy/src/vehicle_simulator -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator
+[2.411s] Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator -- -j20 -l20
+[2.461s] [ 25%] [32mBuilding CXX object CMakeFiles/sim_image_repub.dir/src/sim_image_repub.cpp.o[0m
+[2.461s] [ 50%] [32mBuilding CXX object CMakeFiles/vehicleSimulator.dir/src/vehicleSimulator.cpp.o[0m
+[8.351s] [ 75%] [32m[1mLinking CXX executable sim_image_repub[0m
+[8.834s] [ 75%] Built target sim_image_repub
+[11.750s] [100%] [32m[1mLinking CXX executable vehicleSimulator[0m
+[12.484s] [100%] Built target vehicleSimulator
+[12.490s] Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --build /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator -- -j20 -l20
+[12.518s] Invoking command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator
+[12.534s] -- Install configuration: ""
+[12.534s] -- Execute custom install script
+[12.535s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/lib/vehicle_simulator/vehicleSimulator
+[12.536s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/lib/vehicle_simulator/sim_image_repub
+[12.537s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/launch/system_bagfile.launch
+[12.539s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/launch/system_real_robot.launch
+[12.540s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/launch/system_unity.launch
+[12.541s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/launch/system_unity_with_exploration_planner.launch
+[12.542s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/launch/system_unity_with_route_planner.launch
+[12.544s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/launch/vehicle_simulator.launch
+[12.545s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/log/readme.txt
+[12.548s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/AssetList.csv
+[12.549s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Categories.csv
+[12.551s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Dimensions.csv
+[12.552s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model.x86_64
+[12.553s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/10/10f02de208dd6958c373e38c9ef537ac.caw
+[12.555s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/10/10f02de208dd6958c373e38c9ef537ac.ecm
+[12.556s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/10/10f02de208dd6958c373e38c9ef537ac.iws.sse
+[12.558s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/10/10f02de208dd6958c373e38c9ef537ac.rgb
+[12.559s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/10/10f02de208dd6958c373e38c9ef537ac.rsc.sse
+[12.560s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/10/10f02de208dd6958c373e38c9ef537ac.vis
+[12.562s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/5c/5cd8c6efc6212d22a5fc9b8c85a28edb.caw
+[12.563s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/5c/5cd8c6efc6212d22a5fc9b8c85a28edb.ecm
+[12.564s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/5c/5cd8c6efc6212d22a5fc9b8c85a28edb.iws.sse
+[12.565s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/5c/5cd8c6efc6212d22a5fc9b8c85a28edb.rgb
+[12.566s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/5c/5cd8c6efc6212d22a5fc9b8c85a28edb.rsc.sse
+[12.568s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/5c/5cd8c6efc6212d22a5fc9b8c85a28edb.vis
+[12.569s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/71/713d2bacfeaa1e917ec37f365c29a1f8.caw
+[12.570s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/71/713d2bacfeaa1e917ec37f365c29a1f8.ecm
+[12.571s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/71/713d2bacfeaa1e917ec37f365c29a1f8.iws.sse
+[12.572s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/71/713d2bacfeaa1e917ec37f365c29a1f8.rgb
+[12.573s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/71/713d2bacfeaa1e917ec37f365c29a1f8.rsc.sse
+[12.574s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/71/713d2bacfeaa1e917ec37f365c29a1f8.vis
+[12.576s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/98/9812a59c1969ee154f8156f359fba179.caw
+[12.577s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/98/9812a59c1969ee154f8156f359fba179.ecm
+[12.578s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/98/9812a59c1969ee154f8156f359fba179.iws.sse
+[12.579s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/98/9812a59c1969ee154f8156f359fba179.rgb
+[12.580s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/98/9812a59c1969ee154f8156f359fba179.rsc.sse
+[12.581s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/98/9812a59c1969ee154f8156f359fba179.vis
+[12.583s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/aa/aa8fd05d1c7462264de962e784885e16.caw
+[12.584s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/aa/aa8fd05d1c7462264de962e784885e16.ecm
+[12.585s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/aa/aa8fd05d1c7462264de962e784885e16.iws.sse
+[12.586s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/aa/aa8fd05d1c7462264de962e784885e16.rgb
+[12.587s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/aa/aa8fd05d1c7462264de962e784885e16.rsc.sse
+[12.589s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/aa/aa8fd05d1c7462264de962e784885e16.vis
+[12.590s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/b7/b77cef2d7e24df4df69909caf8bcec57.caw
+[12.591s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/b7/b77cef2d7e24df4df69909caf8bcec57.ecm
+[12.592s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/b7/b77cef2d7e24df4df69909caf8bcec57.iws.sse
+[12.594s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/b7/b77cef2d7e24df4df69909caf8bcec57.rgb
+[12.595s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/b7/b77cef2d7e24df4df69909caf8bcec57.rsc.sse
+[12.596s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/b7/b77cef2d7e24df4df69909caf8bcec57.vis
+[12.597s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/dc/dc49b887bae970944e1aa1bc1a94d234.caw
+[12.599s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/dc/dc49b887bae970944e1aa1bc1a94d234.ecm
+[12.600s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/dc/dc49b887bae970944e1aa1bc1a94d234.iws.sse
+[12.601s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/dc/dc49b887bae970944e1aa1bc1a94d234.rgb
+[12.602s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/dc/dc49b887bae970944e1aa1bc1a94d234.rsc.sse
+[12.604s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/dc/dc49b887bae970944e1aa1bc1a94d234.vis
+[12.605s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/e6/e6c4bb9533b2458c01a9b90b8ecf78c8.caw
+[12.606s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/e6/e6c4bb9533b2458c01a9b90b8ecf78c8.ecm
+[12.607s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/e6/e6c4bb9533b2458c01a9b90b8ecf78c8.iws.sse
+[12.609s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/e6/e6c4bb9533b2458c01a9b90b8ecf78c8.rgb
+[12.610s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/e6/e6c4bb9533b2458c01a9b90b8ecf78c8.rsc.sse
+[12.611s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/GI/level0/e6/e6c4bb9533b2458c01a9b90b8ecf78c8.vis
+[12.612s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Assembly-CSharp.dll
+[12.614s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/AssimpNet.dll
+[12.615s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Mono.Security.dll
+[12.616s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.AppContext.dll
+[12.618s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Collections.dll
+[12.619s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.ComponentModel.Composition.dll
+[12.620s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Configuration.dll
+[12.622s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Console.dll
+[12.623s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Core.dll
+[12.624s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Data.DataSetExtensions.dll
+[12.625s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Data.dll
+[12.626s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Diagnostics.Debug.dll
+[12.628s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Drawing.dll
+[12.629s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.EnterpriseServices.dll
+[12.630s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Globalization.dll
+[12.631s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.IO.Compression.FileSystem.dll
+[12.632s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.IO.Compression.dll
+[12.634s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.IO.FileSystem.dll
+[12.635s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.IO.dll
+[12.636s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Net.Http.dll
+[12.637s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Numerics.dll
+[12.639s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Reflection.Extensions.dll
+[12.640s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Reflection.dll
+[12.641s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Runtime.Extensions.dll
+[12.642s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Runtime.InteropServices.RuntimeInformation.dll
+[12.644s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Runtime.InteropServices.dll
+[12.645s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Runtime.Serialization.dll
+[12.646s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Runtime.dll
+[12.647s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Security.dll
+[12.648s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.ServiceModel.Internals.dll
+[12.650s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Text.Encoding.dll
+[12.651s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Threading.dll
+[12.652s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Transactions.dll
+[12.653s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Xml.Linq.dll
+[12.654s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.Xml.dll
+[12.656s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/System.dll
+[12.657s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Unity.AI.Navigation.dll
+[12.658s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Unity.Mathematics.dll
+[12.660s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Unity.Robotics.Nav2Example.dll
+[12.661s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Unity.Robotics.ROSTCPConnector.dll
+[12.662s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Unity.Robotics.UrdfImporter.dll
+[12.664s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Unity.Robotics.Visualizations.dll
+[12.665s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Unity.TextMeshPro.dll
+[12.666s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/Unity.Timeline.dll
+[12.668s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.AIModule.dll
+[12.669s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.AccessibilityModule.dll
+[12.670s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.AndroidJNIModule.dll
+[12.672s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.AnimationModule.dll
+[12.673s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.AssetBundleModule.dll
+[12.674s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.AudioModule.dll
+[12.676s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.ClothModule.dll
+[12.677s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.ClusterInputModule.dll
+[12.678s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.ClusterRendererModule.dll
+[12.680s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.ContentLoadModule.dll
+[12.681s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.CoreModule.dll
+[12.682s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.CrashReportingModule.dll
+[12.684s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.DSPGraphModule.dll
+[12.685s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.DirectorModule.dll
+[12.686s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.GIModule.dll
+[12.687s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.GameCenterModule.dll
+[12.689s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.GridModule.dll
+[12.690s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.HotReloadModule.dll
+[12.691s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.IMGUIModule.dll
+[12.693s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.ImageConversionModule.dll
+[12.694s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.InputLegacyModule.dll
+[12.695s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.InputModule.dll
+[12.697s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.JSONSerializeModule.dll
+[12.698s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.LocalizationModule.dll
+[12.699s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.ParticleSystemModule.dll
+[12.700s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.PerformanceReportingModule.dll
+[12.702s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.Physics2DModule.dll
+[12.703s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.PhysicsModule.dll
+[12.705s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.ProfilerModule.dll
+[12.707s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.PropertiesModule.dll
+[12.708s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll
+[12.709s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.ScreenCaptureModule.dll
+[12.711s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.SharedInternalsModule.dll
+[12.712s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.SpriteMaskModule.dll
+[12.713s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.SpriteShapeModule.dll
+[12.714s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.StreamingModule.dll
+[12.715s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.SubstanceModule.dll
+[12.717s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.SubsystemsModule.dll
+[12.718s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.TLSModule.dll
+[12.719s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.TerrainModule.dll
+[12.720s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.TerrainPhysicsModule.dll
+[12.722s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.TextCoreFontEngineModule.dll
+[12.723s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.TextCoreTextEngineModule.dll
+[12.724s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.TextRenderingModule.dll
+[12.725s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.TilemapModule.dll
+[12.727s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UI.dll
+[12.728s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UIElementsModule.dll
+[12.729s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UIModule.dll
+[12.730s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UmbraModule.dll
+[12.732s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll
+[12.733s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityAnalyticsModule.dll
+[12.734s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityConnectModule.dll
+[12.735s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityCurlModule.dll
+[12.737s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityTestProtocolModule.dll
+[12.738s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll
+[12.739s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll
+[12.740s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityWebRequestModule.dll
+[12.741s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityWebRequestTextureModule.dll
+[12.743s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll
+[12.744s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.VFXModule.dll
+[12.745s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.VRModule.dll
+[12.746s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.VehiclesModule.dll
+[12.747s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.VideoModule.dll
+[12.749s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.VirtualTexturingModule.dll
+[12.750s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.WindModule.dll
+[12.751s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.XRModule.dll
+[12.752s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/UnityEngine.dll
+[12.754s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/mscorlib.dll
+[12.755s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/netstandard.dll
+[12.756s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Managed/vhacd.dll
+[12.758s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/config
+[12.759s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser
+[12.761s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/2.0/DefaultWsdlHelpGenerator.aspx
+[12.762s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/2.0/machine.config
+[12.763s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/2.0/settings.map
+[12.765s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/2.0/web.config
+[12.766s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.0/Browsers/Compat.browser
+[12.767s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx
+[12.769s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.0/machine.config
+[12.771s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.0/settings.map
+[12.773s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.0/web.config
+[12.774s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.5/Browsers/Compat.browser
+[12.776s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.5/DefaultWsdlHelpGenerator.aspx
+[12.777s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.5/machine.config
+[12.779s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.5/settings.map
+[12.781s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/4.5/web.config
+[12.782s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/browscap.ini
+[12.784s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/config
+[12.785s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/etc/mono/mconfig/config.xml
+[12.787s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/x86_64/libMonoPosixHelper.so
+[12.788s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/x86_64/libmono-native.so
+[12.790s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/MonoBleedingEdge/x86_64/libmonobdwgc-2.0.so
+[12.791s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Plugins/libassimp.so
+[12.793s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Plugins/liblibvhacd.so
+[12.794s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Resources/UnityPlayer.png
+[12.796s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Resources/unity default resources
+[12.798s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/Resources/unity_builtin_extra
+[12.799s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/RuntimeInitializeOnLoads.json
+[12.800s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/ScriptingAssemblies.json
+[12.802s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/app.info
+[12.803s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/boot.config
+[12.804s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/globalgamemanagers
+[12.806s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/globalgamemanagers.assets
+[12.808s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/globalgamemanagers.assets.resS
+[12.810s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/level0
+[12.811s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/level0.resS
+[12.813s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/resources.assets
+[12.814s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/resources.assets.resS
+[12.815s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/sharedassets0.assets
+[12.816s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/Model_Data/sharedassets0.assets.resS
+[12.818s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/environment/UnityPlayer.so
+[12.819s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/map.jpg
+[12.820s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/map.ply
+[12.821s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/object_list.txt
+[12.823s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/readme.txt
+[12.824s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/render.jpg
+[12.825s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/mesh/unity/traversable_area.ply
+[12.827s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/rviz/vehicle_simulator.rviz
+[12.828s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/ament_index/resource_index/package_run_dependencies/vehicle_simulator
+[12.829s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/ament_index/resource_index/parent_prefix_path/vehicle_simulator
+[12.831s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/environment/ament_prefix_path.sh
+[12.832s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/environment/ament_prefix_path.dsv
+[12.834s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/environment/path.sh
+[12.835s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/environment/path.dsv
+[12.836s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/local_setup.bash
+[12.838s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/local_setup.sh
+[12.839s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/local_setup.zsh
+[12.840s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/local_setup.dsv
+[12.842s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.dsv
+[12.843s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/ament_index/resource_index/packages/vehicle_simulator
+[12.845s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/cmake/vehicle_simulatorConfig.cmake
+[12.846s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/cmake/vehicle_simulatorConfig-version.cmake
+[12.848s] -- Symlinking: /home/luke/TARE/cmu_vla_challenge_unity_foxy/install/vehicle_simulator/share/vehicle_simulator/package.xml
+[12.853s] Invoked command in '/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint:/opt/ros/foxy PYTHONPATH=/home/luke/TARE/cmu_vla_challenge_unity_foxy/build/ros_tcp_endpoint:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/ros_tcp_endpoint/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity_foxy/install/visualization_tools/lib/python3.8/site-packages:/home/luke/TARE/cmu_vla_challenge_unity/build/ros_tcp_endpoint:/opt/ros/foxy/lib/python3.8/site-packages /home/luke/.local/bin/cmake --install /home/luke/TARE/cmu_vla_challenge_unity_foxy/build/vehicle_simulator

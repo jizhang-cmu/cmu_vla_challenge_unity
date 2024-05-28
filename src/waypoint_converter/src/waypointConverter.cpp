@@ -2,21 +2,22 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <ros/ros.h>
+#include "rclcpp/rclcpp.hpp"
 
 #include <message_filters/subscriber.h>
 #include <message_filters/synchronizer.h>
 #include <message_filters/sync_policies/approximate_time.h>
 
-#include <std_msgs/Float32.h>
-#include <nav_msgs/Odometry.h>
-#include <geometry_msgs/Pose2D.h>
-#include <geometry_msgs/PointStamped.h>
-#include <geometry_msgs/PolygonStamped.h>
-#include <sensor_msgs/PointCloud2.h>
+#include <std_msgs/msg/float32.hpp>
+#include <nav_msgs/msg/odometry.hpp>
+#include <geometry_msgs/msg/pose2_d.hpp>
+#include <geometry_msgs/msg/point_stamped.hpp>
+#include <geometry_msgs/msg/polygon_stamped.hpp>
+#include <sensor_msgs/msg/point_cloud2.hpp>
 
-#include <tf/transform_datatypes.h>
-#include <tf/transform_broadcaster.h>
+#include "tf2/transform_datatypes.h"
+#include "tf2_ros/transform_broadcaster.h"
+#include "tf2_geometry_msgs/tf2_geometry_msgs.h"
 
 #include <pcl/io/ply_io.h>
 #include <pcl_conversions/pcl_conversions.h>
@@ -63,8 +64,9 @@ bool waypointAdj = false;
 std::vector<int> pointSearchInd;
 std::vector<float> pointSearchSqDis;
 
-ros::Publisher *pubWaypointPtr = NULL;
-geometry_msgs::PointStamped waypointMsgs;
+geometry_msgs::msg::PointStamped waypointMsgs;
+
+rclcpp::Publisher<geometry_msgs::msg::PointStamped>::SharedPtr pubWaypointPtr;
 
 // reading boundary from file function
 void readBoundaryFile()
@@ -118,17 +120,17 @@ void readBoundaryFile()
 }
 
 // vehicle pose callback function
-void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
+void poseHandler(const nav_msgs::msg::Odometry::ConstSharedPtr pose)
 {
-  curTime = pose->header.stamp.toSec();
+  curTime = rclcpp::Time(pose->header.stamp).seconds();
 
   if (!waypointInit) return;
   if (curTime - poseTime < 1.0 / frameRate) return;
   poseTime = curTime;
 
   double roll, pitch, yaw;
-  geometry_msgs::Quaternion geoQuat = pose->pose.pose.orientation;
-  tf::Matrix3x3(tf::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w)).getRPY(roll, pitch, yaw);
+  geometry_msgs::msg::Quaternion geoQuat = pose->pose.pose.orientation;
+  tf2::Matrix3x3(tf2::Quaternion(geoQuat.x, geoQuat.y, geoQuat.z, geoQuat.w)).getRPY(roll, pitch, yaw);
 
   vehicleYaw = yaw;
   vehicleX = pose->pose.pose.position.x;
@@ -200,7 +202,7 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
     }
   }
 
-  waypointMsgs.header.stamp = ros::Time().fromSec(curTime);
+  waypointMsgs.header.stamp = rclcpp::Time(static_cast<uint64_t>(curTime * 1e9));
   waypointMsgs.point.x = waypointX2;
   waypointMsgs.point.y = waypointY2;
   waypointMsgs.point.z = vehicleZ;
@@ -208,7 +210,7 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
 }
 
 // waypoint with heading callback function
-void waypointHandler(const geometry_msgs::Pose2D::ConstPtr& waypoint)
+void waypointHandler(const geometry_msgs::msg::Pose2D::ConstSharedPtr waypoint)
 {
   if (checkTravArea) {
     pcl::PointXYZ point;
@@ -242,45 +244,62 @@ void waypointHandler(const geometry_msgs::Pose2D::ConstPtr& waypoint)
 
 int main(int argc, char** argv)
 {
-  ros::init(argc, argv, "waypointConverter");
-  ros::NodeHandle nh;
-  ros::NodeHandle nhPrivate = ros::NodeHandle("~");
+  rclcpp::init(argc, argv);
+  auto nh = rclcpp::Node::make_shared("waypointConverter");
 
-  nhPrivate.getParam("trav_area_file_dir", trav_area_file_dir);
-  nhPrivate.getParam("boundary_file_dir", boundary_file_dir);
-  nhPrivate.getParam("waypointXYRadius", waypointXYRadius);
-  nhPrivate.getParam("waypointProjDis", waypointProjDis);
-  nhPrivate.getParam("twoWayHeading", twoWayHeading);
-  nhPrivate.getParam("frameRate", frameRate);
-  nhPrivate.getParam("checkTravArea", checkTravArea);
-  nhPrivate.getParam("waypointTravAdj", waypointTravAdj);
-  nhPrivate.getParam("adjDisThre", adjDisThre);
-  nhPrivate.getParam("searchDisThre", searchDisThre);
-  nhPrivate.getParam("travDisThre", travDisThre);
-  nhPrivate.getParam("extDis", extDis);
-  nhPrivate.getParam("yawConfig", yawConfig);
-  nhPrivate.getParam("speed", speed);
-  nhPrivate.getParam("sendSpeed", sendSpeed);
-  nhPrivate.getParam("sendBoundary", sendBoundary);
+  nh->declare_parameter<std::string>("trav_area_file_dir", trav_area_file_dir);
+  nh->declare_parameter<std::string>("boundary_file_dir", boundary_file_dir);
+  nh->declare_parameter<double>("waypointXYRadius", waypointXYRadius);
+  nh->declare_parameter<double>("waypointProjDis", waypointProjDis);
+  nh->declare_parameter<double>("twoWayHeading", twoWayHeading);
+  nh->declare_parameter<double>("frameRate", frameRate);
+  nh->declare_parameter<bool>("checkTravArea", checkTravArea);
+  nh->declare_parameter<bool>("waypointTravAdj", waypointTravAdj);
+  nh->declare_parameter<double>("adjDisThre", adjDisThre);
+  nh->declare_parameter<double>("searchDisThre", searchDisThre);
+  nh->declare_parameter<double>("travDisThre", travDisThre);
+  nh->declare_parameter<double>("extDis", extDis);
+  nh->declare_parameter<int>("yawConfig", yawConfig);
+  nh->declare_parameter<double>("speed", speed);
+  nh->declare_parameter<bool>("sendSpeed", sendSpeed);
+  nh->declare_parameter<bool>("sendBoundary", sendBoundary);
+
+  nh->get_parameter("trav_area_file_dir", trav_area_file_dir);
+  nh->get_parameter("boundary_file_dir", boundary_file_dir);
+  nh->get_parameter("waypointXYRadius", waypointXYRadius);
+  nh->get_parameter("waypointProjDis", waypointProjDis);
+  nh->get_parameter("twoWayHeading", twoWayHeading);
+  nh->get_parameter("frameRate", frameRate);
+  nh->get_parameter("checkTravArea", checkTravArea);
+  nh->get_parameter("waypointTravAdj", waypointTravAdj);
+  nh->get_parameter("adjDisThre", adjDisThre);
+  nh->get_parameter("searchDisThre", searchDisThre);
+  nh->get_parameter("travDisThre", travDisThre);
+  nh->get_parameter("extDis", extDis);
+  nh->get_parameter("yawConfig", yawConfig);
+  nh->get_parameter("speed", speed);
+  nh->get_parameter("sendSpeed", sendSpeed);
+  nh->get_parameter("sendBoundary", sendBoundary);
 
   speed2 = speed;
 
-  ros::Subscriber subPose = nh.subscribe<nav_msgs::Odometry> ("/state_estimation", 5, poseHandler);
+  auto subPose = nh->create_subscription<nav_msgs::msg::Odometry> ("/state_estimation", 5, poseHandler);
 
-  ros::Subscriber subWaypoint = nh.subscribe<geometry_msgs::Pose2D> ("/way_point_with_heading", 5, waypointHandler);
+  auto subWaypoint = nh->create_subscription<geometry_msgs::msg::Pose2D> ("/way_point_with_heading", 5, waypointHandler);
 
-  ros::Publisher pubWaypoint = nh.advertise<geometry_msgs::PointStamped> ("/way_point", 5);
-  pubWaypointPtr = &pubWaypoint;
+  auto pubWaypoint = nh->create_publisher<geometry_msgs::msg::PointStamped> ("/way_point", 5);
   waypointMsgs.header.frame_id = "map";
 
-  ros::Publisher pubTravArea = nh.advertise<sensor_msgs::PointCloud2> ("/traversable_area", 1);
-  sensor_msgs::PointCloud2 travArea2;
+  pubWaypointPtr = pubWaypoint;
 
-  ros::Publisher pubSpeed = nh.advertise<std_msgs::Float32> ("/speed", 5);
-  std_msgs::Float32 speedMsgs;
+  auto pubTravArea = nh->create_publisher<sensor_msgs::msg::PointCloud2> ("/traversable_area", 1);
+  sensor_msgs::msg::PointCloud2 travArea2;
 
-  ros::Publisher pubBoundary = nh.advertise<geometry_msgs::PolygonStamped> ("/navigation_boundary", 5);
-  geometry_msgs::PolygonStamped boundaryMsgs;
+  auto pubSpeed = nh->create_publisher<std_msgs::msg::Float32> ("/speed", 5);
+  std_msgs::msg::Float32 speedMsgs;
+
+  auto pubBoundary = nh->create_publisher<geometry_msgs::msg::PolygonStamped> ("/navigation_boundary", 5);
+  geometry_msgs::msg::PolygonStamped boundaryMsgs;
   boundaryMsgs.header.frame_id = "map";
 
   if (checkTravArea) {
@@ -315,20 +334,20 @@ int main(int argc, char** argv)
     }
   }
 
-  ros::Rate rate(100);
-  bool status = ros::ok();
+  rclcpp::Rate rate(100);
+  bool status = rclcpp::ok();
   while (status) {
-    ros::spinOnce();
+    rclcpp::spin_some(nh);
 
     if (curTime - waypointTime > 1.0 / frameRate) {
       if (sendSpeed) {
         speedMsgs.data = speed2;
-        pubSpeed.publish(speedMsgs);
+        pubSpeed->publish(speedMsgs);
       }
 
       if (sendBoundary) {
-        boundaryMsgs.header.stamp = ros::Time().fromSec(curTime);
-        pubBoundary.publish(boundaryMsgs);
+        boundaryMsgs.header.stamp = rclcpp::Time(static_cast<uint64_t>(curTime * 1e9));
+        pubBoundary->publish(boundaryMsgs);
       }
 
       waypointTime = curTime;
@@ -336,13 +355,13 @@ int main(int argc, char** argv)
 
     if (curTime - travAreaTime > 1.0 && checkTravArea) {
       travArea2.header.frame_id = "map";
-      travArea2.header.stamp = ros::Time().fromSec(curTime);
-      pubTravArea.publish(travArea2);
+      travArea2.header.stamp = rclcpp::Time(static_cast<uint64_t>(curTime * 1e9));
+      pubTravArea->publish(travArea2);
       
       travAreaTime = curTime;
     }
 
-    status = ros::ok();
+    status = rclcpp::ok();
     rate.sleep();
   }
 
