@@ -6,6 +6,8 @@ install
 
 .catkin_workspace
 
+.vscode
+
 __pycache__
 
 *~
