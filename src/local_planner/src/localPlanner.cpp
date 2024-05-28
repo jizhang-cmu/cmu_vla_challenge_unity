@@ -518,6 +518,7 @@ int main(int argc, char** argv)
   nh->declare_parameter<double>("obstacleHeightThre", obstacleHeightThre);
   nh->declare_parameter<double>("groundHeightThre", groundHeightThre);
   nh->declare_parameter<double>("costHeightThre", costHeightThre);
+  nh->declare_parameter<double>("costScore", costScore);
   nh->declare_parameter<bool>("useCost", useCost);
   nh->declare_parameter<int>("pointPerPathThre", pointPerPathThre);
   nh->declare_parameter<double>("minRelZ", minRelZ);

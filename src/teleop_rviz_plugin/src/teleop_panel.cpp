@@ -45,7 +45,7 @@ void TeleopPanel::pressButton1()
     joy.axes.push_back(0);
     joy.axes.push_back(-1.0);
     joy.axes.push_back(0);
-    joy.axes.push_back(1.0);
+    joy.axes.push_back(0);
     joy.axes.push_back(1.0);
     joy.axes.push_back(0);
     joy.axes.push_back(0);
@@ -108,16 +108,6 @@ void TeleopPanel::sendVel()
 
     mouse_pressed_sent_ = mouse_pressed_;
   }
-}
-
-void TeleopPanel::save(rviz_common::Config config) const
-{
-  rviz_common::Panel::save(config);
-}
-
-void TeleopPanel::load(const rviz_common::Config& config)
-{
-  rviz_common::Panel::load(config);
 }
 
 } // end namespace teleop_rviz_plugin
