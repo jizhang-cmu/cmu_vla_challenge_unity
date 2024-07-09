@@ -1,6 +1,6 @@
 ## Repository Setup
 
-The repository provides the base navigation system for the [CMU Vision-Language-Autonomy Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). The system is integrated with [Unity](https://unity.com) environment models. The repository has been tested in Ubuntu 20.04 with [ROS Foxy](http://wiki.ros.org/noetic/Installation) and Ubuntu 22.04 with [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html). Install dependencies with the command lines below.
+The repository provides the base navigation system for the [CMU Vision-Language-Autonomy Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). The system is integrated with [Unity](https://unity.com) environment models. The repository has been tested in Ubuntu 20.04 with [ROS2 Foxy](http://wiki.ros.org/noetic/Installation) and Ubuntu 22.04 with [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html). Install dependencies with the command lines below.
 
 For Foxy:
 ```
