@@ -1,6 +1,6 @@
 ## Repository Setup
 
-The repository provides the base navigation system for the [CMU Vision-Language-Autonomy Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). The system is integrated with [Unity](https://unity.com) environment models. The repository has been tested in Ubuntu 20.04 with [ROS2 Foxy](http://wiki.ros.org/noetic/Installation) and Ubuntu 22.04 with [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html). Install dependencies with the command lines below.
+The repository provides the base navigation system for the [CMU Vision-Language-Autonomy Challenge](https://www.ai-meets-autonomy.com/cmu-vla-challenge). The system is integrated with [Unity](https://unity.com) environment models. The repository has been tested in Ubuntu 20.04 with [ROS2 Foxy](https://docs.ros.org/en/foxy/Installation.html) and Ubuntu 22.04 with [ROS2 Humble](https://docs.ros.org/en/humble/Installation.html). Install dependencies with the command lines below.
 
 For Foxy:
 ```
@@ -68,13 +68,13 @@ Users can also use the control panel to navigate the vehicle by clicking inside 
 In a second terminal, go to the 'cmu_vla_challange_unity' folder and bring up the autonomy system.
 
 ```
-source devel/setup.sh  
+source install/setup.sh
 ros2 launch vehicle_simulator system_unity.launch 
 ```
 
 ## Credits
 
-[ROS-TCP-Endpoint](https://github.com/Unity-Technologies/ROS-TCP-Endpoint) and [joystick_drivers](http://wiki.ros.org/joystick_drivers) packages are from open-source releases.
+[ROS-TCP-Endpoint](https://github.com/Unity-Technologies/ROS-TCP-Endpoint) package is from open-source release.
 
 ## Relevant Links
 
