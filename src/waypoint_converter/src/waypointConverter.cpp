@@ -36,6 +36,10 @@ double waypointXYRadius = 0.2;
 double waypointProjDis = 0.5;
 bool twoWayHeading = true;
 double frameRate = 5.0;
+bool useTerrainAnalysis = false;
+double terrainVoxelSize = 0.05;
+double obstacleHeightThre = 0.15;
+double obstacleDisThre = 0.5;
 bool checkTravArea = true;
 bool waypointTravAdj = false;
 double adjDisThre = 5.0;
@@ -50,6 +54,10 @@ bool sendBoundary = true;
 
 pcl::PointCloud<pcl::PointXYZ>::Ptr boundary(new pcl::PointCloud<pcl::PointXYZ>());
 pcl::PointCloud<pcl::PointXYZ>::Ptr travArea(new pcl::PointCloud<pcl::PointXYZ>());
+pcl::PointCloud<pcl::PointXYZ>::Ptr travAreaDense(new pcl::PointCloud<pcl::PointXYZ>());
+pcl::PointCloud<pcl::PointXYZ>::Ptr obstacleArea(new pcl::PointCloud<pcl::PointXYZ>());
+pcl::PointCloud<pcl::PointXYZ>::Ptr obstacleAreaDense(new pcl::PointCloud<pcl::PointXYZ>());
+pcl::PointCloud<pcl::PointXYZI>::Ptr terrainMap(new pcl::PointCloud<pcl::PointXYZI>());
 pcl::KdTreeFLANN<pcl::PointXYZ>::Ptr kdtreeTravArea(new pcl::KdTreeFLANN<pcl::PointXYZ>());
 
 float vehicleX = 0, vehicleY = 0, vehicleZ = 0, vehicleYaw = 0;
@@ -65,6 +73,8 @@ std::vector<int> pointSearchInd;
 std::vector<float> pointSearchSqDis;
 
 geometry_msgs::msg::PointStamped waypointMsgs;
+
+pcl::VoxelGrid<pcl::PointXYZ> downSizeFilter;
 
 rclcpp::Publisher<geometry_msgs::msg::PointStamped>::SharedPtr pubWaypointPtr;
 
@@ -176,14 +186,29 @@ void poseHandler(const nav_msgs::msg::Odometry::ConstSharedPtr pose)
     int minInd = -1;
     float minDis = 1000000;
     int pointSearchNum = pointSearchInd.size();
+    int obstacleAreaSize = obstacleArea->points.size();
     for (int ind = 0; ind < pointSearchNum; ind++) {
       float disX2 = travArea->points[pointSearchInd[ind]].x - waypointX;
       float disY2 = travArea->points[pointSearchInd[ind]].y - waypointY;
       float dis2 = sqrt(disX2 * disX2 + disY2 * disY2);
 
       if (minDis > dis2) {
-        minInd = ind;
-        minDis = dis2;
+        bool traversable = true;
+        float pointX = travArea->points[pointSearchInd[ind]].x;
+        float pointY = travArea->points[pointSearchInd[ind]].y;
+        for (int i = 0; i < obstacleAreaSize; i++) {
+          float disX3 = obstacleArea->points[i].x - pointX;
+          float disY3 = obstacleArea->points[i].y - pointY;
+          if (disX3 * disX3 + disY3 * disY3 < obstacleDisThre * obstacleDisThre) {
+            traversable = false;
+            break;
+          }
+        }
+
+        if (traversable) {
+          minInd = ind;
+          minDis = dis2;
+        }
       }
     }
 
@@ -242,6 +267,43 @@ void waypointHandler(const geometry_msgs::msg::Pose2D::ConstSharedPtr waypoint)
   waypointAdj = false;
 }
 
+// Terrain map callback function
+void terrainMapHandler(const sensor_msgs::msg::PointCloud2::ConstSharedPtr terrainMap2)
+{
+  if (!checkTravArea || !useTerrainAnalysis) return;
+
+  terrainMap->clear();
+  pcl::fromROSMsg(*terrainMap2, *terrainMap);
+
+  pcl::PointXYZ point;
+  travAreaDense->clear();
+  obstacleAreaDense->clear();
+  int terrainMapSize = terrainMap->points.size();
+  for (int i = 0; i < terrainMapSize; i++) {
+    point.x = terrainMap->points[i].x;
+    point.y = terrainMap->points[i].y;
+    point.z = terrainMap->points[i].z;
+
+    if (terrainMap->points[i].intensity < obstacleHeightThre) {
+      travAreaDense->push_back(point);
+    } else {
+      obstacleAreaDense->push_back(point);
+    }
+  }
+
+  travArea->clear();
+  downSizeFilter.setInputCloud(travAreaDense);
+  downSizeFilter.filter(*travArea);
+
+  obstacleArea->clear();
+  downSizeFilter.setInputCloud(obstacleAreaDense);
+  downSizeFilter.filter(*obstacleArea);
+
+  if (travArea->points.size() > 0) {
+    kdtreeTravArea->setInputCloud(travArea);
+  }
+}
+
 int main(int argc, char** argv)
 {
   rclcpp::init(argc, argv);
@@ -253,6 +315,10 @@ int main(int argc, char** argv)
   nh->declare_parameter<double>("waypointProjDis", waypointProjDis);
   nh->declare_parameter<bool>("twoWayHeading", twoWayHeading);
   nh->declare_parameter<double>("frameRate", frameRate);
+  nh->declare_parameter<bool>("useTerrainAnalysis", useTerrainAnalysis);
+  nh->declare_parameter<double>("terrainVoxelSize", terrainVoxelSize);
+  nh->declare_parameter<double>("obstacleHeightThre", obstacleHeightThre);
+  nh->declare_parameter<double>("obstacleDisThre", obstacleDisThre);
   nh->declare_parameter<bool>("checkTravArea", checkTravArea);
   nh->declare_parameter<bool>("waypointTravAdj", waypointTravAdj);
   nh->declare_parameter<double>("adjDisThre", adjDisThre);
@@ -270,6 +336,10 @@ int main(int argc, char** argv)
   nh->get_parameter("waypointProjDis", waypointProjDis);
   nh->get_parameter("twoWayHeading", twoWayHeading);
   nh->get_parameter("frameRate", frameRate);
+  nh->get_parameter("useTerrainAnalysis", useTerrainAnalysis);
+  nh->get_parameter("terrainVoxelSize", terrainVoxelSize);
+  nh->get_parameter("obstacleHeightThre", obstacleHeightThre);
+  nh->get_parameter("obstacleDisThre", obstacleDisThre);
   nh->get_parameter("checkTravArea", checkTravArea);
   nh->get_parameter("waypointTravAdj", waypointTravAdj);
   nh->get_parameter("adjDisThre", adjDisThre);
@@ -290,6 +360,8 @@ int main(int argc, char** argv)
 
   auto subWaypoint = nh->create_subscription<geometry_msgs::msg::Pose2D> ("/way_point_with_heading", 5, waypointHandler);
 
+  auto subTerrainMap = nh->create_subscription<sensor_msgs::msg::PointCloud2> ("/terrain_map", 1, terrainMapHandler);
+
   auto pubWaypoint = nh->create_publisher<geometry_msgs::msg::PointStamped> ("/way_point", 5);
   waypointMsgs.header.frame_id = "map";
 
@@ -305,7 +377,9 @@ int main(int argc, char** argv)
   geometry_msgs::msg::PolygonStamped boundaryMsgs;
   boundaryMsgs.header.frame_id = "map";
 
-  if (checkTravArea) {
+  downSizeFilter.setLeafSize(terrainVoxelSize, terrainVoxelSize, terrainVoxelSize);
+
+  if (checkTravArea && !useTerrainAnalysis) {
     pcl::PLYReader ply_reader;
     if (ply_reader.read(trav_area_file_dir, *travArea) == -1) {
       checkTravArea = false;
@@ -356,7 +430,7 @@ int main(int argc, char** argv)
       waypointTime = curTime;
     }
 
-    if (curTime - travAreaTime > 1.0 && checkTravArea) {
+    if (curTime - travAreaTime > 1.0 && checkTravArea && !useTerrainAnalysis) {
       travArea2.header.frame_id = "map";
       travArea2.header.stamp = rclcpp::Time(static_cast<uint64_t>(curTime * 1e9));
       pubTravArea->publish(travArea2);
