@@ -35,6 +35,10 @@ double waypointXYRadius = 0.2;
 double waypointProjDis = 0.5;
 bool twoWayHeading = true;
 double frameRate = 5.0;
+bool useTerrainAnalysis = false;
+double terrainVoxelSize = 0.05;
+double obstacleHeightThre = 0.15;
+double obstacleDisThre = 0.5;
 bool checkTravArea = true;
 bool waypointTravAdj = false;
 double adjDisThre = 5.0;
@@ -49,6 +53,10 @@ bool sendBoundary = true;
 
 pcl::PointCloud<pcl::PointXYZ>::Ptr boundary(new pcl::PointCloud<pcl::PointXYZ>());
 pcl::PointCloud<pcl::PointXYZ>::Ptr travArea(new pcl::PointCloud<pcl::PointXYZ>());
+pcl::PointCloud<pcl::PointXYZ>::Ptr travAreaDense(new pcl::PointCloud<pcl::PointXYZ>());
+pcl::PointCloud<pcl::PointXYZ>::Ptr obstacleArea(new pcl::PointCloud<pcl::PointXYZ>());
+pcl::PointCloud<pcl::PointXYZ>::Ptr obstacleAreaDense(new pcl::PointCloud<pcl::PointXYZ>());
+pcl::PointCloud<pcl::PointXYZI>::Ptr terrainMap(new pcl::PointCloud<pcl::PointXYZI>());
 pcl::KdTreeFLANN<pcl::PointXYZ>::Ptr kdtreeTravArea(new pcl::KdTreeFLANN<pcl::PointXYZ>());
 
 float vehicleX = 0, vehicleY = 0, vehicleZ = 0, vehicleYaw = 0;
@@ -65,6 +73,7 @@ std::vector<float> pointSearchSqDis;
 
 ros::Publisher *pubWaypointPtr = NULL;
 geometry_msgs::PointStamped waypointMsgs;
+pcl::VoxelGrid<pcl::PointXYZ> downSizeFilter;
 
 // reading boundary from file function
 void readBoundaryFile()
@@ -174,14 +183,29 @@ void poseHandler(const nav_msgs::Odometry::ConstPtr& pose)
     int minInd = -1;
     float minDis = 1000000;
     int pointSearchNum = pointSearchInd.size();
+    int obstacleAreaSize = obstacleArea->points.size();
     for (int ind = 0; ind < pointSearchNum; ind++) {
       float disX2 = travArea->points[pointSearchInd[ind]].x - waypointX;
       float disY2 = travArea->points[pointSearchInd[ind]].y - waypointY;
       float dis2 = sqrt(disX2 * disX2 + disY2 * disY2);
 
       if (minDis > dis2) {
-        minInd = ind;
-        minDis = dis2;
+        bool traversable = true;
+        float pointX = travArea->points[pointSearchInd[ind]].x;
+        float pointY = travArea->points[pointSearchInd[ind]].y;
+        for (int i = 0; i < obstacleAreaSize; i++) {
+          float disX3 = obstacleArea->points[i].x - pointX;
+          float disY3 = obstacleArea->points[i].y - pointY;
+          if (disX3 * disX3 + disY3 * disY3 < obstacleDisThre * obstacleDisThre) {
+            traversable = false;
+            break;
+          }
+        }
+
+        if (traversable) {
+          minInd = ind;
+          minDis = dis2;
+        }
       }
     }
 
@@ -240,6 +264,43 @@ void waypointHandler(const geometry_msgs::Pose2D::ConstPtr& waypoint)
   waypointAdj = false;
 }
 
+// Terrain map callback function
+void terrainMapHandler(const sensor_msgs::PointCloud2::ConstPtr& terrainMap2)
+{
+  if (!checkTravArea || !useTerrainAnalysis) return;
+
+  terrainMap->clear();
+  pcl::fromROSMsg(*terrainMap2, *terrainMap);
+
+  pcl::PointXYZ point;
+  travAreaDense->clear();
+  obstacleAreaDense->clear();
+  int terrainMapSize = terrainMap->points.size();
+  for (int i = 0; i < terrainMapSize; i++) {
+    point.x = terrainMap->points[i].x;
+    point.y = terrainMap->points[i].y;
+    point.z = terrainMap->points[i].z;
+
+    if (terrainMap->points[i].intensity < obstacleHeightThre) {
+      travAreaDense->push_back(point);
+    } else {
+      obstacleAreaDense->push_back(point);
+    }
+  }
+
+  travArea->clear();
+  downSizeFilter.setInputCloud(travAreaDense);
+  downSizeFilter.filter(*travArea);
+
+  obstacleArea->clear();
+  downSizeFilter.setInputCloud(obstacleAreaDense);
+  downSizeFilter.filter(*obstacleArea);
+
+  if (travArea->points.size() > 0) {
+    kdtreeTravArea->setInputCloud(travArea);
+  }
+}
+
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "waypointConverter");
@@ -252,6 +313,10 @@ int main(int argc, char** argv)
   nhPrivate.getParam("waypointProjDis", waypointProjDis);
   nhPrivate.getParam("twoWayHeading", twoWayHeading);
   nhPrivate.getParam("frameRate", frameRate);
+  nhPrivate.getParam("useTerrainAnalysis", useTerrainAnalysis);
+  nhPrivate.getParam("terrainVoxelSize", terrainVoxelSize);
+  nhPrivate.getParam("obstacleHeightThre", obstacleHeightThre);
+  nhPrivate.getParam("obstacleDisThre", obstacleDisThre);
   nhPrivate.getParam("checkTravArea", checkTravArea);
   nhPrivate.getParam("waypointTravAdj", waypointTravAdj);
   nhPrivate.getParam("adjDisThre", adjDisThre);
@@ -269,6 +334,8 @@ int main(int argc, char** argv)
 
   ros::Subscriber subWaypoint = nh.subscribe<geometry_msgs::Pose2D> ("/way_point_with_heading", 5, waypointHandler);
 
+  ros::Subscriber subTerrainMap = nh.subscribe<sensor_msgs::PointCloud2> ("/terrain_map", 1, terrainMapHandler);
+
   ros::Publisher pubWaypoint = nh.advertise<geometry_msgs::PointStamped> ("/way_point", 5);
   pubWaypointPtr = &pubWaypoint;
   waypointMsgs.header.frame_id = "map";
@@ -283,7 +350,9 @@ int main(int argc, char** argv)
   geometry_msgs::PolygonStamped boundaryMsgs;
   boundaryMsgs.header.frame_id = "map";
 
-  if (checkTravArea) {
+  downSizeFilter.setLeafSize(terrainVoxelSize, terrainVoxelSize, terrainVoxelSize);
+
+  if (checkTravArea && !useTerrainAnalysis) {
     pcl::PLYReader ply_reader;
     if (ply_reader.read(trav_area_file_dir, *travArea) == -1) {
       checkTravArea = false;
@@ -334,7 +403,7 @@ int main(int argc, char** argv)
       waypointTime = curTime;
     }
 
-    if (curTime - travAreaTime > 1.0 && checkTravArea) {
+    if (curTime - travAreaTime > 1.0 && checkTravArea && !useTerrainAnalysis) {
       travArea2.header.frame_id = "map";
       travArea2.header.stamp = ros::Time().fromSec(curTime);
       pubTravArea.publish(travArea2);

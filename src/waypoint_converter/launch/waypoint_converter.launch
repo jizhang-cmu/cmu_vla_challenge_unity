@@ -9,6 +9,10 @@
     <param name="waypointProjDis" type="double" value="0.5" />
     <param name="twoWayHeading" type="bool" value="true" />
     <param name="frameRate" type="double" value="5.0" />
+    <param name="useTerrainAnalysis" type="bool" value="false" />
+    <param name="terrainVoxelSize" type="double" value="0.05" />
+    <param name="obstacleHeightThre" type="double" value="0.15" />
+    <param name="obstacleDisThre" type="double" value="0.5" />
     <param name="checkTravArea" type="bool" value="true" />
     <param name="waypointTravAdj" type="bool" value="true" />
     <param name="adjDisThre" type="double" value="5.0" />
