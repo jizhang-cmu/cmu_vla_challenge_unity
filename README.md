@@ -24,7 +24,7 @@ cd cmu_vla_challenge_unity
 git checkout foxy-humble
 colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release
 ```
-Download any of our [Unity environment models](https://drive.google.com/drive/folders/1ZDkAsXIBNCG6O6NGx81eW3HVU10oKVfZ?usp=sharing) **(the models are configured for ROS2, not compatible with ROS1)** and unzip the files to the 'src/vehicle_simulator/mesh/unity' folder. The environment model files should look like below. Note that the 'AssetList.csv' file is generated upon start of the system.
+Download any of our [Unity environment models](https://drive.google.com/drive/folders/1fZS7dNmxEzyclIJnNwg65aNxJC6z_0-e?usp=sharing) **(the models are configured for ROS2, not compatible with ROS1)** and unzip the files to the 'src/vehicle_simulator/mesh/unity' folder. The environment model files should look like below. Note that the 'AssetList.csv' file is generated upon start of the system.
 
 mesh/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;unity/<br>
