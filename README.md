@@ -15,7 +15,7 @@ cd cmu_vla_challenge_unity
 git checkout noetic
 catkin_make
 ```
-Download any of our [Unity environment models](https://drive.google.com/drive/folders/1bmxdT6Oxzt0_0tohye2br7gqTnkMaq20?usp=share_link) and unzip the files to the 'src/vehicle_simulator/mesh/unity' folder. The environment model files should look like below. Note that the 'AssetList.csv' file is generated upon start of the system.
+Download any of our [Unity environment models](https://drive.google.com/drive/folders/1UD5v6cSfcwIMWmsq9WSk7blJut4kgb-1?usp=sharing) and unzip the files to the 'src/vehicle_simulator/mesh/unity' folder. The environment model files should look like below. Note that the 'AssetList.csv' file is generated upon start of the system.
 
 mesh/<br>
 &nbsp;&nbsp;&nbsp;&nbsp;unity/<br>
